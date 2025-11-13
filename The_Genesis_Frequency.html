@@ -10,6 +10,10 @@
     <meta name="theme-color" content="#6B46C1">
     <title>🌟 Genesis 1:1 Frequency Generator - Trinity System</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Genesis.png">
+    <link rel="shortcut icon" type="image/png" href="Genesis.png">
+    
     <!-- Apple Touch Icons for Home Screen -->
     <link rel="apple-touch-icon" href="Genesis.png">
     <link rel="apple-touch-icon" sizes="152x152" href="Genesis.png">
@@ -580,39 +584,33 @@
             height: 100%;
         }
 
-        .vibration-wave:nth-child(1) path {
-            animation: oscillate37 1s ease-in-out infinite;
+        .vibration-wave:nth-child(1) {
+            animation: wave1 1s ease-in-out infinite;
         }
 
-        .vibration-wave:nth-child(2) path {
-            animation: oscillate73 0.5s ease-in-out infinite;
+        .vibration-wave:nth-child(2) {
+            animation: wave2 0.5s ease-in-out infinite;
         }
 
         .vibration-wave:nth-child(3) {
             display: none;
         }
 
-        @keyframes oscillate37 {
-            0% {
-                d: path('M0,50 Q50,20 100,50 T200,50 T300,50 T400,50 T500,50 T600,50 T700,50 T800,50 T900,50 T1000,50');
+        @keyframes wave1 {
+            0%, 100% {
+                transform: translateY(-50%) scaleY(0.8);
             }
             50% {
-                d: path('M0,50 Q50,80 100,50 T200,50 T300,50 T400,50 T500,50 T600,50 T700,50 T800,50 T900,50 T1000,50');
-            }
-            100% {
-                d: path('M0,50 Q50,20 100,50 T200,50 T300,50 T400,50 T500,50 T600,50 T700,50 T800,50 T900,50 T1000,50');
+                transform: translateY(-50%) scaleY(1.2);
             }
         }
 
-        @keyframes oscillate73 {
-            0% {
-                d: path('M0,50 Q25,15 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50 T400,50 T450,50 T500,50 T550,50 T600,50 T650,50 T700,50 T750,50 T800,50 T850,50 T900,50 T950,50 T1000,50');
+        @keyframes wave2 {
+            0%, 100% {
+                transform: translateY(-50%) scaleY(0.7);
             }
             50% {
-                d: path('M0,50 Q25,85 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50 T400,50 T450,50 T500,50 T550,50 T600,50 T650,50 T700,50 T750,50 T800,50 T850,50 T900,50 T950,50 T1000,50');
-            }
-            100% {
-                d: path('M0,50 Q25,15 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50 T400,50 T450,50 T500,50 T550,50 T600,50 T650,50 T700,50 T750,50 T800,50 T850,50 T900,50 T950,50 T1000,50');
+                transform: translateY(-50%) scaleY(1.3);
             }
         }
 
