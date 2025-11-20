@@ -1507,9 +1507,9 @@
             z-index: 10000;
             animation: fadeIn 0.3s ease-out;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px 20px 20px;
             box-sizing: border-box;
         }
 
@@ -1520,7 +1520,7 @@
             padding: 30px;
             max-width: 500px;
             width: 100%;
-            max-height: 90vh;
+            max-height: calc(100vh - 80px);
             overflow-y: auto;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -1662,6 +1662,37 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        /* Mobile optimizations for iPhone SE */
+        @media (max-width: 375px) {
+            .accordion-header {
+                padding: 10px 5px !important;
+            }
+            .accordion-header span:first-child {
+                font-size: 18px !important;
+                margin-right: 6px !important;
+            }
+            .accordion-header span:last-child {
+                font-size: 14px !important;
+            }
+            .accordion-content {
+                padding: 12px 5px 0 5px !important;
+                font-size: 14px !important;
+            }
+            .instructions-panel {
+                padding: 15px !important;
+                margin: 0 10px 15px 10px !important;
+                border-radius: 12px !important;
+            }
+            .instructions-header h2 {
+                font-size: 20px !important;
+            }
+            .btn-close {
+                font-size: 24px !important;
+                right: 15px !important;
+                top: 15px !important;
+            }
         }
     </style>
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
@@ -1883,7 +1914,7 @@
             </button>
 
             <!-- Instructions Panel (expandable) -->
-            <div id="instructionsPanel" class="instructions-panel" style="display: none; max-width: 900px; margin: 0 auto 18px auto; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 24px; color: #fff; z-index: 10; position: relative;">
+            <div id="instructionsPanel" class="instructions-panel" style="display: none; max-width: 900px; margin: 0 auto 18px auto; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; z-index: 10; position: relative;">
                 <div class="instructions-content" style="text-align:center;">
                     <div class="instructions-header" style="display: flex; justify-content: center; align-items: center;">
                         <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin: 0 auto; text-align:center; width:100%;">🌟 Genesis Frequency Companion 🌟</h2>
@@ -1899,6 +1930,69 @@
                 </div>
             </div>
         </div>
+        </div>
+
+        <!-- Welcome Section for Freemium -->
+        <div class="section welcome-section">
+            <div class="section-title">🌟 Welcome to Genesis Frequency Generator 🌟</div>
+            <div class="welcome-content">
+                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; color: #e0e7ff;">
+                    Discover the sacred frequencies that shaped creation itself. This app generates powerful vibrational frequencies based on the Hebrew text of Genesis 1:1, using the ancient science of gematria to unlock divine harmonics.
+                </p>
+
+                <div style="background: rgba(251,191,36,0.1); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #fbbf24;">
+                    <h3 style="color: #fbbf24; margin-bottom: 15px; font-size: 18px;">🎵 What Are These Frequencies Good For?</h3>
+                    <ul style="color: #d1d5db; padding-left: 20px; line-height: 1.6;">
+                        <li><strong>Meditation & Prayer</strong> - Enhance your spiritual practice with divine vibrations</li>
+                        <li><strong>Energy Healing</strong> - Balance your body's energy centers (chakras)</li>
+                        <li><strong>Manifestation</strong> - Amplify your intentions and affirmations</li>
+                        <li><strong>Sound Therapy</strong> - Experience therapeutic frequency benefits</li>
+                        <li><strong>Sacred Geometry</strong> - Connect with the mathematical patterns of creation</li>
+                        <li><strong>Personal Growth</strong> - Support mindfulness and inner peace</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(139,92,246,0.1); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #8b5cf6;">
+                    <h3 style="color: #c4b5fd; margin-bottom: 15px; font-size: 18px;">📖 How to Use the Tracks</h3>
+                    <ol style="color: #d1d5db; padding-left: 20px; line-height: 1.6;">
+                        <li><strong>Set Your Intention</strong> - Begin with a clear purpose or prayer</li>
+                        <li><strong>Find a Quiet Space</strong> - Sit comfortably in a peaceful environment</li>
+                        <li><strong>Use Headphones</strong> - For best results, use quality headphones or speakers</li>
+                        <li><strong>Start with Trinity Foundation</strong> - Begin with the core 37Hz + 73Hz frequencies</li>
+                        <li><strong>Explore Recipes</strong> - Try different frequency combinations for various purposes</li>
+                        <li><strong>Practice Regularly</strong> - Consistent use yields the best results</li>
+                        <li><strong>Stay Hydrated</strong> - Drink water before and after sessions</li>
+                    </ol>
+                </div>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <p style="color: #fbbf24; font-size: 18px; font-weight: 600; margin-bottom: 20px;">
+                        🚀 Ready to unlock unlimited access and premium features?
+                    </p>
+                    <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">
+                        Upgrade to Premium
+                    </button>
+                    <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;">
+                        Get lifetime access to all features • No subscriptions • One-time payment
+                    </p>
+                </div>
+
+                <div style="background: rgba(139,92,246,0.1); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #8b5cf6;">
+                    <h3 style="color: #c4b5fd; margin-bottom: 15px; font-size: 18px;">📱 Pro Tip: Add to Home Screen</h3>
+                    <p style="color: #d1d5db; margin-bottom: 15px; line-height: 1.6;">
+                        For the best experience, add this app to your home screen! You'll unlock achievements, 
+                        get offline access, and receive gentle reminders to maintain your frequency practice.
+                    </p>
+                    <div style="text-align: center;">
+                        <button onclick="installPWA()" id="homescreenBtn" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.3);">
+                            📱 Add to Home Screen
+                        </button>
+                        <p style="margin-top: 10px; font-size: 12px; color: #9ca3af;">
+                            Optional: Enable notifications for gentle practice reminders
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="trinity-base">
@@ -3414,7 +3508,7 @@
             {
                 id: 'welcome',
                 icon: '🌟',
-                title: '🌟 Welcome to Genesis Frequencies 🌟',
+                title: 'Welcome to Genesis Frequencies',
                 content: `
                     <div style="text-align:center;line-height:1.8;">
                         <p style="font-size:18px;color:#fbbf24;margin-bottom:20px;">
@@ -3449,7 +3543,7 @@
             {
                 id: 'myJourney',
                 icon: '📖',
-                title: '🌟 The Discovery 🌟',
+                title: 'The Discovery',
                 content: `
                     <div style="line-height:1.8;text-align:center;">
                         <h4 style="color:#fbbf24;margin-top:25px;margin-bottom:12px;">🔢 The Number: 3773</h4>
@@ -3468,7 +3562,7 @@
             {
                 id: 'whyWorks',
                 icon: '💡',
-                title: '🌟 Why 37 & 73 Hz? 🌟',
+                title: 'Why 37 & 73 Hz?',
                     content: `
                         <div style="line-height:1.8;text-align:center;">
                             <h4 style="color:#fbbf24;">The Genesis Frequencies</h4>
@@ -3499,7 +3593,7 @@
             {
                 id: 'categories',
                 icon: '📂',
-                title: '🌟 Categories & Tracks 🌟',
+                title: 'Categories & Tracks',
                     content: `
                         <div style="line-height:1.8;text-align:center;">
                             <h4 style="color:#fbbf24;">🌟 Explore Frequency Categories 🌟</h4>
@@ -3540,7 +3634,7 @@
             {
                 id: 'trinity',
                 icon: '🔺',
-                title: '🌟 The Trinity Foundation 🌟',
+                title: 'The Trinity Foundation',
                     content: `
                         <div style="line-height:1.8;text-align:center;">
                             <h4 style="color:#fbbf24;">Trinity Frequencies</h4>
@@ -3559,7 +3653,7 @@
             {
                 id: 'waterCharging',
                 icon: '💧',
-                title: '🌟 Quantum Holy Water 🌟',
+                title: 'Quantum Holy Water',
                     content: `
                         <div style="line-height:1.8;text-align:center;">
                             <h4 style="color:#fbbf24;">Charging Water with Frequencies</h4>
@@ -3575,7 +3669,7 @@
             {
                 id: 'progress',
                 icon: '📊',
-                title: '🌟 Your Journey & Achievements 🌟',
+                title: 'Your Journey & Achievements',
                     content: `
                         <div style="line-height:1.8;text-align:center; position: relative;">
                             <div class="premium-overlay" onclick="showUpgradeModal()"></div>
@@ -4031,9 +4125,8 @@
                 panel.className = 'accordion-panel';
                 panel.innerHTML = `
                     <div class="accordion-header" style="display:flex;align-items:center;justify-content:center;cursor:pointer;padding:12px 0;">
-                        <span style="font-size:22px;margin-right:10px;">${section.icon}</span>
-                        <span style="font-size:18px;font-weight:700;color:#fbbf24;">${section.title}</span>
-                        <span class="accordion-arrow" style="margin-left:10px;font-size:18px;color:#c4b5fd;">▼</span>
+                        <span style="font-size:20px;margin-right:8px;">${section.icon}</span>
+                        <span style="font-size:16px;font-weight:700;color:#fbbf24;">${section.title}</span>
                     </div>
                     <div class="accordion-content" style="display:none;padding:16px 0 0 0;text-align:center;color:#fff;">${section.content}</div>
                 `;
@@ -4043,10 +4136,8 @@
                 header.addEventListener('click', () => {
                     const expanded = content.style.display === 'block';
                     document.querySelectorAll('.accordion-content').forEach(c => c.style.display = 'none');
-                    document.querySelectorAll('.accordion-arrow').forEach(a => a.textContent = '▼');
                     if (!expanded) {
                         content.style.display = 'block';
-                        header.querySelector('.accordion-arrow').textContent = '▲';
                     }
                 });
                 accordion.appendChild(panel);
@@ -4782,6 +4873,223 @@
             }
         }
 
+        // Homescreen PWA Prompt System
+        let deferredPrompt;
+        let pwaPromptShown = false;
+
+        function initializePWAPrompt() {
+            // Check if already installed
+            if (window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true) {
+                trackAction('pwa'); // Mark as completed if already installed
+                hideHomescreenButton();
+                return;
+            }
+
+            // Listen for the beforeinstallprompt event
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                
+                // Show prompt after some usage (3 sessions)
+                if (userProgress.totalSessions >= 3 && !pwaPromptShown) {
+                    setTimeout(() => showPWAPrompt(), 2000);
+                }
+            });
+
+            // Listen for successful installation
+            window.addEventListener('appinstalled', () => {
+                trackAction('pwa');
+                hidePWAPrompt();
+                hideHomescreenButton();
+                showToast('🎉 App added to home screen! Achievement unlocked!', 'success');
+            });
+        }
+
+        function hideHomescreenButton() {
+            const btn = document.getElementById('homescreenBtn');
+            if (btn) btn.style.display = 'none';
+        }
+
+        function showPWAPrompt() {
+            if (pwaPromptShown) return;
+            pwaPromptShown = true;
+
+            const prompt = document.createElement('div');
+            prompt.id = 'pwaPrompt';
+            prompt.innerHTML = `
+                <div style="position: fixed; bottom: 20px; left: 20px; right: 20px; 
+                           background: linear-gradient(135deg, rgba(251,191,36,0.95), rgba(139,92,246,0.9)); 
+                           border: 2px solid rgba(251,191,36,0.5); border-radius: 15px; 
+                           padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+                           z-index: 1000; text-align: center; backdrop-filter: blur(10px);">
+                    <div style="color: #1a0033; font-size: 18px; font-weight: 700; margin-bottom: 10px;">
+                        📱 Unlock Achievement: Add to Home Screen!
+                    </div>
+                    <div style="color: #1a0033; font-size: 14px; margin-bottom: 15px; line-height: 1.4;">
+                        Get the full PWA experience and unlock the "Home Screen Hero" achievement! 
+                        Access frequencies instantly and track your progress offline.
+                    </div>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <button onclick="installPWA()" style="background: #1a0033; color: #fbbf24; 
+                                 border: none; border-radius: 25px; padding: 10px 20px; 
+                                 font-weight: 600; cursor: pointer;">
+                            🚀 Add to Home Screen
+                        </button>
+                        <button onclick="hidePWAPrompt()" style="background: rgba(26,0,51,0.7); 
+                                 color: #c4b5fd; border: none; border-radius: 25px; 
+                                 padding: 10px 20px; font-weight: 600; cursor: pointer;">
+                            Maybe Later
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(prompt);
+        }
+
+        function hidePWAPrompt() {
+            const prompt = document.getElementById('pwaPrompt');
+            if (prompt) prompt.remove();
+        }
+
+        async function installPWA() {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                trackAction('pwa');
+                showToast('🎉 App added to home screen! Achievement unlocked!', 'success');
+            }
+            
+            deferredPrompt = null;
+            hidePWAPrompt();
+        }
+
+        // Subtle Notification System
+        let notificationInterval;
+        let lastNotificationTime = 0;
+
+        function initializeNotifications() {
+            // Check if notifications are already granted
+            if (Notification.permission === 'granted') {
+                startNotificationSchedule();
+                return;
+            }
+
+            // Request permission on first significant usage (2 sessions)
+            if (userProgress.totalSessions >= 2 && Notification.permission === 'default') {
+                setTimeout(() => requestNotificationPermission(), 3000);
+            }
+        }
+
+        function requestNotificationPermission() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        showToast('🔔 Notifications enabled! You\'ll receive gentle reminders.', 'info');
+                        startNotificationSchedule();
+                    }
+                });
+            }
+        }
+
+        function startNotificationSchedule() {
+            // Send notifications every 2-4 days, but only if user hasn't used app recently
+            notificationInterval = setInterval(() => {
+                const now = Date.now();
+                const daysSinceLastUse = (now - new Date(userProgress.lastSession || 0)) / (1000 * 60 * 60 * 24);
+                
+                // Only notify if it's been 2+ days since last use
+                if (daysSinceLastUse >= 2 && (now - lastNotificationTime) > (1000 * 60 * 60 * 24 * 2)) {
+                    sendGentleNotification();
+                }
+            }, 1000 * 60 * 60 * 6); // Check every 6 hours
+        }
+
+        function sendGentleNotification() {
+            if (Notification.permission !== 'granted') return;
+
+            const messages = [
+                {
+                    title: '🌟 Your frequencies are waiting',
+                    body: 'Take a moment to connect with the sacred vibrations of Genesis.',
+                    icon: '/Genesis.png'
+                },
+                {
+                    title: '💚 How are you feeling today?',
+                    body: 'A short frequency session can help center your energy.',
+                    icon: '/Genesis.png'
+                },
+                {
+                    title: '🔮 Continue your journey',
+                    body: 'Each session brings you closer to harmonic balance.',
+                    icon: '/Genesis.png'
+                },
+                {
+                    title: '✨ Ready for unlimited access?',
+                    body: 'Upgrade to premium for custom durations and all features.',
+                    icon: '/Genesis.png'
+                },
+                {
+                    title: '🎵 Sacred frequencies calling',
+                    body: 'Your daily practice awaits. Just 5-10 minutes of peace.',
+                    icon: '/Genesis.png'
+                }
+            ];
+
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            
+            const notification = new Notification(message.title, {
+                body: message.body,
+                icon: message.icon,
+                badge: '/Genesis.png',
+                tag: 'genesis-reminder', // Prevents spam if multiple
+                requireInteraction: false,
+                silent: true // Gentle, not disruptive
+            });
+
+            lastNotificationTime = Date.now();
+
+            // Auto-close after 10 seconds
+            setTimeout(() => notification.close(), 10000);
+
+            // Click handler to open app
+            notification.onclick = () => {
+                window.focus();
+                notification.close();
+            };
+        }
+
+        // Toast notification system for in-app messages
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed; top: 20px; right: 20px; 
+                background: ${type === 'success' ? 'rgba(34,197,94,0.9)' : 
+                           type === 'error' ? 'rgba(239,68,68,0.9)' : 'rgba(251,191,36,0.9)'}; 
+                color: white; padding: 15px 20px; border-radius: 10px; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 10000; 
+                font-weight: 600; max-width: 300px; backdrop-filter: blur(10px);
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.transition = 'opacity 0.5s';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        // Make functions globally available
+        window.installPWA = installPWA;
+        window.showPWAPrompt = showPWAPrompt;
+        window.hidePWAPrompt = hidePWAPrompt;
+        window.requestNotificationPermission = requestNotificationPermission;
+        window.showToast = showToast;
+
 
 // Initialize generator when page loads
 document.addEventListener('DOMContentLoaded', function() {
@@ -4806,6 +5114,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Service Worker registration failed:', error);
             });
     }
+
+    // Initialize homescreen and notification features
+    initializePWAPrompt();
+    initializeNotifications();
 });
 </script>
 </body>
