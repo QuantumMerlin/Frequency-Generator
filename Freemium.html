@@ -1441,58 +1441,25 @@
         /* Freemium Styles */
         .premium-lock {
             position: relative;
-            opacity: 0.6;
-            pointer-events: none;
+            opacity: 0.7;
         }
 
         .premium-lock::after {
             content: '🔒';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
+            top: 8px;
+            right: 8px;
+            font-size: 14px;
             color: #fbbf24;
-            background: rgba(26, 0, 51, 0.9);
+            background: rgba(26, 0, 51, 0.8);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            z-index: 10;
-            pointer-events: auto;
-            cursor: pointer;
-        }
-
-        .premium-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 0, 51, 0.7);
-            border-radius: inherit;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: auto;
-            cursor: pointer;
-        }
-
-        .premium-overlay::before {
-            content: '🔒';
-            font-size: 32px;
-            color: #fbbf24;
-            background: rgba(26, 0, 51, 0.9);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            pointer-events: none;
         }
 
         /* Upgrade Modal */
@@ -1637,27 +1604,7 @@
             opacity: 0.9;
         }
 
-        .duration-lock-icon {
-            position: absolute;
-            right: 10px;
-            font-size: 16px;
-            color: #fbbf24;
-            cursor: pointer;
-            background: rgba(26, 0, 51, 0.8);
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
 
-        .duration-lock-icon:hover {
-            background: rgba(251, 191, 36, 0.2);
-            transform: scale(1.1);
-        }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1692,6 +1639,17 @@
                 font-size: 24px !important;
                 right: 15px !important;
                 top: 15px !important;
+            }
+            .recipe-freqs {
+                font-size: 12px !important;
+                line-height: 1.2 !important;
+            }
+            .button-group {
+                gap: 8px !important;
+            }
+            .button {
+                font-size: 14px !important;
+                padding: 10px 8px !important;
             }
         }
     </style>
@@ -2090,9 +2048,8 @@
                 <div class="control-group duration-control">
                     <label for="duration" data-translate="duration">⏱️ Duration</label>
                     <div class="duration-input-wrapper">
-                        <div class="duration-input-container">
-                            <input type="text" id="duration" placeholder="05:00" value="05:00" pattern="[0-9]{1,2}:[0-9]{2}" maxlength="5" readonly onclick="showUpgradeModal()">
-                            <div class="duration-lock-icon" onclick="showUpgradeModal()">🔒</div>
+                        <div class="duration-input-container premium-lock" onclick="showUpgradeModal()">
+                            <input type="text" id="duration" placeholder="05:00" value="05:00" pattern="[0-9]{1,2}:[0-9]{2}" maxlength="5" readonly>
                         </div>
                         <div class="duration-buttons">
                             <button type="button" class="duration-btn" data-time="01:00">1m</button>
@@ -2106,9 +2063,7 @@
                 <div class="button-group">
                     <button class="button button-primary" id="playBtn">▶ PLAY</button>
                     <button class="button button-danger" id="stopBtn">■ STOP</button>
-                    <div class="premium-lock" onclick="showUpgradeModal()" style="display: inline-block;">
-                        <button class="button button-secondary" id="exportBtn">⬇ EXPORT WAV</button>
-                    </div>
+                    <button class="button button-secondary premium-lock" id="exportBtn" onclick="showUpgradeModal()">⬇ EXPORT WAV</button>
                     <button class="button button-secondary" id="resetBtn">↺ RESET</button>
                 </div>
             </div>
@@ -2202,6 +2157,22 @@
         function startImmersiveExperience() {
             document.getElementById('immersiveWelcome').style.display = 'none';
             localStorage.setItem('immersiveWelcomeShown', 'true');
+
+            // Check if user already has premium access
+            const premiumGranted = localStorage.getItem('premiumAccessGranted') === 'true';
+            const personalPassword = localStorage.getItem('personalSacredPassword');
+
+            if (premiumGranted && personalPassword && checkPersonalPassword()) {
+                // User has premium access, don't show modal
+                document.getElementById('firstTimeModal').style.display = 'none';
+            } else {
+                // Show the premium access modal
+                document.getElementById('firstTimeModal').style.display = 'flex';
+                document.getElementById('premiumAccessSection').style.display = 'block';
+                document.getElementById('premiumWelcomeSection').style.display = 'none';
+                document.getElementById('personalPasswordSection').style.display = 'none';
+                document.getElementById('welcomeContentSection').style.display = 'none';
+            }
 
             // Gentle vibration
             if ('vibrate' in navigator) {
@@ -2303,7 +2274,7 @@
             // Check if premium access has been granted
             const premiumGranted = localStorage.getItem('premiumAccessGranted') === 'true';
             const personalPassword = localStorage.getItem('personalSacredPassword');
-            
+
             if (premiumGranted && personalPassword) {
                 // Check personal password
                 if (checkPersonalPassword()) {
@@ -2312,20 +2283,12 @@
                     // Wrong personal password - reset to premium access
                     localStorage.removeItem('premiumAccessGranted');
                     localStorage.removeItem('personalSacredPassword');
-                    document.getElementById('firstTimeModal').style.display = 'flex';
-                    document.getElementById('premiumAccessSection').style.display = 'block';
-                    document.getElementById('premiumWelcomeSection').style.display = 'none';
-                    document.getElementById('personalPasswordSection').style.display = 'none';
-                    document.getElementById('welcomeContentSection').style.display = 'none';
+                    // Don't show modal automatically - let immersive welcome handle it
+                    document.getElementById('firstTimeModal').style.display = 'none';
                 }
-            } else if (localStorage.getItem('hideFirstTimeModal') === 'true') {
-                document.getElementById('firstTimeModal').style.display = 'none';
             } else {
-                document.getElementById('firstTimeModal').style.display = 'flex';
-                document.getElementById('premiumAccessSection').style.display = 'block';
-                document.getElementById('premiumWelcomeSection').style.display = 'none';
-                document.getElementById('personalPasswordSection').style.display = 'none';
-                document.getElementById('welcomeContentSection').style.display = 'none';
+                // Don't show firstTimeModal automatically - let immersive welcome handle it
+                document.getElementById('firstTimeModal').style.display = 'none';
             }
 
             // Add Enter key support for password inputs
@@ -3671,8 +3634,7 @@
                 icon: '📊',
                 title: 'Your Journey & Achievements',
                     content: `
-                        <div style="line-height:1.8;text-align:center; position: relative;">
-                            <div class="premium-overlay" onclick="showUpgradeModal()"></div>
+                        <div style="line-height:1.8;text-align:center; position: relative;" class="premium-lock" onclick="showUpgradeModal()">
                             <h4 style="color:#fbbf24;">Track Your Progress</h4>
                             <p>
                                 Use the app’s built-in tracker to log your sessions and milestones.<br>
@@ -4173,7 +4135,7 @@
             const body = document.getElementById('modalBody');
             
             title.textContent = recipe.name;
-            freqs.textContent = `🎵 ${recipe.frequencies.join(' Hz + ')} Hz`;
+            freqs.textContent = `${recipe.frequencies.join(' Hz + ')} Hz`;
             
             if (recipe.fullInfo) {
                 body.innerHTML = `
@@ -4310,7 +4272,7 @@
                         recipeElement.innerHTML = `
                             <div class="recipe-info">
                                 <div class="recipe-name" data-translate="track${recipe.name.replace(/[^a-zA-Z0-9]/g, '').replace(/\s+/g, '')}">${recipe.name}</div>
-                                <div class="recipe-freqs">🎵 ${recipe.frequencies.join(' Hz + ')} Hz</div>
+                                <div class="recipe-freqs">${recipe.frequencies.join(' Hz + ')} Hz</div>
                             </div>
                             <div class="recipe-buttons">
                                 <button class="track-btn play-btn" title="Play this track">▶</button>
