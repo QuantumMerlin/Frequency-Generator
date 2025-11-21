@@ -26,10 +26,12 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: url('Genesis.png') center center/cover fixed;
             min-height: 100vh;
-            padding: 10px;
-            color: #fff;
+            padding: 8px;
+            color: #ffffff;
             overflow-x: hidden;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body::before {
@@ -67,23 +69,46 @@
             body {
                 padding: 20px;
             }
+
+            .container {
+                margin: 0 auto;
+                border-radius: 28px;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding: 8px;
+                background-attachment: scroll;
+            }
+
+            .container {
+                margin: 0;
+                border-radius: 20px;
+                padding: 16px;
+                max-width: none;
+                width: 100%;
+            }
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: rgba(26, 0, 51, 0.88), url('Genesis.png') center center/cover;
+            background: rgba(26, 0, 51, 0.95), url('Genesis.png') center center/cover;
             backdrop-filter: blur(30px);
             border-radius: 28px;
-            padding: 25px;
-            box-shadow: 
+            padding: 20px;
+            box-shadow:
                 0 25px 70px rgba(0, 0, 0, 0.6),
                 0 0 0 1px rgba(139, 92, 246, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.05);
             animation: slideUp 0.5s ease-out;
             position: relative;
             z-index: 2;
-            overflow: hidden; /* For particle effects */
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .container::after {
@@ -222,11 +247,12 @@
 
         .hebrew-translation {
             font-size: 16px;
-            color: #c4b5fd;
+            color: #ffffff;
             font-weight: 500;
             margin-bottom: 20px;
             font-style: italic;
-            opacity: 0.9;
+            opacity: 0.95;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         .main-title {
@@ -410,13 +436,14 @@
         .section-title {
             font-size: 18px;
             font-weight: 600;
-            color: #c4b5fd;
+            color: #ffffff;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             text-align: center;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
         .section-title::before {
@@ -974,6 +1001,9 @@
 
         .info-modal.active {
             display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            z-index: 10000 !important;
         }
 
         /* Specifically hide upgrade modal by default */
@@ -992,6 +1022,9 @@
 
         .info-modal.active {
             display: flex !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            z-index: 10000 !important;
         }
 
         @keyframes fadeIn {
@@ -1416,37 +1449,87 @@
         
 
         @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
             .container {
-                padding: 15px;
-                border-radius: 20px;
+                padding: 12px;
+                border-radius: 16px;
+                margin: 0;
             }
-            
+
             .header {
-                padding: 10px 0 15px 0;
+                padding: 8px 0 12px 0;
+                text-align: center;
             }
-            
+
+            .header h1 {
+                font-size: 24px;
+                margin-bottom: 8px;
+                color: #ffffff;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+
+            .header p {
+                font-size: 14px;
+                color: #e0e7ff;
+                line-height: 1.4;
+            }
+
             .info-modal {
-                padding: 10px;
+                padding: 8px;
             }
 
             .info-modal-content {
-                padding: 25px 20px;
+                padding: 20px 16px;
                 max-width: 95vw;
-                border-radius: 20px;
+                border-radius: 16px;
+                margin: 0 auto;
             }
 
             .info-modal-header {
-                font-size: 24px;
-                margin-bottom: 12px;
-            }
-
-            .info-modal-freqs {
-                font-size: 16px;
-                padding: 12px 15px;
+                font-size: 22px;
+                margin-bottom: 16px;
+                color: #fbbf24;
+                text-shadow: 0 1px 2px rgba(0,0,0,0.7);
             }
 
             .info-modal-body {
                 font-size: 15px;
+                color: #ffffff;
+                line-height: 1.6;
+            }
+
+            .info-modal-body h3 {
+                color: #d4d4ff;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+            .info-modal-body p {
+                color: #f0f0ff;
+                margin-bottom: 12px;
+                line-height: 1.5;
+            }
+
+            /* Improve button visibility on mobile */
+            .button {
+                font-size: 16px;
+                padding: 14px 24px;
+                min-height: 48px;
+                border-radius: 25px;
+                font-weight: 600;
+                text-align: center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            }
+
+            .button:active {
+                transform: scale(0.98);
             }
 
             .info-modal-close {
@@ -1629,7 +1712,93 @@
         }
 
         /* Mobile optimizations for iPhone SE */
+        @media (max-width: 320px) {
+            body {
+                padding: 2px;
+            }
+
+            .container {
+                padding: 8px;
+                border-radius: 8px;
+            }
+
+            .header h1 {
+                font-size: 18px;
+                line-height: 1.2;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .info-modal-content {
+                padding: 12px 8px;
+                max-width: 99vw;
+                border-radius: 8px;
+            }
+
+            .info-modal-header {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .info-modal-body {
+                font-size: 13px;
+            }
+
+            .button {
+                font-size: 14px !important;
+                padding: 10px 16px !important;
+                min-height: 40px;
+            }
+        }
+
         @media (max-width: 375px) {
+            body {
+                padding: 4px;
+            }
+
+            .container {
+                padding: 10px;
+                border-radius: 12px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .header p {
+                font-size: 13px;
+            }
+
+            .info-modal-content {
+                padding: 16px 12px;
+                max-width: 98vw;
+                border-radius: 12px;
+            }
+
+            .info-modal-header {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+
+            .info-modal-body {
+                font-size: 14px;
+            }
+
+            .button {
+                font-size: 16px !important;
+                padding: 12px 20px !important;
+                min-height: 44px; /* iOS touch target */
+                border-radius: 25px;
+                font-weight: 600;
+                text-align: center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                white-space: nowrap;
+            }
+
             .accordion-header {
                 padding: 10px 5px !important;
             }
@@ -1664,9 +1833,46 @@
             .button-group {
                 gap: 8px !important;
             }
+        }
+
+        @media (max-width: 320px) {
+            body {
+                padding: 2px;
+            }
+
+            .container {
+                padding: 8px;
+                border-radius: 8px;
+            }
+
+            .header h1 {
+                font-size: 18px;
+                line-height: 1.2;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .info-modal-content {
+                padding: 12px 8px;
+                max-width: 99vw;
+                border-radius: 8px;
+            }
+
+            .info-modal-header {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .info-modal-body {
+                font-size: 13px;
+            }
+
             .button {
                 font-size: 14px !important;
-                padding: 10px 8px !important;
+                padding: 10px 16px !important;
+                min-height: 40px;
             }
         }
     </style>
@@ -1677,9 +1883,9 @@
     <div id="immersiveWelcome" class="info-modal" style="z-index:5000;">
         <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.95), rgba(139,92,246,0.9)); border: 2px solid rgba(251,191,36,0.5);">
             <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">Welcome to Genesis</div>
-            <div class="info-modal-body" style="color: #fff; font-size: 18px; line-height: 1.6;">
-                <p style="margin-bottom: 20px;">You are about to experience the sacred frequencies that shaped creation itself.</p>
-                <p style="margin-bottom: 20px; color: #c4b5fd;">Take a deep breath, set your intention, and let the vibrations guide you.</p>
+            <div class="info-modal-body" style="color: #ffffff; font-size: 18px; line-height: 1.6;">
+                <p style="margin-bottom: 20px; color: #ffffff;">You are about to experience the sacred frequencies that shaped creation itself.</p>
+                <p style="margin-bottom: 20px; color: #f8f8ff;">Take a deep breath, set your intention, and let the vibrations guide you.</p>
                 <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
                     <button onclick="showFrequencyBenefits()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">Next</button>
                 </div>
@@ -1693,23 +1899,23 @@
             <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">What Are These Frequencies Good For?</div>
             <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6; text-align: left;">
                 <div style="margin-bottom: 20px;">
-                    <h3 style="color: #c4b5fd; margin-bottom: 10px;">🧘‍♀️ Meditation & Mindfulness</h3>
-                    <p>These sacred frequencies help quiet the mind, reduce stress, and deepen your meditation practice through harmonic resonance.</p>
+                    <h3 style="color: #d4d4ff; margin-bottom: 10px;">🧘‍♀️ Meditation & Mindfulness</h3>
+                    <p style="color: #f0f0ff;">These sacred frequencies help quiet the mind, reduce stress, and deepen your meditation practice through harmonic resonance.</p>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <h3 style="color: #c4b5fd; margin-bottom: 10px;">💫 Energy Healing</h3>
-                    <p>Based on the biblical Trinity (Father, Son, Holy Spirit), these frequencies work with your body's natural energy centers for balance and healing.</p>
+                    <h3 style="color: #d4d4ff; margin-bottom: 10px;">💫 Energy Healing</h3>
+                    <p style="color: #f0f0ff;">Based on the biblical Trinity (Father, Son, Holy Spirit), these frequencies work with your body's natural energy centers for balance and healing.</p>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <h3 style="color: #c4b5fd; margin-bottom: 10px;">🌙 Sleep & Relaxation</h3>
-                    <p>The gentle vibrations promote deep relaxation, better sleep quality, and help release tension from the body and mind.</p>
+                    <h3 style="color: #d4d4ff; margin-bottom: 10px;">🌙 Sleep & Relaxation</h3>
+                    <p style="color: #f0f0ff;">The gentle vibrations promote deep relaxation, better sleep quality, and help release tension from the body and mind.</p>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <h3 style="color: #c4b5fd; margin-bottom: 10px;">🎵 Creative Flow</h3>
-                    <p>Many users report enhanced creativity, clearer thinking, and improved focus when working with these sacred frequencies.</p>
+                    <h3 style="color: #d4d4ff; margin-bottom: 10px;">🎵 Creative Flow</h3>
+                    <p style="color: #f0f0ff;">Many users report enhanced creativity, clearer thinking, and improved focus when working with these sacred frequencies.</p>
                 </div>
 
                 <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
@@ -1763,8 +1969,8 @@
             <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">Pro Tip</div>
             <div class="info-modal-body" style="color: #fff; font-size: 18px; line-height: 1.6;">
                 <div style="font-size: 48px; margin-bottom: 20px;">📱</div>
-                <p style="margin-bottom: 20px; font-weight: 600;">Add to Home Screen NOW for the Best Experience!</p>
-                <p style="margin-bottom: 20px; color: #c4b5fd;">• Works offline without internet<br>
+                <p style="margin-bottom: 20px; font-weight: 600; color: #ffffff;">Add to Home Screen NOW for the Best Experience!</p>
+                <p style="margin-bottom: 20px; color: #f0f0ff;">• Works offline without internet<br>
                 • Faster loading and better performance<br>
                 • True app-like experience<br>
                 • Background playback capability</p>
@@ -1785,28 +1991,28 @@
                 <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6;">
                     <div style="text-align: left; margin-bottom: 20px;">
                         <div style="margin-bottom: 15px;">
-                            <h3 style="color: #c4b5fd; margin-bottom: 8px;">🎚️ Individual Volume Controls</h3>
-                            <p>Adjust each of the 3 frequencies separately for perfect harmonic balance.</p>
+                            <h3 style="color: #d4d4ff; margin-bottom: 8px;">🎚️ Individual Volume Controls</h3>
+                            <p style="color: #f0f0ff;">Adjust each of the 3 frequencies separately for perfect harmonic balance.</p>
                         </div>
 
                         <div style="margin-bottom: 15px;">
-                            <h3 style="color: #c4b5fd; margin-bottom: 8px;">⏰ Custom Durations</h3>
-                            <p>Set any session length from 1 minute to hours of continuous playback.</p>
+                            <h3 style="color: #d4d4ff; margin-bottom: 8px;">⏰ Custom Durations</h3>
+                            <p style="color: #f0f0ff;">Set any session length from 1 minute to hours of continuous playback.</p>
                         </div>
 
                         <div style="margin-bottom: 15px;">
-                            <h3 style="color: #c4b5fd; margin-bottom: 8px;">🏆 Achievement System</h3>
-                            <p>Track your progress, unlock achievements, and log your sacred sessions.</p>
+                            <h3 style="color: #d4d4ff; margin-bottom: 8px;">🏆 Achievement System</h3>
+                            <p style="color: #f0f0ff;">Track your progress, unlock achievements, and log your sacred sessions.</p>
                         </div>
 
                         <div style="margin-bottom: 15px;">
-                            <h3 style="color: #c4b5fd; margin-bottom: 8px;">🔊 Background Playback</h3>
-                            <p>Continue your frequency sessions while using other apps.</p>
+                            <h3 style="color: #d4d4ff; margin-bottom: 8px;">🔊 Background Playback</h3>
+                            <p style="color: #f0f0ff;">Continue your frequency sessions while using other apps.</p>
                         </div>
 
                         <div style="margin-bottom: 15px;">
-                            <h3 style="color: #c4b5fd; margin-bottom: 8px;">💾 Export & Save</h3>
-                            <p>Save your frequency combinations as WAV files for offline use.</p>
+                            <h3 style="color: #d4d4ff; margin-bottom: 8px;">💾 Export & Save</h3>
+                            <p style="color: #f0f0ff;">Save your frequency combinations as WAV files for offline use.</p>
                         </div>
                     </div>
 
@@ -1874,7 +2080,7 @@
             <div class="hebrew-header">בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ</div>
             <div class="hebrew-translation" data-translate="hebrewTranslation">In the beginning God created the heavens and the earth</div>
             <div style="font-size:22px; font-weight:800; color:#fbbf24; text-align:center; margin-bottom:2px;">Genesis Frequency Generator</div>
-            <div style="font-size:16px; font-weight:600; color:#c4b5fd; text-align:center; margin-bottom:10px;">inspired by</div>
+            <div style="font-size:16px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:10px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">inspired by</div>
             <h1 class="main-title" data-translate="title" style="margin-bottom:0;">Genesis 1:1</h1>
             <div class="subtitle" data-translate="subtitle">Biblical Trinity Frequency System</div>
             <div class="divider"></div>
@@ -1909,13 +2115,13 @@
         <div class="section welcome-section">
             <div class="section-title">Welcome to Genesis Frequency Generator</div>
             <div class="welcome-content">
-                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; color: #e0e7ff;">
+                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 20px; color: #ffffff;">
                     Discover the sacred frequencies that shaped creation itself. This app generates powerful vibrational frequencies based on the Hebrew text of Genesis 1:1, using the ancient science of gematria to unlock divine harmonics.
                 </p>
 
                 <div style="background: rgba(251,191,36,0.1); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #fbbf24;">
                     <h3 style="color: #fbbf24; margin-bottom: 15px; font-size: 18px;">🎵 What Are These Frequencies Good For?</h3>
-                    <ul style="color: #d1d5db; padding-left: 20px; line-height: 1.6;">
+                    <ul style="color: #f0f0ff; padding-left: 20px; line-height: 1.6;">
                         <li><strong>Meditation & Prayer</strong> - Enhance your spiritual practice with divine vibrations</li>
                         <li><strong>Energy Healing</strong> - Balance your body's energy centers (chakras)</li>
                         <li><strong>Manifestation</strong> - Amplify your intentions and affirmations</li>
@@ -3452,18 +3658,18 @@
                             <div style="font-size:24px;color:#fbbf24;margin-bottom:10px;">
                                 <b>37 × 73 = 2701</b>
                             </div>
-                            <div style="font-size:16px;color:#c4b5fd;">
+                            <div style="font-size:16px;color:#ffffff;">
                                 Genesis 1:1 in Hebrew = 2701
                             </div>
                         </div>
-                        <p style="color:#a78bfa;margin-bottom:15px;">
+                        <p style="color:#ffffff;margin-bottom:15px;">
                             The frequencies of creation, encoded in the Bible's first verse<br>
                             for thousands of years.
                         </p>
                         <p style="font-size:18px;color:#fbbf24;">
                             <em>Now in your hands.</em>
                         </p>
-                        <p style="margin-top:20px;font-size:16px;color:#c4b5fd;">
+                        <p style="margin-top:20px;font-size:16px;color:#ffffff;">
                             <b>Embark on your sacred frequency journey</b><br>
                             Discover the divine mathematics that shaped reality itself
                         </p>
@@ -3483,7 +3689,7 @@
                             of numbers—this pattern revealed itself. I didn't know what it meant, but I knew 
                             it was significant.
                         </p>
-                        <p style="color:#a78bfa;font-style:italic;">
+                        <p style="color:#ffffff;font-style:italic;">
                             This number became an anchor. A code. A key to something waiting to be unlocked.
                         </p>
                     </div>
@@ -3514,7 +3720,7 @@
                                     <li>🌌 <b>Connect with higher consciousness</b> - Elevate your spiritual awareness</li>
                                 </ul>
                             </div>
-                            <p style="color:#a78bfa;font-style:italic;margin-top:15px;">
+                            <p style="color:#ffffff;font-style:italic;margin-top:15px;">
                                 "These aren't just sounds... they're the language of creation itself."
                             </p>
                         </div>
@@ -3532,29 +3738,29 @@
                             </p>
                             <p>
                                 From deep healing to peak performance, discover frequencies designed for specific purposes.<br>
-                                <span style="color:#a78bfa;">Select a category to view available tracks and their benefits.</span>
+                                <span style="color:#ffffff;">Select a category to view available tracks and their benefits.</span>
                             </p>
                             <div style="margin:25px 0;padding:20px;background:linear-gradient(135deg, rgba(139,92,246,0.1), rgba(251,191,36,0.1));border-radius:15px;">
                                 <ul style="text-align:left;max-width:450px;margin:0 auto;list-style:none;padding:0;">
                                     <li style="margin-bottom:15px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">🔺 Trinity Foundation</b><br>
-                                        <span style="color:#c4b5fd;font-size:14px;">Core creation frequencies (37, 73, 2701 Hz) - The foundation of all</span>
+                                        <span style="color:#ffffff;font-size:14px;">Core creation frequencies (37, 73, 2701 Hz) - The foundation of all</span>
                                     </li>
                                     <li style="margin-bottom:15px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">💚 Healing</b><br>
-                                        <span style="color:#c4b5fd;font-size:14px;">DNA repair, cellular regeneration, miracle tone (528 Hz) - Restore vitality</span>
+                                        <span style="color:#ffffff;font-size:14px;">DNA repair, cellular regeneration, miracle tone (528 Hz) - Restore vitality</span>
                                     </li>
                                     <li style="margin-bottom:15px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">🧠 Focus & Learning</b><br>
-                                        <span style="color:#c4b5fd;font-size:14px;">Memory, study, mental clarity (20.3 Hz) - Unlock your mind's potential</span>
+                                        <span style="color:#ffffff;font-size:14px;">Memory, study, mental clarity (20.3 Hz) - Unlock your mind's potential</span>
                                     </li>
                                     <li style="margin-bottom:15px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">⚡ Energy & Activation</b><br>
-                                        <span style="color:#c4b5fd;font-size:14px;">Motivation, vitality, spiritual awakening - Ignite your inner fire</span>
+                                        <span style="color:#ffffff;font-size:14px;">Motivation, vitality, spiritual awakening - Ignite your inner fire</span>
                                     </li>
                                     <li style="padding:10px;border-radius:8px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">😴 Sleep & Recovery</b><br>
-                                        <span style="color:#c4b5fd;font-size:14px;">Deep rest, rejuvenation, stress relief - Sacred restoration</span>
+                                        <span style="color:#ffffff;font-size:14px;">Deep rest, rejuvenation, stress relief - Sacred restoration</span>
                                     </li>
                                 </ul>
                             </div>
@@ -3592,7 +3798,7 @@
                                 Play Genesis frequencies near a glass of water for 10-20 minutes.<br>
                                 Drink mindfully to absorb the encoded energy.
                             </p>
-                            <p style="color:#a78bfa;">Tip: Use spring or filtered water for best results.</p>
+                            <p style="color:#ffffff;">Tip: Use spring or filtered water for best results.</p>
                         </div>
                     `
             },
@@ -3629,27 +3835,27 @@
                                 <ul style="text-align:left;max-width:450px;margin:0 auto;list-style:none;padding:0;">
                                     <li style="margin-bottom:15px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">🎧 Headphones</b><br>
-                                        <span style="color:#c4b5fd;">Use quality headphones for deeper immersion into the sacred vibrations</span>
+                                        <span style="color:#ffffff;">Use quality headphones for deeper immersion into the sacred vibrations</span>
                                     </li>
                                     <li style="margin-bottom:15px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">💭 Set Intentions</b><br>
-                                        <span style="color:#c4b5fd;">Begin each session with a clear intention - what transformation do you seek?</span>
+                                        <span style="color:#ffffff;">Begin each session with a clear intention - what transformation do you seek?</span>
                                     </li>
                                     <li style="margin-bottom:15px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">💧 Stay Hydrated</b><br>
-                                        <span style="color:#c4b5fd;">Water amplifies frequency effects - drink mindfully before and after</span>
+                                        <span style="color:#ffffff;">Water amplifies frequency effects - drink mindfully before and after</span>
                                     </li>
                                     <li style="margin-bottom:15px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">📓 Journal Your Journey</b><br>
-                                        <span style="color:#c4b5fd;">Record your experiences, insights, and subtle shifts in awareness</span>
+                                        <span style="color:#ffffff;">Record your experiences, insights, and subtle shifts in awareness</span>
                                     </li>
                                     <li style="padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);">
                                         <b style="color:#fbbf24;">🔄 Daily Consistency</b><br>
-                                        <span style="color:#c4b5fd;">Like prayer or meditation, consistency unlocks profound transformation</span>
+                                        <span style="color:#ffffff;">Like prayer or meditation, consistency unlocks profound transformation</span>
                                     </li>
                                 </ul>
                             </div>
-                            <p style="color:#a78bfa;font-style:italic;margin-top:20px;">
+                            <p style="color:#ffffff;font-style:italic;margin-top:20px;">
                                 "The frequencies work best when approached with reverence and presence."
                             </p>
                         </div>
@@ -3686,7 +3892,7 @@
                             <p>
                                 Connect with fellow seekers on their Genesis journey.<br>
                                 Share your transformation stories, insights, and miraculous results.<br>
-                                <span style="color:#a78bfa;">Together we amplify the divine frequencies.</span>
+                                <span style="color:#ffffff;">Together we amplify the divine frequencies.</span>
                             </p>
                             <div style="margin:25px 0;padding:20px;background:linear-gradient(135deg, rgba(139,92,246,0.1), rgba(251,191,36,0.1));border-radius:15px;">
                                 <p style="color:#fbbf24;font-weight:600;margin-bottom:15px;">📱 Share Your Experience</p>
@@ -3697,7 +3903,7 @@
                                     <li>• Create content about your journey</li>
                                 </ul>
                             </div>
-                            <p style="color:#c4b5fd;font-style:italic;">
+                            <p style="color:#ffffff;font-style:italic;">
                                 "When we share our light, we illuminate the path for others."
                             </p>
                         </div>
@@ -5052,14 +5258,33 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNotifications();
 
     // Show immersive welcome on first visit, welcome back toast for return visits
+    console.log('DOMContentLoaded fired - checking localStorage immediately');
+    console.log('Raw localStorage onboardingComplete:', localStorage.getItem('onboardingComplete'));
+    console.log('All localStorage keys:', Object.keys(localStorage));
+    
+    // Check for test parameter to force clean state
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('test')) {
+        console.log('Test parameter detected - forcing clean localStorage state');
+        localStorage.clear();
+    }
+    
     const onboardingComplete = localStorage.getItem('onboardingComplete') === 'true';
     console.log('Modal initialization - onboardingComplete:', onboardingComplete);
+    
+    // Debug: Check if modal element exists
+    const welcomeModal = document.getElementById('immersiveWelcome');
+    console.log('Welcome modal element:', welcomeModal);
     
     if (!onboardingComplete) {
         // First time user - show welcome sequence
         console.log('New user - showing welcome modal');
         document.getElementById('upgradeBenefitsModal').classList.remove('active'); // Ensure upgrade modal is hidden
-        document.getElementById('immersiveWelcome').classList.add('active'); // Start with welcome
+        
+        // Add active class and verify
+        welcomeModal.classList.add('active');
+        console.log('Added active class, modal classes:', welcomeModal.className);
+        console.log('Modal computed style display:', window.getComputedStyle(welcomeModal).display);
     } else {
         // Returning user - show welcome back toast after a brief delay
         console.log('Returning user - showing welcome toast');
@@ -5071,10 +5296,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Debug check after initialization
     setTimeout(() => {
         console.log('Modal state check:');
-        console.log('- immersiveWelcome active:', document.getElementById('immersiveWelcome').classList.contains('active'));
-        console.log('- upgradeBenefitsModal active:', document.getElementById('upgradeBenefitsModal').classList.contains('active'));
+        const welcomeModal = document.getElementById('immersiveWelcome');
+        const upgradeModal = document.getElementById('upgradeBenefitsModal');
+        console.log('- immersiveWelcome exists:', !!welcomeModal);
+        console.log('- immersiveWelcome active:', welcomeModal ? welcomeModal.classList.contains('active') : 'N/A');
+        console.log('- immersiveWelcome display:', welcomeModal ? window.getComputedStyle(welcomeModal).display : 'N/A');
+        console.log('- upgradeBenefitsModal active:', upgradeModal ? upgradeModal.classList.contains('active') : 'N/A');
         console.log('- onboardingComplete in localStorage:', localStorage.getItem('onboardingComplete'));
-    }, 100);
+    }, 200);
 });
 </script>
 </body>
