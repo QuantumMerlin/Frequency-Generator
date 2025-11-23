@@ -291,6 +291,8 @@
                 width: 100%;
                 max-width: 100%;
                 box-sizing: border-box;
+                padding: 12px;
+                margin-bottom: 12px;
             }
 
             .frequency-controls {
@@ -300,7 +302,7 @@
             }
 
             .control-group {
-                padding: 8px;
+                padding: 8px 6px;
                 width: 100%;
                 max-width: 100%;
             }
@@ -313,32 +315,43 @@
                 box-sizing: border-box;
             }
 
+            input[type="range"] {
+                padding: 5px 0;
+                margin: 0;
+            }
+
             .button-group {
                 flex-direction: column;
-                gap: 6px;
+                gap: 8px;
                 width: 100%;
                 max-width: 100%;
+                padding: 0;
+                margin: 0 auto;
             }
 
             .button {
                 font-size: 14px;
-                padding: 10px 16px;
+                padding: 10px 12px;
                 min-height: 44px;
-                min-width: 100px;
+                min-width: 0;
                 width: 100%;
                 max-width: 100%;
                 box-sizing: border-box;
             }
 
             .duration-buttons {
-                flex-direction: column;
+                flex-direction: row;
+                flex-wrap: wrap;
                 gap: 4px;
+                justify-content: space-between;
             }
 
             .duration-btn {
                 font-size: 12px;
-                padding: 6px 10px;
-                min-width: 40px;
+                padding: 6px 8px;
+                min-width: 48%;
+                flex: 0 0 48%;
+                box-sizing: border-box;
             }
 
             .status {
