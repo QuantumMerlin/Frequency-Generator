@@ -2215,9 +2215,28 @@
             }
 
             .duration-btn {
-                font-size: 13px;
-                padding: 6px 10px;
-                min-width: 40px;
+                font-size: 16px;
+                padding: 12px 16px;
+                min-width: 60px;
+                font-weight: 600;
+                border-radius: 8px;
+                border: 2px solid rgba(139, 92, 246, 0.3);
+                background: rgba(139, 92, 246, 0.1);
+                color: #c4b5fd;
+                transition: all 0.2s ease;
+            }
+
+            .duration-btn:hover, .duration-btn:active {
+                background: rgba(139, 92, 246, 0.2);
+                border-color: rgba(139, 92, 246, 0.5);
+                transform: scale(1.05);
+            }
+
+            .duration-btn.active {
+                background: rgba(251, 191, 36, 0.2);
+                border-color: #fbbf24;
+                color: #fbbf24;
+                font-weight: 700;
             }
 
             .button-group {
@@ -5170,6 +5189,11 @@
                         const time = e.target.dataset.time;
                         this.elements.duration.value = time;
                         this.updateStatus(`⏱️ Duration set to ${time}`);
+                        
+                        // Remove active class from all duration buttons
+                        document.querySelectorAll('.duration-btn').forEach(b => b.classList.remove('active'));
+                        // Add active class to clicked button
+                        e.target.classList.add('active');
                     });
                 });
                 
