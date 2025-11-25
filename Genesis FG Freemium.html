@@ -1368,19 +1368,31 @@
         }
 
         .info-modal.active {
-            display: flex !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            z-index: 10000 !important;
+            display: flex;
         }
 
-        /* Specifically hide upgrade modal by default */
-        #upgradeBenefitsModal {
-            display: none !important;
+        /* Upgrade modal sits on top, not dimmed */
+        .upgrade-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 11000;
+            background: rgba(0,0,0,0.65);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        #upgradeBenefitsModal.active {
-            display: flex !important;
+        .upgrade-modal-content {
+            position: relative;
+            z-index: 11001;
+        }
+
+        /* Ensure other info-modals do not force higher stacking */
+        .info-modal .info-modal-content {
+            position: relative;
+            z-index: 10001;
         }
 
         /* Force hide all modals except active one */
@@ -2296,92 +2308,97 @@
             }
         }
 
+        
+
+        /* Ensure no horizontal overflow anywhere */
+        .section, .controls, .frequency-controls, .control-group,
+        .duration-input-wrapper, .duration-input-container {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
-        /* Mobile slider and duration alignment fixes */
-        /* General normalization for control groups on mobile */
-        @media (max-width: 767px) {
-            .control-group {
-                box-sizing: border-box;
-                overflow: visible;
-            }
-
-            .control-group > div {
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                width: 100%;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-
-            .control-group input[type="number"] {
-                flex: 1 1 auto;
-                min-width: 0;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .control-group span {
-                flex: 0 0 auto;
-                width: 30px;
-                text-align: right;
-            }
-
-            .control-group input[type="range"] {
-                width: 100%;
-                max-width: 100%;
-                box-sizing: border-box;
-                display: block;
-                margin: 8px 0;
-            }
-
-            .control-group::before {
-                pointer-events: none;
-            }
-
-            .duration-input-wrapper {
-                width: 100%;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-
-            .duration-input-container {
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                width: 100%;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-
-            .duration-input-container input {
-                flex: 1 1 auto;
-                min-width: 0;
-                width: 100%;
-                box-sizing: border-box;
-            }
+        /* Align the top row: number input + Hz span */
+        .control-group > div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
+        /* Critical: allow the number input to shrink */
+        .control-group input[type="number"] {
+            flex: 1 1 auto;
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Keep Hz narrow but not stretching layout */
+        .control-group span {
+            flex: 0 0 auto;
+            width: 30px;
+            text-align: right;
+        }
+
+        /* Normalize range sizing */
+        .control-group input[type="range"] {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            margin: 10px 0 6px 0;
+            padding: 0;
+        }
+
+        /* Range value below the slider */
+        .range-value {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* So the background overlay can't "clip" content or grab events */
+        .control-group::before {
+            pointer-events: none;
+        }
+
+        /* Duration row */
+        .duration-input-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .duration-input-container input {
+            flex: 1 1 auto;
+            min-width: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Buttons wrap nicely on small phones */
         @media (max-width: 375px) {
             .duration-buttons {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 6px;
             }
-
             .control-group {
                 padding: 8px;
                 border-radius: 10px;
             }
-
-            .control-group::before {
-                background: rgba(26, 0, 51, 0.80);
-            }
-
             .range-value {
                 font-size: 12px;
             }
+        }
+
+        /* Extra hardening (Safari iOS quirks) */
+        input[type="number"], input[type="text"] {
+            min-width: 0;
         }
     </style>
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
@@ -2915,13 +2932,18 @@
         function showUpgradeBenefits() {
             console.log('showUpgradeBenefits() called - adding active class to upgrade modal');
             // Hide any current modal
-            document.getElementById('pwaTipModal').classList.remove('active');
+            document.getElementById('pwaTipModal')?.classList.remove('active');
             
             // Mark onboarding as complete
             localStorage.setItem('onboardingComplete', 'true');
             
-            // Show upgrade benefits
-            document.getElementById('upgradeBenefitsModal').classList.add('active');
+            // Show benefits screen (as info-modal)
+            const benefits = document.getElementById('upgradeBenefitsModal');
+            if (benefits) {
+                // ensure no other info-modals are open
+                document.querySelectorAll('.info-modal.active').forEach(m => m.classList.remove('active'));
+                benefits.classList.add('active');
+            }
         }
 
         function skipToApp() {
@@ -2985,13 +3007,19 @@
 
         // Freemium upgrade functions
         function showUpgradeModal() {
-            // Prevent upgrade modal from interrupting the first-time flow
+            // Do not interrupt first-time onboarding with the paywall
             const onboardingDone = localStorage.getItem('onboardingComplete') === 'true';
-            if (!onboardingDone) {
-                // Optionally queue it for after onboarding, or just ignore
-                return;
+            if (!onboardingDone) return;
+
+            // Close any info-modals that could be dimming the screen
+            document.querySelectorAll('.info-modal.active').forEach(m => m.classList.remove('active'));
+
+            // Show upgrade modal on top
+            const modal = document.getElementById('upgradeModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.style.opacity = '1';
             }
-            document.getElementById('upgradeModal').style.display = 'block';
         }
 
         function closeUpgradeModal() {
