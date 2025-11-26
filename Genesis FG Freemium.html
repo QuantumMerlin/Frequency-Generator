@@ -2554,11 +2554,6 @@
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
-    <!-- Sacred Guide Button (moved to top of body) -->
-    <button id="genesisCompanionBtn" class="btn-instructions" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 20000; font-size: 18px; font-weight: 700; background: linear-gradient(90deg, #8b5cf6 0%, #fbbf24 100%); color: #1a0033; border: none; border-radius: 12px; padding: 10px 24px; box-shadow: 0 2px 12px rgba(139,92,246,0.15); cursor: pointer; pointer-events: auto;">
-        Genesis Companion
-    </button>
-
     <!-- Immersive Welcome Modal -->
     <div id="immersiveWelcome" class="info-modal" style="z-index:5000;">
         <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.95), rgba(139,92,246,0.9)); border: 2px solid rgba(251,191,36,0.5);">
@@ -2870,6 +2865,11 @@
             <div class="gematria" style="font-size: 18px;">37 Hz + 73 Hz</div>
             <div class="gematria" style="font-size: 15px; margin-top: -15px;" data-translate="pattern">Prayer Amplifier</div>
 
+            <!-- Sacred Guide Button -->
+            <button id="genesisCompanionBtn" class="btn-instructions" onclick="handleCompanionClick(event)" style="margin: 20px auto 0; display: block; font-size: 18px; font-weight: 700; background: linear-gradient(90deg, #8b5cf6 0%, #fbbf24 100%); color: #1a0033; border: none; border-radius: 12px; padding: 10px 24px; box-shadow: 0 2px 12px rgba(139,92,246,0.15); cursor: pointer; position: absolute; z-index: 100; pointer-events: auto; left: 50%; transform: translateX(-50%);">
+                Genesis Companion
+            </button>
+
             <!-- Instructions Panel (expandable) -->
             <div id="instructionsPanel" class="instructions-panel" style="display: none; max-width: 900px; margin: 0 auto 18px auto; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; z-index: 10; position: relative;">
                 <div class="instructions-content" style="text-align:center;">
@@ -3169,6 +3169,14 @@
                                 panel.style.display = 'none';
                             }
                         }
+
+                        // Handle companion button click
+                        window.handleCompanionClick = function(event) {
+                            console.log('🎯 Companion button clicked!', event);
+                            event.preventDefault();
+                            event.stopPropagation();
+                            window.toggleInstructions();
+                        }
                 // Add to Home Screen popup logic
                 function showAddToHomePopup() {
                     document.getElementById('addToHomeModal').style.display = 'flex';
@@ -3185,20 +3193,6 @@
                         document.getElementById('addToHome').style.display = 'block';
                     }
                     document.getElementById('addToHomeModal').style.display = 'none';
-                    
-                    // Add event listener for Genesis Companion button
-                    const genesisBtn = document.getElementById('genesisCompanionBtn');
-                    if (genesisBtn) {
-                        genesisBtn.addEventListener('click', function(e) {
-                            console.log('🎯 Button clicked via addEventListener!');
-                            e.preventDefault();
-                            e.stopPropagation();
-                            window.toggleInstructions();
-                        });
-                        console.log('✅ Event listener attached to Genesis Companion button');
-                    } else {
-                        console.log('❌ Genesis Companion button not found');
-                    }
                 });
         // Modal flow functions for first-time users
         function showFrequencyBenefits() {
