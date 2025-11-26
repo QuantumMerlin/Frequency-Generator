@@ -8637,7 +8637,14 @@
                 panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
                 // Render category-based content if showing
                 if (panel.style.display === 'block') {
+                    // Hide welcome content and show categories
+                    const welcomeContent = document.querySelector('.welcome-section-content');
+                    if (welcomeContent) welcomeContent.style.display = 'none';
                     renderInstructionsCategories();
+                } else {
+                    // Show welcome content when closing
+                    const welcomeContent = document.querySelector('.welcome-section-content');
+                    if (welcomeContent) welcomeContent.style.display = 'block';
                 }
             }
         }
