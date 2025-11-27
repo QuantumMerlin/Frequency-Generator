@@ -2987,23 +2987,6 @@
             </div>
         </div>
 
-        <!-- Achievements Section -->
-        <div class="section" id="achievementsSection" style="margin-top: 20px;">
-            <div class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <span>🏆</span>
-                <span>Your Spiritual Journey</span>
-                <span>🏆</span>
-            </div>
-            <div id="achievementsPreview" style="padding: 10px;">
-                <!-- Achievement stats and preview will be populated by JavaScript -->
-            </div>
-            <div style="text-align: center; margin-top: 15px;">
-                <button onclick="showFullAchievements()" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.3); transition: all 0.3s ease;">
-                    🎯 View All Achievements
-                </button>
-            </div>
-        </div>
-
         <!-- Info Modal -->
         <div class="info-modal" id="infoModal">
             <div class="info-modal-content">
@@ -3072,6 +3055,23 @@
 
         <div class="status stopped" id="status">
             Ready to Generate Genesis Frequencies
+        </div>
+
+        <!-- Achievements Section - Under the Frequency Player -->
+        <div class="section" id="achievementsSection" style="margin-top: 20px;">
+            <div class="section-title" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <span>🏆</span>
+                <span>Your Spiritual Journey</span>
+                <span>🏆</span>
+            </div>
+            <div id="achievementsPreview" style="padding: 10px;">
+                <!-- Achievement stats and preview will be populated by JavaScript -->
+            </div>
+            <div style="text-align: center; margin-top: 15px;">
+                <button onclick="showFullAchievements()" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.3); transition: all 0.3s ease;">
+                    🎯 View All Achievements
+                </button>
+            </div>
         </div>
 
         <div class="visualizer" style="margin-top: 20px;">
@@ -9340,6 +9340,27 @@
                 document.querySelectorAll('.duration-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         const time = e.target.dataset.time;
+                        const isPremium = localStorage.getItem('premiumAccessGranted') === 'true';
+                        
+                        // Check if current recipe is a freemium track
+                        const currentFreqs = [
+                            parseFloat(this.elements.freq1.value),
+                            parseFloat(this.elements.freq2.value),
+                            parseFloat(this.elements.freq3.value)
+                        ].filter(f => f > 0);
+                        
+                        // Freemium tracks: Genesis Creation (37,73), Sacred Healing (37,73,432)
+                        const isFreemiumTrack = (
+                            (currentFreqs.length === 2 && currentFreqs.includes(37) && currentFreqs.includes(73)) ||
+                            (currentFreqs.length === 3 && currentFreqs.includes(37) && currentFreqs.includes(73) && currentFreqs.includes(432))
+                        );
+                        
+                        // If not premium and not freemium track, show upgrade modal
+                        if (!isPremium && !isFreemiumTrack) {
+                            showUpgradeModal();
+                            return;
+                        }
+                        
                         this.elements.duration.value = time;
                         this.updateStatus(`⏱️ Duration set to ${time}`);
                         
