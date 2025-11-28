@@ -3863,8 +3863,15 @@
                 // Daily Challenge
                 dailyChallengeComplete: "Daily Challenge Complete!",
                 continueJourney: "Continue Your Journey",
-                // Companion Header
-                sacredListener: "Sacred Listener",
+                // Companion Header - Achievement Titles
+                titleSacredListener: "Sacred Listener",
+                titleSacredInitiate: "Sacred Initiate",
+                titleFrequencyExplorer: "Frequency Explorer",
+                titleTrinitySeeker: "Trinity Seeker",
+                titleDivineResonator: "Divine Resonator",
+                titleSacredHarmonist: "Sacred Harmonist",
+                titleFrequencySage: "Frequency Sage",
+                titleGenesisMaster: "Genesis Master",
                 dayStreak: "day streak",
                 beginJourney: "Begin your sacred journey today",
                 welcomeBack: "Welcome back! Ready to explore sacred frequencies?",
@@ -4127,8 +4134,15 @@
                 // Daily Challenge
                 dailyChallengeComplete: "Desafio Diário Completo!",
                 continueJourney: "Continue Sua Jornada",
-                // Companion Header
-                sacredListener: "Ouvinte Sagrado",
+                // Companion Header - Achievement Titles
+                titleSacredListener: "Ouvinte Sagrado",
+                titleSacredInitiate: "Iniciado Sagrado",
+                titleFrequencyExplorer: "Explorador de Frequências",
+                titleTrinitySeeker: "Buscador da Trindade",
+                titleDivineResonator: "Ressonador Divino",
+                titleSacredHarmonist: "Harmonista Sagrado",
+                titleFrequencySage: "Sábio das Frequências",
+                titleGenesisMaster: "Mestre Genesis",
                 dayStreak: "dias consecutivos",
                 beginJourney: "Comece sua jornada sagrada hoje",
                 welcomeBack: "Bem-vindo de volta! Pronto para explorar frequências sagradas?",
@@ -4391,8 +4405,15 @@
                 // Daily Challenge
                 dailyChallengeComplete: "¡Desafío Diario Completado!",
                 continueJourney: "Continúa Tu Viaje",
-                // Companion Header
-                sacredListener: "Oyente Sagrado",
+                // Companion Header - Achievement Titles
+                titleSacredListener: "Oyente Sagrado",
+                titleSacredInitiate: "Iniciado Sagrado",
+                titleFrequencyExplorer: "Explorador de Frecuencias",
+                titleTrinitySeeker: "Buscador de la Trinidad",
+                titleDivineResonator: "Resonador Divino",
+                titleSacredHarmonist: "Armonista Sagrado",
+                titleFrequencySage: "Sabio de Frecuencias",
+                titleGenesisMaster: "Maestro Genesis",
                 dayStreak: "días consecutivos",
                 beginJourney: "Comienza tu viaje sagrado hoy",
                 welcomeBack: "¡Bienvenido de nuevo! ¿Listo para explorar frecuencias sagradas?",
@@ -4655,8 +4676,15 @@
                 // Daily Challenge
                 dailyChallengeComplete: "Sfida Giornaliera Completata!",
                 continueJourney: "Continua il Tuo Viaggio",
-                // Companion Header
-                sacredListener: "Ascoltatore Sacro",
+                // Companion Header - Achievement Titles
+                titleSacredListener: "Ascoltatore Sacro",
+                titleSacredInitiate: "Iniziato Sacro",
+                titleFrequencyExplorer: "Esploratore di Frequenze",
+                titleTrinitySeeker: "Cercatore della Trinità",
+                titleDivineResonator: "Risonatore Divino",
+                titleSacredHarmonist: "Armonista Sacro",
+                titleFrequencySage: "Saggio delle Frequenze",
+                titleGenesisMaster: "Maestro Genesis",
                 dayStreak: "giorni consecutivi",
                 beginJourney: "Inizia oggi il tuo viaggio sacro",
                 welcomeBack: "Bentornato! Pronto per esplorare frequenze sacre?",
@@ -6526,7 +6554,21 @@
         }
 
         function getLevelTitle(level) {
-            return 'Sacred Listener';
+            // Achievement-based titles that progress with usage
+            const totalSessions = userProgress.totalSessions || 0;
+            const streak = userProgress.currentStreak || 0;
+            const achievementsUnlocked = Object.keys(userProgress.achievements || {}).length;
+            const t = translations[currentLanguage];
+            
+            // Titles based on journey progress (translated)
+            if (achievementsUnlocked >= 20 || totalSessions >= 100) return t.titleGenesisMaster || 'Genesis Master';
+            if (achievementsUnlocked >= 15 || totalSessions >= 73) return t.titleFrequencySage || 'Frequency Sage';
+            if (achievementsUnlocked >= 10 || totalSessions >= 50) return t.titleSacredHarmonist || 'Sacred Harmonist';
+            if (streak >= 21 || totalSessions >= 37) return t.titleDivineResonator || 'Divine Resonator';
+            if (achievementsUnlocked >= 5 || totalSessions >= 21) return t.titleTrinitySeeker || 'Trinity Seeker';
+            if (streak >= 7 || totalSessions >= 10) return t.titleFrequencyExplorer || 'Frequency Explorer';
+            if (totalSessions >= 3) return t.titleSacredInitiate || 'Sacred Initiate';
+            return t.titleSacredListener || 'Sacred Listener';
         }
 
         function awardXP(amount) {
@@ -8819,6 +8861,7 @@
             
             // Navigate to achievements page or show modal
             const modal = document.createElement('div');
+            modal.id = 'achievementsFullModal';
             modal.className = 'achievements-full-modal';
             modal.style.cssText = `
                 position: fixed;
@@ -8827,14 +8870,23 @@
                 width: 100%;
                 height: 100%;
                 background: rgba(0,0,0,0.95);
-                z-index: 1000010;
+                z-index: 100010;
                 overflow-y: auto;
                 padding: 20px;
             `;
             
+            // Close function
+            function closeAchievementsModal() {
+                const m = document.getElementById('achievementsFullModal');
+                if (m) m.remove();
+            }
+            
+            // Store close function globally
+            window.closeAchievementsModal = closeAchievementsModal;
+            
             modal.innerHTML = `
                 <div style="max-width: 1200px; margin: 0 auto; position: relative;">
-                    <button onclick="this.closest('div').parentElement.remove()" style="
+                    <button onclick="window.closeAchievementsModal();" style="
                         position: sticky;
                         top: 20px;
                         right: 0;
@@ -8853,6 +8905,11 @@
                     ${renderAchievementsDashboard()}
                 </div>
             `;
+            
+            // Click outside content to close
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeAchievementsModal();
+            });
             
             document.body.appendChild(modal);
         }
@@ -9423,8 +9480,11 @@
             const totalMinutes = Math.floor((userProgress.totalSeconds || 0) / 60);
             const streak = userProgress.currentStreak || 0;
 
+            // Get dynamic title based on achievements
+            const userTitle = getLevelTitle();
+            
             greetingContainer.innerHTML = `
-                ${timeInfo.emoji} ${timeInfo.greeting}, ${t.sacredListener || 'Sacred Listener'}
+                ${timeInfo.emoji} ${timeInfo.greeting}, ${userTitle}
                 <span style="font-size: 14px; color: #c4b5fd; font-weight: 400; display: block; margin-top: 4px;">
                     ${streak > 0 ? `🔥 ${streak} ${t.dayStreak || 'day streak'}` : (t.beginJourney || 'Begin your sacred journey today')}
                 </span>
@@ -9450,15 +9510,12 @@
                 </div>
             `;
 
-            // Quick action buttons
+            // Quick action buttons (removed Start Session - user can use main PLAY button)
             actionsContainer.innerHTML = `
-                <button onclick="document.getElementById('instructionsPanel').style.display='none'; startQuickSession();" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                    <span>▶</span> ${t.btnStartSession || 'Start Session'}
-                </button>
-                <button onclick="showDailyChallengeModal();" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <button onclick="showDailyChallengeModal();" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     <span>🎯</span> ${t.btnDailyChallenge || 'Daily Challenge'}
                 </button>
-                <button onclick="if(typeof showFullAchievements === 'function') showFullAchievements();" style="background: rgba(139,92,246,0.3); color: #c4b5fd; border: 1px solid rgba(139,92,246,0.5); border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                <button onclick="if(typeof showFullAchievements === 'function') showFullAchievements();" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
                     <span>🏆</span> ${t.btnAchievements || 'Achievements'}
                 </button>
             `;
@@ -9491,6 +9548,7 @@
             const challenge = typeof renderDailyChallenge === 'function' ? renderDailyChallenge() : '<p style="color:#fff;">Complete a session today to unlock your daily challenge!</p>';
             
             const modal = document.createElement('div');
+            modal.id = 'dailyChallengeModal';
             modal.className = 'daily-challenge-modal';
             modal.style.cssText = `
                 position: fixed;
@@ -9499,25 +9557,39 @@
                 width: 100%;
                 height: 100%;
                 background: rgba(0,0,0,0.9);
-                z-index: 1000010;
+                z-index: 100010;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 20px;
             `;
+            
+            // Close function
+            function closeDailyChallengeModal() {
+                const m = document.getElementById('dailyChallengeModal');
+                if (m) m.remove();
+            }
+            
+            // Store close function globally
+            window.closeDailyChallengeModal = closeDailyChallengeModal;
 
             modal.innerHTML = `
                 <div style="background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.3)); border-radius: 18px; padding: 30px; max-width: 500px; width: 100%; position: relative; color: #fff; text-align: center; border: 2px solid rgba(251,191,36,0.3);">
-                    <button onclick="this.closest('.daily-challenge-modal').remove();" style="background: none; border: none; color: #c4b5fd; font-size: 28px; cursor: pointer; position: absolute; top: 15px; right: 20px;">✕</button>
+                    <button onclick="window.closeDailyChallengeModal();" style="background: none; border: none; color: #c4b5fd; font-size: 28px; cursor: pointer; position: absolute; top: 15px; right: 20px;">✕</button>
                     <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin-bottom: 20px;">🎯 Today's Sacred Challenge</h2>
                     <div style="line-height: 1.6;">
                         ${challenge}
                     </div>
-                    <button onclick="this.closest('.daily-challenge-modal').remove();" style="margin-top: 20px; background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                    <button onclick="window.closeDailyChallengeModal();" style="margin-top: 20px; background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">
                         Got It!
                     </button>
                 </div>
             `;
+            
+            // Click outside to close
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeDailyChallengeModal();
+            });
 
             document.body.appendChild(modal);
         }
@@ -9531,26 +9603,27 @@
             // Render personalized header first
             renderCompanionHeader();
 
-            // Define instruction categories - now with ALL sections organized into 4 logical groups
+            // Define instruction categories - organized for optimal user experience
+            // Order: Quick actions first, then understanding, then deeper content
             const instructionCategories = {
-                "🚀 Your Journey": [
-                    { id: 'quickStart', icon: '⚡', title: 'Quick Start Guide', content: instructionsSections.find(s => s.id === 'quickStart')?.content || '' },
-                    { id: 'usageTips', icon: '🎧', title: 'Best Practices', content: instructionsSections.find(s => s.id === 'usageTips')?.content || '' }
+                "⚡ Quick Start": [
+                    { id: 'quickStart', icon: '🎯', title: 'Your First Session', content: instructionsSections.find(s => s.id === 'quickStart')?.content || '' },
+                    { id: 'usageTips', icon: '🎧', title: 'Best Practices', content: instructionsSections.find(s => s.id === 'usageTips')?.content || '' },
+                    { id: 'categories', icon: '📂', title: 'Frequency Categories', content: instructionsSections.find(s => s.id === 'categories')?.content || '' }
                 ],
-                "🧠 Understanding": [
-                    { id: 'welcome', icon: '🌟', title: 'Welcome & Overview', content: instructionsSections.find(s => s.id === 'welcome')?.content || '' },
-                    { id: 'myJourney', icon: '📖', title: 'The Discovery Story', content: instructionsSections.find(s => s.id === 'myJourney')?.content || '' },
+                "✨ The Science": [
+                    { id: 'trinity', icon: '🔺', title: 'The Trinity Foundation', content: instructionsSections.find(s => s.id === 'trinity')?.content || '' },
                     { id: 'whyWorks', icon: '💡', title: 'Why 37 & 73 Hz Work', content: instructionsSections.find(s => s.id === 'whyWorks')?.content || '' },
-                    { id: 'trinity', icon: '🔺', title: 'The Trinity Foundation', content: instructionsSections.find(s => s.id === 'trinity')?.content || '' }
+                    { id: 'waterCharging', icon: '💧', title: 'Water Charging', content: instructionsSections.find(s => s.id === 'waterCharging')?.content || '' }
                 ],
-                "🎵 Practice": [
-                    { id: 'categories', icon: '📂', title: 'Frequency Categories', content: instructionsSections.find(s => s.id === 'categories')?.content || '' },
-                    { id: 'waterCharging', icon: '💧', title: 'Quantum Holy Water', content: instructionsSections.find(s => s.id === 'waterCharging')?.content || '' }
+                "📖 The Story": [
+                    { id: 'welcome', icon: '🌟', title: 'About Genesis FG', content: instructionsSections.find(s => s.id === 'welcome')?.content || '' },
+                    { id: 'myJourney', icon: '🔮', title: 'The Discovery', content: instructionsSections.find(s => s.id === 'myJourney')?.content || '' }
                 ],
-                "💬 Support": [
-                    { id: 'faq', icon: '❓', title: 'FAQ & Troubleshooting', content: instructionsSections.find(s => s.id === 'faq')?.content || '' },
-                    { id: 'share', icon: '🔗', title: 'Share & Connect', content: instructionsSections.find(s => s.id === 'share')?.content || '' },
-                    { id: 'credits', icon: '📝', title: 'Credits & Sources', content: instructionsSections.find(s => s.id === 'credits')?.content || '' }
+                "❓ Help": [
+                    { id: 'faq', icon: '💬', title: 'FAQ', content: instructionsSections.find(s => s.id === 'faq')?.content || '' },
+                    { id: 'share', icon: '🔗', title: 'Share', content: instructionsSections.find(s => s.id === 'share')?.content || '' },
+                    { id: 'credits', icon: '📝', title: 'Credits', content: instructionsSections.find(s => s.id === 'credits')?.content || '' }
                 ]
             };
 
