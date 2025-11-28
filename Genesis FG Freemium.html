@@ -2923,7 +2923,6 @@
                 <div class="instructions-content" style="text-align:center;">
                     <div class="instructions-header" style="display: flex; justify-content: center; align-items: center;">
                         <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin: 0 auto; text-align:center; width:100%;">Genesis Frequency Companion</h2>
-                        <button class="btn-close" id="companionCloseBtn" style="background: none; border: none; color: #c4b5fd; font-size: 28px; cursor: pointer; position:absolute; right:24px; z-index: 1000002; padding: 10px;">✕</button>
                     </div>
                     
                     <!-- Personalized Welcome Header -->
@@ -2949,6 +2948,13 @@
                         </div>
 
                         <div style="margin-top:32px; text-align:center; color:#fbbf24; font-size:18px; font-weight:700;">Your complete Genesis companion for divine frequency mastery.</div>
+                        
+                        <!-- Return to Tracks Button -->
+                        <div style="margin-top: 25px; text-align: center;">
+                            <button onclick="window.toggleInstructions();" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.4);">
+                                ← Return to Tracks
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3179,65 +3185,65 @@
                         window.toggleInstructions = function() {
                             console.log('🎯 toggleInstructions called!');
                             var panel = document.getElementById('instructionsPanel');
+                            var overlay = document.getElementById('instructionsOverlay');
                             console.log('📋 Panel element:', panel);
-                            if (panel.style.display === 'none' || panel.style.display === '') {
-                                console.log('📂 Showing panel');
+                            console.log('📋 Overlay element:', overlay);
+                            
+                            // If overlay exists, we're closing
+                            if (overlay) {
+                                console.log('📁 Closing panel - removing overlay');
+                                try {
+                                    // First move panel back to header
+                                    var header = document.querySelector('.header');
+                                    if (header && panel) {
+                                        panel.style.cssText = 'display: none; max-width: 900px; margin: 0 auto 18px auto; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; z-index: 10; position: relative;';
+                                        header.appendChild(panel);
+                                    }
+                                    // Then remove overlay
+                                    overlay.remove();
+                                    // Restore body scroll
+                                    document.body.style.overflow = '';
+                                    // Scroll to top
+                                    window.scrollTo(0, 0);
+                                } catch (e) {
+                                    console.error('Error closing panel:', e);
+                                    // Fallback: just remove overlay
+                                    if (overlay) overlay.remove();
+                                    document.body.style.overflow = '';
+                                }
+                            } else if (panel && (panel.style.display === 'none' || panel.style.display === '')) {
+                                console.log('📂 Opening panel');
                                 // Create modal overlay
-                                var overlay = document.createElement('div');
-                                overlay.id = 'instructionsOverlay';
-                                overlay.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000000; display: flex; align-items: center; justify-content: center;';
-                                // Safari-compatible: only close if clicking directly on overlay, not its children
-                                overlay.addEventListener('click', function(e) {
-                                    if (e.target === overlay) {
+                                var newOverlay = document.createElement('div');
+                                newOverlay.id = 'instructionsOverlay';
+                                newOverlay.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 2000000; display: flex; align-items: center; justify-content: center; overflow-y: auto;';
+                                
+                                // Click on overlay background to close
+                                newOverlay.addEventListener('click', function(e) {
+                                    if (e.target === newOverlay) {
                                         window.toggleInstructions();
                                     }
                                 });
                                 
                                 // Style the panel for modal
-                                panel.style.cssText = 'display: block; position: relative; z-index: 1000001; max-width: 900px; margin: 0; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; max-height: 80vh; overflow-y: auto;';
+                                panel.style.cssText = 'display: block; position: relative; z-index: 2000001; max-width: 900px; margin: 20px; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; max-height: 90vh; overflow-y: auto;';
                                 
-                                overlay.appendChild(panel);
-                                document.body.appendChild(overlay);
+                                newOverlay.appendChild(panel);
+                                document.body.appendChild(newOverlay);
                                 
                                 renderInstructionsCategories();
                                 addInstructionsSearch();
-                            } else {
-                                console.log('📁 Hiding panel');
-                                var overlay = document.getElementById('instructionsOverlay');
-                                if (overlay) {
-                                    // Reset panel styles
-                                    panel.style.cssText = 'display: none; max-width: 900px; margin: 0 auto 18px auto; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; z-index: 10; position: relative;';
-                                    // Move panel back to original location
-                                    document.querySelector('.header').appendChild(panel);
-                                    // Remove overlay
-                                    document.body.removeChild(overlay);
-                                }
                             }
                         }
 
                         // Handle companion button click
                         window.handleCompanionClick = function(event) {
                             console.log('🎯 Companion button clicked!', event);
-                            console.log('Event target:', event.target);
-                            console.log('Event type:', event.type);
                             event.preventDefault();
                             event.stopPropagation();
-                            console.log('Calling toggleInstructions...');
                             window.toggleInstructions();
-                            console.log('toggleInstructions called successfully');
-                            
-                            // Bind close button after panel is shown (Safari compatibility)
-                            setTimeout(function() {
-                                var closeBtn = document.getElementById('companionCloseBtn');
-                                if (closeBtn) {
-                                    closeBtn.onclick = function(e) {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        window.toggleInstructions();
-                                    };
-                                }
-                            }, 100);
                         }
+                        
                 // Add to Home Screen popup logic
                 function showAddToHomePopup() {
                     document.getElementById('addToHomeModal').style.display = 'flex';
@@ -9515,24 +9521,23 @@
             const dashboardContent = renderAchievementsDashboard();
             
             modal.innerHTML = `
-                <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2000001;">
-                    <button onclick="window.closeAchievementsModal();" style="
-                        position: sticky;
-                        top: 20px;
-                        right: 0;
-                        float: right;
-                        background: rgba(139,92,246,0.3);
-                        border: none;
-                        color: #fff;
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        font-size: 20px;
-                        cursor: pointer;
-                        z-index: 2000002;
-                    ">✕</button>
-                    
+                <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 2000001; padding-bottom: 40px;">
                     ${dashboardContent}
+                    
+                    <!-- Return to Tracks Button -->
+                    <div style="text-align: center; margin-top: 30px; padding-bottom: 20px;">
+                        <button onclick="window.closeAchievementsModal();" style="
+                            background: linear-gradient(90deg, #8b5cf6, #6b46c1);
+                            color: #fff;
+                            border: none;
+                            border-radius: 25px;
+                            padding: 15px 35px;
+                            font-size: 18px;
+                            font-weight: 700;
+                            cursor: pointer;
+                            box-shadow: 0 4px 15px rgba(139,92,246,0.4);
+                        ">← Return to Tracks</button>
+                    </div>
                 </div>
             `;
             
@@ -10240,13 +10245,12 @@
 
             modal.innerHTML = `
                 <div style="background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.3)); border-radius: 18px; padding: 30px; max-width: 500px; width: 100%; position: relative; z-index: 2000001; color: #fff; text-align: center; border: 2px solid rgba(251,191,36,0.3);">
-                    <button onclick="window.closeDailyChallengeModal();" style="background: none; border: none; color: #c4b5fd; font-size: 28px; cursor: pointer; position: absolute; top: 15px; right: 20px; z-index: 2000002;">✕</button>
                     <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin-bottom: 20px;">🎯 Today's Sacred Challenge</h2>
                     <div style="line-height: 1.6;">
                         ${challenge}
                     </div>
-                    <button onclick="window.closeDailyChallengeModal();" style="margin-top: 20px; background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">
-                        Got It!
+                    <button onclick="window.closeDailyChallengeModal();" style="margin-top: 25px; background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.4);">
+                        ← Return to Tracks
                     </button>
                 </div>
             `;
@@ -10301,10 +10305,8 @@
                 const categoryTab = document.createElement('div');
                 categoryTab.className = 'category-tab';
 
-                // First category starts expanded for better UX
-                if (categoryIndex === 0) {
-                    categoryTab.classList.add('expanded');
-                }
+                // All categories start collapsed for cleaner UX
+                // User can expand what they want to see
 
                 categoryTab.innerHTML = `
                     <div class="category-header" style="background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(251,191,36,0.1));">
