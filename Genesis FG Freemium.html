@@ -1361,18 +1361,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
             padding: 20px;
-            animation: fadeIn 0.3s ease;
-            will-change: opacity;
+            box-sizing: border-box;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .info-modal.active {
-            display: flex;
+            display: flex !important;
+            -webkit-display: flex !important;
         }
 
         /* Upgrade modal sits on top, not dimmed */
@@ -1411,11 +1415,55 @@
             z-index: 10000 !important;
         }
         
-        /* Safari compatibility for welcome modal */
-        #immersiveWelcome.active {
+        /* Safari/WebKit compatibility for welcome modals */
+        #immersiveWelcome.active,
+        #frequencyBenefitsModal.active,
+        #howToUseModal.active,
+        #pwaTipModal.active,
+        #upgradeBenefitsModal.active {
             display: flex !important;
+            -webkit-display: flex !important;
             opacity: 1 !important;
             visibility: visible !important;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        
+        /* Welcome flow header styles */
+        .welcome-header {
+            color: #ffd700 !important;
+            font-size: 32px !important;
+            font-weight: 800 !important;
+            text-align: center !important;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 2px 4px rgba(0,0,0,0.5) !important;
+            margin-bottom: 25px !important;
+        }
+        
+        .welcome-language-selector {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .welcome-lang-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            background: rgba(26, 0, 51, 0.6);
+            color: #c4b5fd;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .welcome-lang-btn:hover,
+        .welcome-lang-btn.active {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            color: #1a0033;
+            border-color: #fbbf24;
         }
 
         @keyframes fadeIn {
@@ -2568,255 +2616,239 @@
 <body>
     <!-- Immersive Welcome Modal -->
     <div id="immersiveWelcome" class="info-modal" style="z-index:5000;">
-        <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.95), rgba(139,92,246,0.9)); border: 2px solid rgba(251,191,36,0.5);">
-            <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">Welcome to Genesis Frequencies</div>
+        <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
+            <!-- Language Selector at top -->
+            <div class="welcome-language-selector">
+                <button class="welcome-lang-btn active" onclick="setWelcomeLanguage('en')">🇺🇸 EN</button>
+                <button class="welcome-lang-btn" onclick="setWelcomeLanguage('pt')">🇧🇷 PT</button>
+                <button class="welcome-lang-btn" onclick="setWelcomeLanguage('es')">🇪🇸 ES</button>
+                <button class="welcome-lang-btn" onclick="setWelcomeLanguage('it')">🇮🇹 IT</button>
+            </div>
+            <div class="welcome-header">✨ Welcome to Genesis Frequencies ✨</div>
             <div class="info-modal-body" style="color: #ffffff; font-size: 18px; line-height: 1.6;">
-                <div style="text-align:center;line-height:1.8;padding:20px;">
-                    <p style="font-size:18px;color:#fbbf24;margin-bottom:20px;font-weight:600;">
+                <div style="text-align:center;line-height:1.8;padding:10px 20px 20px 20px;">
+                    <p style="font-size:18px;color:#ffd700;margin-bottom:20px;font-weight:600;">
                         The frequencies of creation are now in your hands.
                     </p>
-                    <div style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(139,92,246,0.15));border-radius:14px;padding:20px;margin:20px 0;border:2px solid rgba(251,191,36,0.3);">
-                        <div style="font-size:24px;color:#fbbf24;margin-bottom:10px;font-weight:700;">
+                    <div style="background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(139,92,246,0.2));border-radius:14px;padding:20px;margin:20px 0;border:2px solid rgba(251,191,36,0.4);box-shadow: 0 0 30px rgba(251,191,36,0.15);">
+                        <div style="font-size:28px;color:#ffd700;margin-bottom:10px;font-weight:800;text-shadow: 0 0 10px rgba(251,191,36,0.5);">
                             37 × 73 = 2701
                         </div>
-                        <div style="font-size:15px;color:#ffffff;margin-bottom:8px;">
+                        <div style="font-size:16px;color:#ffffff;margin-bottom:8px;">
                             Genesis 1:1 in Hebrew = 2701
                         </div>
-                        <div style="font-size:14px;color:#c4b5fd;font-style:italic;margin-top:10px;">
+                        <div style="font-size:14px;color:#e9d5ff;font-style:italic;margin-top:10px;">
                             "In the beginning God created..."
                         </div>
                     </div>
                     <p style="color:#ffffff;margin-bottom:15px;font-size:15px;">
-                        These frequencies are encoded in the <b>first verse of the Bible</b>.<br>
+                        These frequencies are encoded in the <b style="color:#ffd700;">first verse of the Bible</b>.<br>
                         Hidden in Scripture for thousands of years.
                     </p>
-                    <p style="font-size:16px;color:#fbbf24;font-weight:600;margin-top:20px;">
+                    <p style="font-size:17px;color:#ffd700;font-weight:600;margin-top:20px;">
                         Take a deep breath. Set your intention.
                     </p>
-                    <p style="color:#a78bfa;font-size:14px;margin-top:10px;">
+                    <p style="color:#e9d5ff;font-size:14px;margin-top:10px;">
                         Your journey begins now.
                     </p>
                 </div>
             </div>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-                <button onclick="showFrequencyBenefits()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">Next</button>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
+                <button onclick="showFrequencyBenefits()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 40px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(251,191,36,0.4); transition: transform 0.2s;">Begin →</button>
             </div>
         </div>
     </div>
 
-    </div>
-
     <!-- Frequency Benefits Modal -->
     <div id="frequencyBenefitsModal" class="info-modal" style="z-index:4500;">
-        <div class="info-modal-content" style="max-width: 600px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.95), rgba(139,92,246,0.9)); border: 2px solid rgba(251,191,36,0.5);">
-            <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">What Can These Frequencies Do?</div>
+        <div class="info-modal-content" style="max-width: 600px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
+            <div class="welcome-header">🎵 What Can These Frequencies Do? 🎵</div>
             <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6; text-align: left;">
-                <div style="line-height:1.8;padding:20px;">
-                    <p style="text-align:center;font-size:16px;color:#fbbf24;margin-bottom:20px;font-weight:600;">
+                <div style="line-height:1.8;padding:10px 20px 20px 20px;">
+                    <p style="text-align:center;font-size:16px;color:#ffd700;margin-bottom:20px;font-weight:600;">
                         Built on the Trinity Foundation: 37 Hz + 73 Hz + one intention frequency
                     </p>
                     
-                    <div style="margin-bottom:20px;padding:15px;background:rgba(139,92,246,0.08);border-radius:10px;">
-                        <div style="font-size:18px;margin-bottom:8px;">🧘‍♀️ <b style="color:#fbbf24;">Meditation & Prayer</b></div>
+                    <div style="margin-bottom:15px;padding:15px;background:rgba(139,92,246,0.12);border-radius:12px;border-left:4px solid #fbbf24;">
+                        <div style="font-size:17px;margin-bottom:8px;">🧘‍♀️ <b style="color:#ffd700;">Meditation & Prayer</b></div>
                         <p style="font-size:14px;color:#ffffff;margin:0;">
-                            Deepen your spiritual practice with frequencies designed to quiet the mind, 
-                            enhance focus, and support sacred contemplation.
+                            Deepen your spiritual practice with frequencies designed to quiet the mind and enhance focus.
                         </p>
                     </div>
                     
-                    <div style="margin-bottom:20px;padding:15px;background:rgba(139,92,246,0.08);border-radius:10px;">
-                        <div style="font-size:18px;margin-bottom:8px;">💫 <b style="color:#fbbf24;">Energy Work & Balance</b></div>
+                    <div style="margin-bottom:15px;padding:15px;background:rgba(139,92,246,0.12);border-radius:12px;border-left:4px solid #8b5cf6;">
+                        <div style="font-size:17px;margin-bottom:8px;">💫 <b style="color:#ffd700;">Energy Work & Balance</b></div>
                         <p style="font-size:14px;color:#ffffff;margin:0;">
-                            Support your body's energy centers (chakras) and restore natural harmony 
-                            using frequencies rooted in biblical mathematics.
+                            Support your energy centers and restore natural harmony using biblical mathematics.
                         </p>
                     </div>
                     
-                    <div style="margin-bottom:20px;padding:15px;background:rgba(139,92,246,0.08);border-radius:10px;">
-                        <div style="font-size:18px;margin-bottom:8px;">🌙 <b style="color:#fbbf24;">Rest & Renewal</b></div>
+                    <div style="margin-bottom:15px;padding:15px;background:rgba(139,92,246,0.12);border-radius:12px;border-left:4px solid #fbbf24;">
+                        <div style="font-size:17px;margin-bottom:8px;">🌙 <b style="color:#ffd700;">Rest & Renewal</b></div>
                         <p style="font-size:14px;color:#ffffff;margin:0;">
-                            Promote deep relaxation, improve sleep quality, and release tension. 
-                            Many users report feeling more peaceful after sessions.
+                            Promote deep relaxation and improve sleep quality. Feel more peaceful after sessions.
                         </p>
                     </div>
                     
-                    <div style="margin-bottom:20px;padding:15px;background:rgba(139,92,246,0.08);border-radius:10px;">
-                        <div style="font-size:18px;margin-bottom:8px;">🎨 <b style="color:#fbbf24;">Creative Flow & Clarity</b></div>
+                    <div style="margin-bottom:15px;padding:15px;background:rgba(139,92,246,0.12);border-radius:12px;border-left:4px solid #8b5cf6;">
+                        <div style="font-size:17px;margin-bottom:8px;">🎨 <b style="color:#ffd700;">Creative Flow & Clarity</b></div>
                         <p style="font-size:14px;color:#ffffff;margin:0;">
-                            Unlock inspiration, enhance focus, and access flow states for work, 
-                            art, writing, and problem-solving.
+                            Unlock inspiration, enhance focus, and access flow states for work and creativity.
                         </p>
                     </div>
                     
-                    <p style="text-align:center;font-size:13px;color:#9ca3af;margin-top:20px;font-style:italic;">
+                    <p style="text-align:center;font-size:12px;color:#a78bfa;margin-top:15px;font-style:italic;">
                         For spiritual exploration • Not medical treatment
                     </p>
                 </div>
             </div>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-                <button onclick="showHowToUse()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">How to Use</button>
-                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #c4b5fd; border: none; border-radius: 25px; padding: 15px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">Skip to App</button>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px;">
+                <button onclick="showHowToUse()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(251,191,36,0.4);">How to Use →</button>
+                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #e9d5ff; border: 1px solid rgba(139,92,246,0.5); border-radius: 25px; padding: 15px 25px; font-size: 16px; font-weight: 600; cursor: pointer;">Skip</button>
             </div>
         </div>
     </div>
 
     <!-- How to Use Modal -->
     <div id="howToUseModal" class="info-modal" style="z-index:4000;">
-        <div class="info-modal-content" style="max-width: 600px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.95), rgba(139,92,246,0.9)); border: 2px solid rgba(251,191,36,0.5);">
-            <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">Your First Session in 3 Steps</div>
+        <div class="info-modal-content" style="max-width: 600px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
+            <div class="welcome-header">🎯 Your First Session in 3 Steps 🎯</div>
             <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6; text-align: left;">
-                <div style="line-height:1.8;padding:20px;">
-                    <div style="background:rgba(251,191,36,0.1);border-radius:12px;padding:20px;margin-bottom:20px;border-left:4px solid #fbbf24;">
-                        <p style="font-size:16px;color:#fbbf24;margin-bottom:15px;font-weight:600;">
+                <div style="line-height:1.8;padding:10px 20px 20px 20px;">
+                    <div style="background:rgba(251,191,36,0.15);border-radius:12px;padding:18px;margin-bottom:18px;border-left:4px solid #fbbf24;">
+                        <p style="font-size:16px;color:#ffd700;margin-bottom:12px;font-weight:700;">
                             🎧 Quick Start
                         </p>
-                        <ol style="text-align:left;color:#ffffff;font-size:14px;line-height:1.7;padding-left:20px;">
-                            <li style="margin-bottom:10px;">
-                                <b>Choose "Genesis Creation"</b> from the Biblical & Original category<br>
-                                <span style="font-size:12px;color:#a78bfa;">This is the pure 37 + 73 Hz foundation</span>
+                        <ol style="text-align:left;color:#ffffff;font-size:14px;line-height:1.7;padding-left:20px;margin:0;">
+                            <li style="margin-bottom:8px;">
+                                <b>Choose "Genesis Creation"</b> from Biblical & Original<br>
+                                <span style="font-size:12px;color:#e9d5ff;">The pure 37 + 73 Hz foundation</span>
                             </li>
-                            <li style="margin-bottom:10px;">
+                            <li style="margin-bottom:8px;">
                                 <b>Set duration to 5-10 minutes</b> and put on headphones<br>
-                                <span style="font-size:12px;color:#a78bfa;">Start short—you can go longer once you feel the frequencies</span>
+                                <span style="font-size:12px;color:#e9d5ff;">Start short—go longer once you feel it</span>
                             </li>
                             <li>
-                                <b>Press PLAY, close your eyes,</b> breathe slowly, and set one intention<br>
-                                <span style="font-size:12px;color:#a78bfa;">Simple is powerful: "peace," "clarity," "guidance," or "thank you"</span>
+                                <b>Press PLAY, close your eyes,</b> breathe slowly<br>
+                                <span style="font-size:12px;color:#e9d5ff;">Set one intention: "peace," "clarity," or "thank you"</span>
                             </li>
                         </ol>
                     </div>
                     
-                    <div style="background:rgba(139,92,246,0.08);border-radius:12px;padding:20px;margin-bottom:20px;">
-                        <p style="font-size:16px;color:#c4b5fd;margin-bottom:12px;font-weight:600;">
+                    <div style="background:rgba(139,92,246,0.12);border-radius:12px;padding:15px;margin-bottom:15px;">
+                        <p style="font-size:15px;color:#e9d5ff;margin-bottom:10px;font-weight:600;">
                             ⚙️ Controls You'll Use
                         </p>
-                        <ul style="text-align:left;color:#ffffff;font-size:14px;line-height:1.6;padding-left:20px;">
-                            <li><b>Frequencies:</b> Explore categories (Biblical, Angel Numbers, Solfeggio, etc.)</li>
-                            <li><b>Volume:</b> Start low and adjust to comfort</li>
-                            <li><b>Duration:</b> Set a timer for your session</li>
-                            <li><b>Play/Pause:</b> Control your session as needed</li>
+                        <ul style="text-align:left;color:#ffffff;font-size:13px;line-height:1.6;padding-left:20px;margin:0;">
+                            <li><b style="color:#ffd700;">Categories:</b> Biblical, Angel Numbers, Solfeggio, etc.</li>
+                            <li><b style="color:#ffd700;">Volume:</b> Start low and adjust</li>
+                            <li><b style="color:#ffd700;">Duration:</b> Set your session timer</li>
                         </ul>
                     </div>
                     
-                    <div style="background:rgba(251,191,36,0.08);border-radius:10px;padding:18px;">
-                        <p style="font-size:16px;color:#fbbf24;margin-bottom:10px;font-weight:600;">
+                    <div style="background:rgba(251,191,36,0.1);border-radius:10px;padding:15px;">
+                        <p style="font-size:15px;color:#ffd700;margin-bottom:8px;font-weight:600;">
                             💡 Pro Tips
                         </p>
-                        <ul style="text-align:left;color:#ffffff;font-size:13px;line-height:1.6;padding-left:20px;">
+                        <ul style="text-align:left;color:#ffffff;font-size:12px;line-height:1.5;padding-left:20px;margin:0;">
                             <li>Use during meditation, prayer, or yoga</li>
-                            <li>Drink water before and after sessions</li>
-                            <li>Try different frequencies at different times of day</li>
-                            <li>Journal 1-2 sentences after each session</li>
+                            <li>Drink water before and after</li>
+                            <li>Journal after each session</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-                <button onclick="showPWATip()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">Pro Tip</button>
-                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #c4b5fd; border: none; border-radius: 25px; padding: 15px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">Skip to App</button>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px;">
+                <button onclick="showPWATip()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(251,191,36,0.4);">Pro Tip →</button>
+                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #e9d5ff; border: 1px solid rgba(139,92,246,0.5); border-radius: 25px; padding: 15px 25px; font-size: 16px; font-weight: 600; cursor: pointer;">Skip</button>
             </div>
         </div>
     </div>
 
     <!-- PWA Tip Modal -->
     <div id="pwaTipModal" class="info-modal" style="z-index:3500;">
-        <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.95), rgba(139,92,246,0.9)); border: 2px solid rgba(251,191,36,0.5);">
-            <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">⚡ Pro Tip</div>
+        <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
+            <div class="welcome-header">📱 Add to Home Screen 📱</div>
             <div class="info-modal-body" style="color: #fff; font-size: 18px; line-height: 1.6;">
-                <div style="text-align:center;line-height:1.8;padding:20px;">
-                    <p style="font-size:18px;color:#fbbf24;margin-bottom:15px;font-weight:600;">
-                        Add to Your Home Screen for the Full Experience
+                <div style="text-align:center;line-height:1.8;padding:10px 20px 20px 20px;">
+                    <p style="font-size:17px;color:#ffd700;margin-bottom:15px;font-weight:600;">
+                        Get the Full Experience
                     </p>
-                    <div style="background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(251,191,36,0.1));border-radius:14px;padding:20px;margin:20px 0;">
-                        <p style="font-size:16px;color:#ffffff;margin-bottom:15px;">
-                            📱 <b>Why add Genesis FG to your home screen?</b>
-                        </p>
-                        <ul style="text-align:left;max-width:400px;margin:0 auto;color:#ffffff;font-size:14px;line-height:1.7;">
-                            <li>⚡ <b>Works offline</b> — Listen anytime, anywhere</li>
-                            <li>🚀 <b>Faster loading</b> — Instant access with one tap</li>
-                            <li>🎵 <b>Background playback</b> — Frequencies continue while you work</li>
-                            <li>📊 <b>Track your progress</b> — Session streaks and achievements</li>
+                    <div style="background:linear-gradient(135deg,rgba(139,92,246,0.15),rgba(251,191,36,0.15));border-radius:14px;padding:18px;margin:15px 0;">
+                        <ul style="text-align:left;max-width:350px;margin:0 auto;color:#ffffff;font-size:14px;line-height:1.8;list-style:none;padding:0;">
+                            <li>⚡ <b style="color:#ffd700;">Works offline</b> — Listen anytime</li>
+                            <li>🚀 <b style="color:#ffd700;">Faster loading</b> — One tap access</li>
+                            <li>🎵 <b style="color:#ffd700;">Background playback</b> — While you work</li>
+                            <li>📊 <b style="color:#ffd700;">Track progress</b> — Streaks & achievements</li>
                         </ul>
                     </div>
-                    <div style="background:rgba(139,92,246,0.08);border-radius:10px;padding:15px;margin:20px 0;">
-                        <p style="color:#c4b5fd;font-weight:600;margin-bottom:8px;">How to install:</p>
-                        <p style="color:#ffffff;font-size:13px;">
-                            Tap your browser's <b>Share button</b> (iOS) or <b>Menu</b> (Android)<br>
+                    <div style="background:rgba(139,92,246,0.12);border-radius:10px;padding:12px;margin:15px 0;">
+                        <p style="color:#e9d5ff;font-weight:600;margin-bottom:6px;font-size:14px;">How to install:</p>
+                        <p style="color:#ffffff;font-size:13px;margin:0;">
+                            Tap <b>Share</b> (iOS) or <b>Menu ⋮</b> (Android)<br>
                             → Select <b>"Add to Home Screen"</b>
                         </p>
                     </div>
-                    <p style="font-size:13px;color:#a78bfa;margin-top:20px;">
-                        Most people add it after their first session. You can always do it later!
+                    <p style="font-size:12px;color:#a78bfa;margin-top:15px;">
+                        You can always do this later from the menu!
                     </p>
                 </div>
             </div>
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-                <button onclick="showUpgradeBenefits()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">Discover Premium</button>
-                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #c4b5fd; border: none; border-radius: 25px; padding: 15px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">Skip to App</button>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px;">
+                <button onclick="showUpgradeBenefits()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(251,191,36,0.4);">Continue →</button>
+                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #e9d5ff; border: 1px solid rgba(139,92,246,0.5); border-radius: 25px; padding: 15px 25px; font-size: 16px; font-weight: 600; cursor: pointer;">Skip</button>
             </div>
         </div>
     </div>
     <div id="upgradeBenefitsModal" class="info-modal" style="z-index:3000;">
-        <div class="info-modal-content" style="max-width:420px; text-align: center;">
-            <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">✨ Unlock the Complete Experience</div>
-                <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6;">
-                    <div style="line-height:1.8;padding:20px;">
-                        <p style="text-align:center;font-size:17px;color:#fbbf24;margin-bottom:20px;font-weight:600;">
-                            Ready to go deeper? Premium gives you full control.
+        <div class="info-modal-content" style="max-width:450px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
+            <div class="welcome-header">✨ Unlock Premium ✨</div>
+            <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6;">
+                <div style="line-height:1.8;padding:10px 20px 20px 20px;">
+                    <p style="text-align:center;font-size:16px;color:#ffd700;margin-bottom:18px;font-weight:600;">
+                        Ready to go deeper? Premium gives you full control.
+                    </p>
+                    
+                    <div style="margin-bottom:12px;padding:12px;background:rgba(251,191,36,0.1);border-radius:10px;border-left:3px solid #fbbf24;">
+                        <div style="font-size:15px;margin-bottom:4px;"><b style="color:#ffd700;">🎚️ Individual Volume Controls</b></div>
+                        <p style="font-size:13px;color:#ffffff;margin:0;">
+                            Adjust each frequency separately for perfect balance.
                         </p>
-                        
-                        <div style="margin-bottom:15px;padding:15px;background:rgba(251,191,36,0.08);border-radius:10px;border-left:3px solid #fbbf24;">
-                            <div style="font-size:16px;margin-bottom:6px;"><b style="color:#fbbf24;">🎚️ Individual Volume Controls</b></div>
-                            <p style="font-size:14px;color:#ffffff;margin:0;">
-                                Adjust each of the 3 frequencies separately for perfect harmonic balance tailored to your needs.
-                            </p>
-                        </div>
-                        
-                        <div style="margin-bottom:15px;padding:15px;background:rgba(139,92,246,0.08);border-radius:10px;border-left:3px solid #8b5cf6;">
-                            <div style="font-size:16px;margin-bottom:6px;"><b style="color:#c4b5fd;">⏰ Unlimited Durations</b></div>
-                            <p style="font-size:14px;color:#ffffff;margin:0;">
-                                Set any session length from 1 minute to hours of continuous playback—perfect for sleep, work, or deep meditation.
-                            </p>
-                        </div>
-                        
-                        <div style="margin-bottom:15px;padding:15px;background:rgba(251,191,36,0.08);border-radius:10px;border-left:3px solid #fbbf24;">
-                            <div style="font-size:16px;margin-bottom:6px;"><b style="color:#fbbf24;">🏆 Track Your Journey</b></div>
-                            <p style="font-size:14px;color:#ffffff;margin:0;">
-                                Session streaks, achievements, personal notes, and progress tracking. Watch your transformation unfold.
-                            </p>
-                        </div>
-                        
-                        <div style="margin-bottom:15px;padding:15px;background:rgba(139,92,246,0.08);border-radius:10px;border-left:3px solid #8b5cf6;">
-                            <div style="font-size:16px;margin-bottom:6px;"><b style="color:#c4b5fd;">🔊 Background Playback</b></div>
-                            <p style="font-size:14px;color:#ffffff;margin:0;">
-                                Keep frequencies playing while you use other apps, browse, or work.
-                            </p>
-                        </div>
-                        
-                        <div style="margin-bottom:20px;padding:15px;background:rgba(251,191,36,0.08);border-radius:10px;border-left:3px solid #fbbf24;">
-                            <div style="font-size:16px;margin-bottom:6px;"><b style="color:#fbbf24;">💾 Export & Save Tracks</b></div>
-                            <p style="font-size:14px;color:#ffffff;margin:0;">
-                                Save your favorite frequency combinations as WAV files for offline listening or sharing with loved ones.
-                            </p>
-                        </div>
-                        
-                        <div style="text-align:center;background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(139,92,246,0.15));border-radius:14px;padding:20px;margin:20px 0;border:2px solid rgba(251,191,36,0.4);">
-                            <p style="font-size:20px;color:#fbbf24;font-weight:700;margin-bottom:8px;">
-                                🌟 Lifetime Access
-                            </p>
-                            <p style="font-size:15px;color:#ffffff;margin-bottom:5px;">
-                                One-Time Payment • No Subscriptions
-                            </p>
-                            <p style="font-size:13px;color:#a78bfa;">
-                                Join thousands unlocking the full Genesis experience
-                            </p>
-                        </div>
-                        
-                        <p style="text-align:center;font-size:12px;color:#9ca3af;margin-top:15px;font-style:italic;">
-                            Try the free version first. Upgrade anytime from the Settings menu.
+                    </div>
+                    
+                    <div style="margin-bottom:12px;padding:12px;background:rgba(139,92,246,0.1);border-radius:10px;border-left:3px solid #8b5cf6;">
+                        <div style="font-size:15px;margin-bottom:4px;"><b style="color:#e9d5ff;">⏰ Unlimited Durations</b></div>
+                        <p style="font-size:13px;color:#ffffff;margin:0;">
+                            Any session length—perfect for sleep or deep meditation.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom:12px;padding:12px;background:rgba(251,191,36,0.1);border-radius:10px;border-left:3px solid #fbbf24;">
+                        <div style="font-size:15px;margin-bottom:4px;"><b style="color:#ffd700;">🔊 Background Playback + Export</b></div>
+                        <p style="font-size:13px;color:#ffffff;margin:0;">
+                            Keep playing while you work. Save as WAV files.
+                        </p>
+                    </div>
+                    
+                    <div style="text-align:center;background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(139,92,246,0.2));border-radius:14px;padding:18px;margin:18px 0;border:2px solid rgba(251,191,36,0.5);box-shadow: 0 0 20px rgba(251,191,36,0.15);">
+                        <p style="font-size:22px;color:#ffd700;font-weight:800;margin-bottom:6px;text-shadow: 0 0 10px rgba(251,191,36,0.3);">
+                            🌟 Lifetime Access
+                        </p>
+                        <p style="font-size:14px;color:#ffffff;margin-bottom:4px;">
+                            One-Time Payment • No Subscriptions
+                        </p>
+                        <p style="font-size:12px;color:#e9d5ff;">
+                            Join thousands on the Genesis journey
                         </p>
                     </div>
                 </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 15px; padding: 0 20px;">
+                <a href="https://etsy.com/your-listing-link" target="_blank" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 16px 40px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 20px rgba(251,191,36,0.4); text-decoration: none; display: inline-block;">🚀 Get Premium Now</a>
+                <button onclick="skipToApp()" style="background: rgba(26,0,51,0.7); color: #e9d5ff; border: 1px solid rgba(139,92,246,0.5); border-radius: 25px; padding: 12px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">Try Free Version First</button>
+                <p style="font-size:11px;color:#a78bfa;margin-top:5px;">
+                    Upgrade anytime from the Settings menu
+                </p>
             </div>
         </div>
     </div>
@@ -2920,7 +2952,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <!-- Premium Upgrade CTA -->
@@ -3269,6 +3300,33 @@
             localStorage.setItem('onboardingComplete', 'true');
         }
 
+        // Set language from welcome screen selector
+        function setWelcomeLanguage(lang) {
+            // Update global language
+            currentLanguage = lang;
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update welcome language button states
+            document.querySelectorAll('.welcome-lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Also update main language buttons if they exist
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Apply translations immediately
+            if (typeof changeLanguage === 'function') {
+                changeLanguage(lang);
+            }
+        }
+
         // Close upgrade benefits modal
         function closeUpgradeBenefitsModal() {
             document.getElementById('upgradeBenefitsModal').classList.remove('active');
@@ -3394,6 +3452,7 @@
                 catMaster: "Master Numbers",
                 catCosmic: "Cosmic & Planetary",
                 catWellness: "Wellness & States",
+                catChakra: "Chakra Frequencies",
                 // Track names
                 trackGenesisCreation: "Genesis Creation",
                 trackDivineAbundance: "Divine Abundance",
@@ -3435,6 +3494,14 @@
                 trackFocusClear: "Focus Clear",
                 trackMemoryBoost: "Memory Boost",
                 trackMiracleTone: "Miracle Tone",
+                // Chakra track names
+                trackRootChakra: "Root Chakra",
+                trackSacralChakra: "Sacral Chakra",
+                trackSolarPlexusChakra: "Solar Plexus Chakra",
+                trackHeartChakra: "Heart Chakra",
+                trackThroatChakra: "Throat Chakra",
+                trackThirdEyeChakra: "Third Eye Chakra",
+                trackCrownChakra: "Crown Chakra",
                 // Achievement names and descriptions
                 achFirstSession: "🌟 First Session",
                 achFirstSessionDesc: "Completed your first frequency session",
@@ -3548,7 +3615,57 @@
                 catFrequencies: "Frequencies",
                 catCategories: "Categories",
                 catActions: "Actions",
-                catMastery: "Mastery"
+                catMastery: "Mastery",
+                // UI - Companion & Quick Stats
+                greetingMorning: "Good Morning",
+                greetingAfternoon: "Good Afternoon",
+                greetingEvening: "Good Evening",
+                statSessions: "Sessions",
+                statMinutes: "Minutes",
+                statFrequencies: "Frequencies",
+                // Quick Actions
+                btnStartSession: "Start Session",
+                btnDailyChallenge: "Daily Challenge",
+                btnAchievements: "Achievements",
+                // Upgrade/Premium
+                discoverPremium: "Discover Premium",
+                skipToApp: "Skip to App",
+                unlockComplete: "Unlock the Complete Experience",
+                readyGoDeeper: "Ready to go deeper? Premium gives you full control.",
+                volumeControls: "Individual Volume Controls",
+                volumeControlsDesc: "Adjust each of the 3 frequencies separately for perfect harmonic balance tailored to your needs.",
+                unlimitedDurations: "Unlimited Durations",
+                unlimitedDurationsDesc: "Set any session length from 1 minute to hours of continuous playback—perfect for sleep, work, or deep meditation.",
+                trackJourney: "Track Your Journey",
+                trackJourneyDesc: "Session streaks, achievements, personal notes, and progress tracking. Watch your transformation unfold.",
+                backgroundPlayback: "Background Playback",
+                backgroundPlaybackDesc: "Keep frequencies playing while you use other apps, browse, or work.",
+                exportSave: "Export & Save Tracks",
+                exportSaveDesc: "Save your favorite frequency combinations as WAV files for offline listening or sharing with loved ones.",
+                lifetimeAccess: "Lifetime Access",
+                oneTimePayment: "One-Time Payment • No Subscriptions",
+                joinThousands: "Join thousands unlocking the full Genesis experience",
+                tryFreeFirst: "Try the free version first. Upgrade anytime from the Settings menu.",
+                upgradeToPremium: "Upgrade to Premium",
+                unlockFullPower: "Unlock the full power of sacred frequencies with lifetime access!",
+                premiumFeatures: "Premium Features Include:",
+                silentMode: "Silent Mode Bypass",
+                silentModeDesc: "Play frequencies even when phone is silenced",
+                customDurations: "Custom Durations",
+                customDurationsDesc: "Set any length from seconds to hours",
+                wavExport: "WAV Export",
+                wavExportDesc: "Save tracks for offline use anywhere",
+                allAchievements: "All Achievements",
+                allAchievementsDesc: "Unlock the complete achievement system",
+                unlimitedListening: "Unlimited Listening",
+                unlimitedListeningDesc: "No time restrictions on your sessions",
+                premiumSupport: "Premium Support",
+                premiumSupportDesc: "Direct access to updates and new features",
+                getLifetimeAccess: "Get Lifetime Access",
+                questionsContact: "Questions? Contact us through Etsy",
+                // Daily Challenge
+                dailyChallengeComplete: "Daily Challenge Complete!",
+                continueJourney: "Continue Your Journey"
             },
             pt: {
                 hebrewTranslation: "No princípio Deus criou os céus e a terra",
@@ -3581,6 +3698,7 @@
                 catMaster: "Números Mestres",
                 catCosmic: "Cósmico & Planetário",
                 catWellness: "Bem-estar & Estados",
+                catChakra: "Frequências dos Chakras",
                 // Track names
                 trackGenesisCreation: "Criação de Gênesis",
                 trackDivineAbundance: "Abundância Divina",
@@ -3622,6 +3740,14 @@
                 trackFocusClear: "Foco Claro",
                 trackMemoryBoost: "Impulso de Memória",
                 trackMiracleTone: "Tom do Milagre",
+                // Chakra track names
+                trackRootChakra: "Chakra Raiz",
+                trackSacralChakra: "Chakra Sacral",
+                trackSolarPlexusChakra: "Chakra do Plexo Solar",
+                trackHeartChakra: "Chakra do Coração",
+                trackThroatChakra: "Chakra da Garganta",
+                trackThirdEyeChakra: "Chakra do Terceiro Olho",
+                trackCrownChakra: "Chakra da Coroa",
                 // Achievement names and descriptions
                 achFirstSession: "🌟 Primeira Sessão",
                 achFirstSessionDesc: "Completou sua primeira sessão de frequência",
@@ -3682,7 +3808,57 @@
                 catFrequencies: "Frequências",
                 catCategories: "Categorias",
                 catActions: "Ações",
-                catMastery: "Maestria"
+                catMastery: "Maestria",
+                // UI - Companion & Quick Stats
+                greetingMorning: "Bom Dia",
+                greetingAfternoon: "Boa Tarde",
+                greetingEvening: "Boa Noite",
+                statSessions: "Sessões",
+                statMinutes: "Minutos",
+                statFrequencies: "Frequências",
+                // Quick Actions
+                btnStartSession: "Iniciar Sessão",
+                btnDailyChallenge: "Desafio Diário",
+                btnAchievements: "Conquistas",
+                // Upgrade/Premium
+                discoverPremium: "Descubra o Premium",
+                skipToApp: "Ir para o App",
+                unlockComplete: "Desbloqueie a Experiência Completa",
+                readyGoDeeper: "Pronto para ir mais fundo? O Premium dá controle total.",
+                volumeControls: "Controles de Volume Individuais",
+                volumeControlsDesc: "Ajuste cada uma das 3 frequências separadamente para um equilíbrio harmônico perfeito.",
+                unlimitedDurations: "Durações Ilimitadas",
+                unlimitedDurationsDesc: "Defina qualquer duração de sessão de 1 minuto a horas de reprodução contínua.",
+                trackJourney: "Acompanhe Sua Jornada",
+                trackJourneyDesc: "Sequências de sessões, conquistas, notas pessoais e acompanhamento do progresso.",
+                backgroundPlayback: "Reprodução em Segundo Plano",
+                backgroundPlaybackDesc: "Mantenha as frequências tocando enquanto usa outros apps.",
+                exportSave: "Exportar e Salvar Faixas",
+                exportSaveDesc: "Salve suas combinações favoritas como arquivos WAV para ouvir offline.",
+                lifetimeAccess: "Acesso Vitalício",
+                oneTimePayment: "Pagamento Único • Sem Assinaturas",
+                joinThousands: "Junte-se a milhares desbloqueando a experiência Genesis completa",
+                tryFreeFirst: "Experimente a versão gratuita primeiro. Atualize a qualquer momento.",
+                upgradeToPremium: "Atualizar para Premium",
+                unlockFullPower: "Desbloqueie o poder total das frequências sagradas com acesso vitalício!",
+                premiumFeatures: "Recursos Premium Incluem:",
+                silentMode: "Bypass do Modo Silencioso",
+                silentModeDesc: "Reproduza frequências mesmo com o telefone silenciado",
+                customDurations: "Durações Personalizadas",
+                customDurationsDesc: "Defina qualquer duração de segundos a horas",
+                wavExport: "Exportação WAV",
+                wavExportDesc: "Salve faixas para uso offline em qualquer lugar",
+                allAchievements: "Todas as Conquistas",
+                allAchievementsDesc: "Desbloqueie o sistema completo de conquistas",
+                unlimitedListening: "Escuta Ilimitada",
+                unlimitedListeningDesc: "Sem restrições de tempo nas suas sessões",
+                premiumSupport: "Suporte Premium",
+                premiumSupportDesc: "Acesso direto a atualizações e novos recursos",
+                getLifetimeAccess: "Obter Acesso Vitalício",
+                questionsContact: "Dúvidas? Entre em contato através do Etsy",
+                // Daily Challenge
+                dailyChallengeComplete: "Desafio Diário Completo!",
+                continueJourney: "Continue Sua Jornada"
             },
             es: {
                 hebrewTranslation: "En el principio creó Dios los cielos y la tierra",
@@ -3715,6 +3891,7 @@
                 catMaster: "Números Maestros",
                 catCosmic: "Cósmico & Planetario",
                 catWellness: "Bienestar & Estados",
+                catChakra: "Frecuencias de los Chakras",
                 // Track names
                 trackGenesisCreation: "Creación de Génesis",
                 trackDivineAbundance: "Abundancia Divina",
@@ -3756,6 +3933,14 @@
                 trackFocusClear: "Enfoque Claro",
                 trackMemoryBoost: "Impulso de Memoria",
                 trackMiracleTone: "Tono Milagroso",
+                // Chakra track names
+                trackRootChakra: "Chakra Raíz",
+                trackSacralChakra: "Chakra Sacro",
+                trackSolarPlexusChakra: "Chakra del Plexo Solar",
+                trackHeartChakra: "Chakra del Corazón",
+                trackThroatChakra: "Chakra de la Garganta",
+                trackThirdEyeChakra: "Chakra del Tercer Ojo",
+                trackCrownChakra: "Chakra de la Corona",
                 // Achievement names and descriptions
                 achFirstSession: "🌟 Primera Sesión",
                 achFirstSessionDesc: "Completó su primera sesión de frecuencia",
@@ -3816,7 +4001,57 @@
                 catFrequencies: "Frecuencias",
                 catCategories: "Categorías",
                 catActions: "Acciones",
-                catMastery: "Maestría"
+                catMastery: "Maestría",
+                // UI - Companion & Quick Stats
+                greetingMorning: "Buenos Días",
+                greetingAfternoon: "Buenas Tardes",
+                greetingEvening: "Buenas Noches",
+                statSessions: "Sesiones",
+                statMinutes: "Minutos",
+                statFrequencies: "Frecuencias",
+                // Quick Actions
+                btnStartSession: "Iniciar Sesión",
+                btnDailyChallenge: "Desafío Diario",
+                btnAchievements: "Logros",
+                // Upgrade/Premium
+                discoverPremium: "Descubre Premium",
+                skipToApp: "Ir a la App",
+                unlockComplete: "Desbloquea la Experiencia Completa",
+                readyGoDeeper: "¿Listo para profundizar? Premium te da control total.",
+                volumeControls: "Controles de Volumen Individuales",
+                volumeControlsDesc: "Ajusta cada una de las 3 frecuencias por separado para un equilibrio armónico perfecto.",
+                unlimitedDurations: "Duraciones Ilimitadas",
+                unlimitedDurationsDesc: "Establece cualquier duración desde 1 minuto hasta horas de reproducción continua.",
+                trackJourney: "Rastrea Tu Viaje",
+                trackJourneyDesc: "Rachas de sesiones, logros, notas personales y seguimiento del progreso.",
+                backgroundPlayback: "Reproducción en Segundo Plano",
+                backgroundPlaybackDesc: "Mantén las frecuencias sonando mientras usas otras apps.",
+                exportSave: "Exportar y Guardar Pistas",
+                exportSaveDesc: "Guarda tus combinaciones favoritas como archivos WAV para escuchar offline.",
+                lifetimeAccess: "Acceso de Por Vida",
+                oneTimePayment: "Pago Único • Sin Suscripciones",
+                joinThousands: "Únete a miles desbloqueando la experiencia Genesis completa",
+                tryFreeFirst: "Prueba la versión gratuita primero. Actualiza en cualquier momento.",
+                upgradeToPremium: "Actualizar a Premium",
+                unlockFullPower: "¡Desbloquea el poder completo de las frecuencias sagradas con acceso de por vida!",
+                premiumFeatures: "Las Funciones Premium Incluyen:",
+                silentMode: "Bypass del Modo Silencioso",
+                silentModeDesc: "Reproduce frecuencias incluso con el teléfono en silencio",
+                customDurations: "Duraciones Personalizadas",
+                customDurationsDesc: "Establece cualquier duración desde segundos hasta horas",
+                wavExport: "Exportación WAV",
+                wavExportDesc: "Guarda pistas para uso offline en cualquier lugar",
+                allAchievements: "Todos los Logros",
+                allAchievementsDesc: "Desbloquea el sistema completo de logros",
+                unlimitedListening: "Escucha Ilimitada",
+                unlimitedListeningDesc: "Sin restricciones de tiempo en tus sesiones",
+                premiumSupport: "Soporte Premium",
+                premiumSupportDesc: "Acceso directo a actualizaciones y nuevas funciones",
+                getLifetimeAccess: "Obtener Acceso de Por Vida",
+                questionsContact: "¿Preguntas? Contáctanos a través de Etsy",
+                // Daily Challenge
+                dailyChallengeComplete: "¡Desafío Diario Completado!",
+                continueJourney: "Continúa Tu Viaje"
             },
             it: {
                 hebrewTranslation: "In principio Dio creò il cielo e la terra",
@@ -3849,6 +4084,7 @@
                 catMaster: "Numeri Maestri",
                 catCosmic: "Cosmico & Planetario",
                 catWellness: "Benessere & Stati",
+                catChakra: "Frequenze dei Chakra",
                 // Track names
                 trackGenesisCreation: "Creazione di Genesi",
                 trackDivineAbundance: "Abbondanza Divina",
@@ -3890,6 +4126,14 @@
                 trackFocusClear: "Focus Chiaro",
                 trackMemoryBoost: "Incremento Memoria",
                 trackMiracleTone: "Tono Miracoloso",
+                // Chakra track names
+                trackRootChakra: "Chakra della Radice",
+                trackSacralChakra: "Chakra Sacrale",
+                trackSolarPlexusChakra: "Chakra del Plesso Solare",
+                trackHeartChakra: "Chakra del Cuore",
+                trackThroatChakra: "Chakra della Gola",
+                trackThirdEyeChakra: "Chakra del Terzo Occhio",
+                trackCrownChakra: "Chakra della Corona",
                 // Achievement names and descriptions
                 achFirstSession: "🌟 Prima Sessione",
                 achFirstSessionDesc: "Completata la tua prima sessione di frequenza",
@@ -3950,7 +4194,57 @@
                 catFrequencies: "Frequenze",
                 catCategories: "Categorie",
                 catActions: "Azioni",
-                catMastery: "Maestria"
+                catMastery: "Maestria",
+                // UI - Companion & Quick Stats
+                greetingMorning: "Buongiorno",
+                greetingAfternoon: "Buon Pomeriggio",
+                greetingEvening: "Buonasera",
+                statSessions: "Sessioni",
+                statMinutes: "Minuti",
+                statFrequencies: "Frequenze",
+                // Quick Actions
+                btnStartSession: "Inizia Sessione",
+                btnDailyChallenge: "Sfida Giornaliera",
+                btnAchievements: "Traguardi",
+                // Upgrade/Premium
+                discoverPremium: "Scopri Premium",
+                skipToApp: "Vai all'App",
+                unlockComplete: "Sblocca l'Esperienza Completa",
+                readyGoDeeper: "Pronto per andare più in profondità? Premium ti dà il controllo totale.",
+                volumeControls: "Controlli Volume Individuali",
+                volumeControlsDesc: "Regola ciascuna delle 3 frequenze separatamente per un equilibrio armonico perfetto.",
+                unlimitedDurations: "Durate Illimitate",
+                unlimitedDurationsDesc: "Imposta qualsiasi durata da 1 minuto a ore di riproduzione continua.",
+                trackJourney: "Traccia il Tuo Viaggio",
+                trackJourneyDesc: "Serie di sessioni, traguardi, note personali e monitoraggio dei progressi.",
+                backgroundPlayback: "Riproduzione in Background",
+                backgroundPlaybackDesc: "Mantieni le frequenze in riproduzione mentre usi altre app.",
+                exportSave: "Esporta e Salva Tracce",
+                exportSaveDesc: "Salva le tue combinazioni preferite come file WAV per l'ascolto offline.",
+                lifetimeAccess: "Accesso a Vita",
+                oneTimePayment: "Pagamento Unico • Nessun Abbonamento",
+                joinThousands: "Unisciti a migliaia che sbloccano l'esperienza Genesis completa",
+                tryFreeFirst: "Prova prima la versione gratuita. Aggiorna in qualsiasi momento.",
+                upgradeToPremium: "Passa a Premium",
+                unlockFullPower: "Sblocca il potere completo delle frequenze sacre con accesso a vita!",
+                premiumFeatures: "Le Funzionalità Premium Includono:",
+                silentMode: "Bypass Modalità Silenziosa",
+                silentModeDesc: "Riproduci frequenze anche con il telefono in silenzioso",
+                customDurations: "Durate Personalizzate",
+                customDurationsDesc: "Imposta qualsiasi durata da secondi a ore",
+                wavExport: "Esportazione WAV",
+                wavExportDesc: "Salva tracce per uso offline ovunque",
+                allAchievements: "Tutti i Traguardi",
+                allAchievementsDesc: "Sblocca il sistema completo di traguardi",
+                unlimitedListening: "Ascolto Illimitato",
+                unlimitedListeningDesc: "Nessuna restrizione di tempo sulle tue sessioni",
+                premiumSupport: "Supporto Premium",
+                premiumSupportDesc: "Accesso diretto ad aggiornamenti e nuove funzionalità",
+                getLifetimeAccess: "Ottieni Accesso a Vita",
+                questionsContact: "Domande? Contattaci tramite Etsy",
+                // Daily Challenge
+                dailyChallengeComplete: "Sfida Giornaliera Completata!",
+                continueJourney: "Continua il Tuo Viaggio"
             }
         };
         
@@ -4026,6 +4320,11 @@
             // Update progress section to reflect new language
             if (typeof instructionsSections !== 'undefined') {
                 renderInstructionsCategories();
+            }
+            
+            // Update companion header with new language
+            if (typeof renderCompanionHeader === 'function') {
+                renderCompanionHeader();
             }
         }
         
@@ -8614,10 +8913,11 @@
         // Get time-based greeting
         function getTimeGreeting() {
             const hour = new Date().getHours();
-            if (hour < 12) return { greeting: "Good morning", emoji: "🌅" };
-            if (hour < 17) return { greeting: "Good afternoon", emoji: "☀️" };
-            if (hour < 21) return { greeting: "Good evening", emoji: "🌆" };
-            return { greeting: "Good night", emoji: "🌙" };
+            const t = translations[currentLanguage];
+            if (hour < 12) return { greeting: t.greetingMorning || "Good morning", emoji: "🌅" };
+            if (hour < 17) return { greeting: t.greetingAfternoon || "Good afternoon", emoji: "☀️" };
+            if (hour < 21) return { greeting: t.greetingEvening || "Good evening", emoji: "🌆" };
+            return { greeting: t.greetingEvening || "Good night", emoji: "🌙" };
         }
 
         // Render personalized companion header
@@ -8628,6 +8928,8 @@
             const actionsContainer = document.getElementById('companionQuickActions');
 
             if (!greetingContainer) return;
+
+            const t = translations[currentLanguage];
 
             // Time-based greeting with stats
             const timeInfo = getTimeGreeting();
@@ -8650,28 +8952,28 @@
             statsContainer.innerHTML = `
                 <div style="text-align: center; padding: 10px 15px; background: rgba(139,92,246,0.15); border-radius: 10px; min-width: 80px;">
                     <div style="font-size: 22px; font-weight: 700; color: #fbbf24;">${totalSessions}</div>
-                    <div style="font-size: 11px; color: #c4b5fd;">Sessions</div>
+                    <div style="font-size: 11px; color: #c4b5fd;">${t.statSessions || 'Sessions'}</div>
                 </div>
                 <div style="text-align: center; padding: 10px 15px; background: rgba(139,92,246,0.15); border-radius: 10px; min-width: 80px;">
                     <div style="font-size: 22px; font-weight: 700; color: #fbbf24;">${totalMinutes}</div>
-                    <div style="font-size: 11px; color: #c4b5fd;">Minutes</div>
+                    <div style="font-size: 11px; color: #c4b5fd;">${t.statMinutes || 'Minutes'}</div>
                 </div>
                 <div style="text-align: center; padding: 10px 15px; background: rgba(139,92,246,0.15); border-radius: 10px; min-width: 80px;">
                     <div style="font-size: 22px; font-weight: 700; color: #fbbf24;">${userProgress.frequenciesUsed ? userProgress.frequenciesUsed.size || 0 : 0}</div>
-                    <div style="font-size: 11px; color: #c4b5fd;">Frequencies</div>
+                    <div style="font-size: 11px; color: #c4b5fd;">${t.statFrequencies || 'Frequencies'}</div>
                 </div>
             `;
 
             // Quick action buttons
             actionsContainer.innerHTML = `
                 <button onclick="document.getElementById('instructionsPanel').style.display='none'; startQuickSession();" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                    <span>▶</span> Start Session
+                    <span>▶</span> ${t.btnStartSession || 'Start Session'}
                 </button>
                 <button onclick="showDailyChallengeModal();" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                    <span>🎯</span> Daily Challenge
+                    <span>🎯</span> ${t.btnDailyChallenge || 'Daily Challenge'}
                 </button>
                 <button onclick="if(typeof showFullAchievements === 'function') showFullAchievements();" style="background: rgba(139,92,246,0.3); color: #c4b5fd; border: 1px solid rgba(139,92,246,0.5); border-radius: 20px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                    <span>🏆</span> Achievements
+                    <span>🏆</span> ${t.btnAchievements || 'Achievements'}
                 </button>
             `;
         }
