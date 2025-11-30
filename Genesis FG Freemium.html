@@ -2614,8 +2614,8 @@
 <script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
-    <!-- Immersive Welcome Modal -->
-    <div id="immersiveWelcome" class="info-modal" style="z-index:9999999; display:none;">
+    <!-- Immersive Welcome Modal - starts hidden, shown via JavaScript for first-time users -->
+    <div id="immersiveWelcome" class="info-modal" style="z-index:9999999;">
         <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
             <!-- Language Selector at top -->
             <div class="welcome-language-selector">
@@ -2660,7 +2660,7 @@
     </div>
 
     <!-- Frequency Benefits Modal -->
-    <div id="frequencyBenefitsModal" class="info-modal" style="z-index:9999998; display:none;">
+    <div id="frequencyBenefitsModal" class="info-modal" style="z-index:9999998;">
         <div class="info-modal-content" style="max-width: 600px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
             <div class="welcome-header">🎵 What Can These Frequencies Do? 🎵</div>
             <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6; text-align: left;">
@@ -2710,7 +2710,7 @@
     </div>
 
     <!-- How to Use Modal -->
-    <div id="howToUseModal" class="info-modal" style="z-index:9999997; display:none;">
+    <div id="howToUseModal" class="info-modal" style="z-index:9999997;">
         <div class="info-modal-content" style="max-width: 600px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
             <div class="welcome-header">🎯 Your First Session in 3 Steps 🎯</div>
             <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6; text-align: left;">
@@ -2766,7 +2766,7 @@
     </div>
 
     <!-- PWA Tip Modal -->
-    <div id="pwaTipModal" class="info-modal" style="z-index:9999996; display:none;">
+    <div id="pwaTipModal" class="info-modal" style="z-index:9999996;">
         <div class="info-modal-content" style="max-width: 500px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
             <div class="welcome-header">📱 Add to Home Screen 📱</div>
             <div class="info-modal-body" style="color: #fff; font-size: 18px; line-height: 1.6;">
@@ -2800,7 +2800,7 @@
             </div>
         </div>
     </div>
-    <div id="upgradeBenefitsModal" class="info-modal" style="z-index:9999995; display:none;">
+    <div id="upgradeBenefitsModal" class="info-modal" style="z-index:9999995;">
         <div class="info-modal-content" style="max-width:450px; text-align: center; background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.95)); border: 2px solid rgba(251,191,36,0.6); box-shadow: 0 0 60px rgba(251,191,36,0.3);">
             <div class="welcome-header">✨ Unlock Premium ✨</div>
             <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6;">
@@ -3299,8 +3299,10 @@
                 pwa.style.display = 'none';
             }
             
-            // Mark onboarding as complete
-            localStorage.setItem('onboardingComplete', 'true');
+            // Mark onboarding as complete (Safari-safe)
+            try { localStorage.setItem('onboardingComplete', 'true'); } catch(e) {
+                try { sessionStorage.setItem('onboardingComplete', 'true'); } catch(e2) {}
+            }
             
             // Show benefits screen (as info-modal)
             const benefits = document.getElementById('upgradeBenefitsModal');
@@ -3331,8 +3333,10 @@
             // Restore body scroll
             document.body.style.overflow = '';
             
-            // Mark onboarding as complete
-            localStorage.setItem('onboardingComplete', 'true');
+            // Mark onboarding as complete (Safari-safe)
+            try { localStorage.setItem('onboardingComplete', 'true'); } catch(e) {
+                try { sessionStorage.setItem('onboardingComplete', 'true'); } catch(e2) {}
+            }
         }
 
         // Update welcome flow content based on current language
@@ -11719,46 +11723,88 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePWAPrompt();
     initializeNotifications();
 
+    // Safari-safe storage helper functions
+    function safeGetItem(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (e) {
+            console.log('localStorage blocked, trying sessionStorage');
+            try {
+                return sessionStorage.getItem(key);
+            } catch (e2) {
+                console.log('All storage blocked');
+                return null;
+            }
+        }
+    }
+    
+    function safeSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (e) {
+            try {
+                sessionStorage.setItem(key, value);
+            } catch (e2) {
+                console.log('Cannot save to storage');
+            }
+        }
+    }
+
     // Show immersive welcome on first visit, welcome back toast for return visits
-    console.log('DOMContentLoaded fired - checking localStorage immediately');
-    console.log('Raw localStorage onboardingComplete:', localStorage.getItem('onboardingComplete'));
-    console.log('All localStorage keys:', Object.keys(localStorage));
+    console.log('DOMContentLoaded fired - checking storage');
     
     // Check for test parameter to force clean state
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('test')) {
-        console.log('Test parameter detected - forcing clean localStorage state');
-        localStorage.clear();
+        console.log('Test parameter detected - forcing clean state');
+        try { localStorage.clear(); } catch(e) {}
+        try { sessionStorage.clear(); } catch(e) {}
     }
     
     // Debug: Add global function to clear localStorage
     window.clearOnboarding = function() {
-        localStorage.removeItem('onboardingComplete');
+        try { localStorage.removeItem('onboardingComplete'); } catch(e) {}
+        try { sessionStorage.removeItem('onboardingComplete'); } catch(e) {}
         console.log('Onboarding cleared - refresh page to see welcome flow');
     };
     
-    const onboardingComplete = localStorage.getItem('onboardingComplete') === 'true';
+    const onboardingComplete = safeGetItem('onboardingComplete') === 'true';
     const forceShowWelcome = new URLSearchParams(window.location.search).get('showWelcome') === 'true';
     console.log('Modal initialization - onboardingComplete:', onboardingComplete);
     console.log('Force show welcome:', forceShowWelcome);
     
-    // Debug: Check if modal element exists
+    // Get modal element
     const welcomeModal = document.getElementById('immersiveWelcome');
     console.log('Welcome modal element:', welcomeModal);
     
     if (!onboardingComplete || forceShowWelcome) {
         // First time user - show welcome sequence
         console.log('New user - showing welcome modal');
-        document.getElementById('upgradeBenefitsModal').classList.remove('active'); // Ensure upgrade modal is hidden
         
-        // Add active class AND set display explicitly for Safari/WebKit compatibility
-        welcomeModal.classList.add('active');
-        welcomeModal.style.display = 'flex';  // Explicit display for Safari
-        welcomeModal.style.visibility = 'visible';  // Force visibility
-        welcomeModal.style.opacity = '1';  // Force opacity
-        document.body.style.overflow = 'hidden';  // Prevent scrolling behind modal
-        console.log('Added active class, modal classes:', welcomeModal.className);
-        console.log('Modal computed style display:', window.getComputedStyle(welcomeModal).display);
+        // Hide upgrade modal first
+        const upgradeModal = document.getElementById('upgradeBenefitsModal');
+        if (upgradeModal) {
+            upgradeModal.classList.remove('active');
+            upgradeModal.style.display = 'none';
+        }
+        
+        // Show welcome modal with multiple fallback methods for Safari
+        if (welcomeModal) {
+            // Method 1: Add active class
+            welcomeModal.classList.add('active');
+            
+            // Method 2: Set inline styles directly (Safari fallback)
+            welcomeModal.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; z-index: 9999999 !important; background: rgba(0,0,0,0.95) !important; align-items: center !important; justify-content: center !important;';
+            
+            // Method 3: Force reflow/repaint for Safari
+            welcomeModal.offsetHeight;
+            
+            // Prevent scrolling behind modal
+            document.body.style.overflow = 'hidden';
+            
+            console.log('Welcome modal should now be visible');
+            console.log('Modal display:', window.getComputedStyle(welcomeModal).display);
+        }
     } else {
         // Returning user - show welcome back toast after a brief delay
         console.log('Returning user - showing welcome toast');
@@ -11778,7 +11824,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Debug check after initialization
+    // Debug check after initialization (Safari-safe)
     setTimeout(() => {
         console.log('Modal state check:');
         const welcomeModal = document.getElementById('immersiveWelcome');
@@ -11787,7 +11833,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('- immersiveWelcome active:', welcomeModal ? welcomeModal.classList.contains('active') : 'N/A');
         console.log('- immersiveWelcome display:', welcomeModal ? window.getComputedStyle(welcomeModal).display : 'N/A');
         console.log('- upgradeBenefitsModal active:', upgradeModal ? upgradeModal.classList.contains('active') : 'N/A');
-        console.log('- onboardingComplete in localStorage:', localStorage.getItem('onboardingComplete'));
+        try {
+            console.log('- onboardingComplete in storage:', localStorage.getItem('onboardingComplete') || sessionStorage.getItem('onboardingComplete'));
+        } catch(e) {
+            console.log('- storage access blocked');
+        }
     }, 200);
 });
 
