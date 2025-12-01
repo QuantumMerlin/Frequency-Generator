@@ -2892,35 +2892,35 @@
     <div id="upgradeModal" class="upgrade-modal">
         <div class="upgrade-modal-content">
             <button class="upgrade-close" onclick="closeUpgradeModal()">×</button>
-            <div class="upgrade-modal-header">🚀 Upgrade to Premium</div>
+            <div class="upgrade-modal-header" data-translate="upgradeToPremium">🚀 Upgrade to Premium</div>
             <div class="upgrade-modal-body">
-                <p style="margin-bottom: 20px; font-size: 18px;">
+                <p style="margin-bottom: 20px; font-size: 18px;" data-translate="unlockFullPower">
                     Unlock the full power of sacred frequencies with lifetime access!
                 </p>
 
                 <div class="upgrade-features">
-                    <h3>✨ Premium Features Include:</h3>
+                    <h3 data-translate="premiumFeatures">✨ Premium Features Include:</h3>
                     <ul>
-                        <li><strong>Silent Mode Bypass</strong> - Play frequencies even when phone is silenced</li>
-                        <li><strong>Individual Volume Controls</strong> - Adjust each of the 3 frequencies separately</li>
-                        <li><strong>Custom Durations</strong> - Set any length from seconds to hours</li>
-                        <li><strong>WAV Export</strong> - Save tracks for offline use anywhere</li>
-                        <li><strong>Background Playback</strong> - Frequencies play when app is minimized</li>
-                        <li><strong>All Achievements</strong> - Unlock the complete achievement system</li>
-                        <li><strong>Unlimited Listening</strong> - No time restrictions on your sessions</li>
-                        <li><strong>Premium Support</strong> - Direct access to updates and new features</li>
+                        <li><strong data-translate="silentMode">Silent Mode Bypass</strong> - <span data-translate="silentModeDesc">Play frequencies even when phone is silenced</span></li>
+                        <li><strong data-translate="volumeControls">Individual Volume Controls</strong> - <span data-translate="volumeControlsDesc">Adjust each of the 3 frequencies separately</span></li>
+                        <li><strong data-translate="customDurations">Custom Durations</strong> - <span data-translate="customDurationsDesc">Set any length from seconds to hours</span></li>
+                        <li><strong data-translate="wavExport">WAV Export</strong> - <span data-translate="wavExportDesc">Save tracks for offline use anywhere</span></li>
+                        <li><strong data-translate="backgroundPlayback">Background Playback</strong> - <span data-translate="backgroundPlaybackDesc">Frequencies play when app is minimized</span></li>
+                        <li><strong data-translate="allAchievements">All Achievements</strong> - <span data-translate="allAchievementsDesc">Unlock the complete achievement system</span></li>
+                        <li><strong data-translate="unlimitedListening">Unlimited Listening</strong> - <span data-translate="unlimitedListeningDesc">No time restrictions on your sessions</span></li>
+                        <li><strong data-translate="premiumSupport">Premium Support</strong> - <span data-translate="premiumSupportDesc">Direct access to updates and new features</span></li>
                     </ul>
                 </div>
 
-                <p style="margin: 20px 0; color: #fbbf24; font-weight: 600;">
+                <p style="margin: 20px 0; color: #fbbf24; font-weight: 600;" data-translate="noDataCollected">
                     💎 One-time payment • Lifetime access • No subscriptions • No data collected
                 </p>
 
-                <a href="https://etsy.com/your-listing-link" class="upgrade-btn" target="_blank">
+                <a href="https://etsy.com/your-listing-link" class="upgrade-btn" target="_blank" data-translate="getLifetimeAccess">
                     🚀 Get Lifetime Access - $XX.XX
                 </a>
 
-                <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;">
+                <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;" data-translate="questionsContact">
                     Questions? Contact us through Etsy
                 </p>
             </div>
@@ -2948,7 +2948,7 @@
 
             <!-- Sacred Guide Button -->
             <div style="text-align: center; margin: 20px 0;">
-                <button id="genesisCompanionBtn" class="btn-instructions" onclick="handleCompanionClick(event)" style="font-size: 18px; font-weight: 700; background: linear-gradient(90deg, #8b5cf6 0%, #fbbf24 100%); color: #1a0033; border: none; border-radius: 12px; padding: 10px 24px; box-shadow: 0 2px 12px rgba(139,92,246,0.15); cursor: pointer; position: relative; z-index: 1000; pointer-events: auto;">
+                <button id="genesisCompanionBtn" class="btn-instructions" onclick="handleCompanionClick(event)" style="font-size: 18px; font-weight: 700; background: linear-gradient(90deg, #8b5cf6 0%, #fbbf24 100%); color: #1a0033; border: none; border-radius: 12px; padding: 10px 24px; box-shadow: 0 2px 12px rgba(139,92,246,0.15); cursor: pointer; position: relative; z-index: 1000; pointer-events: auto;" data-translate="genesisCompanion">
                     Genesis Companion
                 </button>
             </div>
@@ -2957,7 +2957,7 @@
             <div id="instructionsPanel" class="instructions-panel" style="display: none; max-width: 900px; margin: 0 auto 18px auto; background: rgba(26,0,51,0.97); border-radius: 18px; box-shadow: 0 8px 32px rgba(139,92,246,0.18); padding: 20px; color: #fff; z-index: 1000000; position: relative;">
                 <div class="instructions-content" style="text-align:center;">
                     <div class="instructions-header" style="display: flex; justify-content: center; align-items: center;">
-                        <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin: 0 auto; text-align:center; width:100%;">Genesis Frequency Companion</h2>
+                        <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin: 0 auto; text-align:center; width:100%;" data-translate="genesisFrequencyCompanion">Genesis Frequency Companion</h2>
                     </div>
                     
                     <!-- Personalized Welcome Header -->
@@ -2982,11 +2982,11 @@
                             <!-- Sections will be dynamically rendered here by JS for accordion, search, and navigation -->
                         </div>
 
-                        <div style="margin-top:32px; text-align:center; color:#fbbf24; font-size:18px; font-weight:700;">Your complete Genesis companion for divine frequency mastery.</div>
+                        <div style="margin-top:32px; text-align:center; color:#fbbf24; font-size:18px; font-weight:700;" data-translate="completeCompanion">Your complete Genesis companion for divine frequency mastery.</div>
                         
                         <!-- Return to Tracks Button -->
                         <div style="margin-top: 25px; text-align: center;">
-                            <button onclick="window.toggleInstructions();" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.4);">
+                            <button onclick="window.toggleInstructions();" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.4);" data-translate="returnToTracks">
                                 ← Return to Tracks
                             </button>
                         </div>
@@ -2997,14 +2997,14 @@
 
         <!-- Premium Upgrade CTA -->
         <div class="section premium-cta-section" style="text-align: center; margin: 30px 0; padding: 25px; background: linear-gradient(135deg, rgba(26,0,51,0.8), rgba(139,92,246,0.6)); border-radius: 15px; border: 2px solid rgba(251,191,36,0.3); position: relative; z-index: 1100;">
-            <h3 style="color: #fbbf24; font-size: 22px; font-weight: 700; margin-bottom: 15px;">🚀 Ready to Unlock Premium Features?</h3>
-            <p style="color: #c4b5fd; font-size: 16px; margin-bottom: 20px; line-height: 1.5;">
+            <h3 style="color: #fbbf24; font-size: 22px; font-weight: 700; margin-bottom: 15px;" data-translate="readyToUnlock">🚀 Ready to Unlock Premium Features?</h3>
+            <p style="color: #c4b5fd; font-size: 16px; margin-bottom: 20px; line-height: 1.5;" data-translate="premiumCtaDesc">
                 Get lifetime access to individual volume controls, custom durations, WAV export, background playback, silent mode bypass, and the achievement system.
             </p>
-            <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">
+            <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);" data-translate="upgradeToPremium">
                 Upgrade to Premium
             </button>
-            <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;">
+            <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;" data-translate="oneTimePayment">
                 One-time payment • Lifetime access • No subscriptions
             </p>
         </div>
@@ -3014,12 +3014,12 @@
             <div class="trinity-frequencies">
                 <div class="trinity-freq">
                     <div class="hz">37 Hz</div>
-                    <div class="label">Form/Matter</div>
+                    <div class="label" data-translate="formMatter">Form/Matter</div>
                 </div>
                 <div class="trinity-arrow">+</div>
                 <div class="trinity-freq">
                     <div class="hz">73 Hz</div>
-                    <div class="label">Spirit/Divine</div>
+                    <div class="label" data-translate="spiritDivine">Spirit/Divine</div>
                 </div>
             </div>
         </div>
@@ -3117,15 +3117,15 @@
                 </div>
 
                 <div class="button-group">
-                    <button class="button button-primary" id="playBtn" aria-label="Play frequency generator">▶ PLAY</button>
-                    <button class="button button-danger" id="stopBtn" aria-label="Stop frequency generator">■ STOP</button>
-                    <button class="button button-secondary premium-lock" id="exportBtn" onclick="showUpgradeModal()" aria-label="Export as WAV file - Premium feature">⬇ EXPORT WAV</button>
-                    <button class="button button-secondary" id="resetBtn" aria-label="Reset frequencies to default">↺ RESET</button>
+                    <button class="button button-primary" id="playBtn" aria-label="Play frequency generator" data-translate="play">▶ PLAY</button>
+                    <button class="button button-danger" id="stopBtn" aria-label="Stop frequency generator" data-translate="stop">■ STOP</button>
+                    <button class="button button-secondary premium-lock" id="exportBtn" onclick="showUpgradeModal()" aria-label="Export as WAV file - Premium feature" data-translate="export">⬇ EXPORT WAV</button>
+                    <button class="button button-secondary" id="resetBtn" aria-label="Reset frequencies to default" data-translate="reset">↺ RESET</button>
                 </div>
             </div>
         </div>
 
-        <div class="status stopped" id="status">
+        <div class="status stopped" id="status" data-translate="ready">
             Ready to Generate Genesis Frequencies
         </div>
 
@@ -3134,7 +3134,7 @@
             <div class="category-header" onclick="this.parentElement.classList.toggle('expanded')" style="cursor: pointer;">
                 <div class="category-title">
                     <span class="category-icon">🏆</span>
-                    <span>Your Spiritual Journey</span>
+                    <span data-translate="yourSpiritualJourney">Your Spiritual Journey</span>
                     <span class="category-icon">🏆</span>
                 </div>
                 <div class="category-arrow">▶</div>
@@ -3144,7 +3144,7 @@
                     <!-- Achievement stats and preview will be populated by JavaScript -->
                 </div>
                 <div style="text-align: center; padding: 10px 15px 20px;">
-                    <button onclick="showFullAchievements()" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.3); transition: all 0.3s ease;">
+                    <button onclick="showFullAchievements()" style="background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 12px 25px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.3); transition: all 0.3s ease;" data-translate="viewAllAchievements">
                         🎯 View All Achievements
                     </button>
                 </div>
@@ -3179,14 +3179,14 @@
 
         <!-- Bottom Upgrade CTA -->
         <div style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, rgba(26,0,51,0.8), rgba(139,92,246,0.6)); border-radius: 20px; border: 2px solid rgba(251,191,36,0.3); position: relative; z-index: 1100;">
-            <h3 style="color: #fbbf24; font-size: 24px; margin-bottom: 15px;">🚀 Ready to Unlock Premium Features?</h3>
-            <p style="color: #c4b5fd; font-size: 16px; margin-bottom: 20px; line-height: 1.6;">
+            <h3 style="color: #fbbf24; font-size: 24px; margin-bottom: 15px;" data-translate="readyToUnlock">🚀 Ready to Unlock Premium Features?</h3>
+            <p style="color: #c4b5fd; font-size: 16px; margin-bottom: 20px; line-height: 1.6;" data-translate="premiumCtaDesc">
                 Get lifetime access to individual volume controls, custom durations, WAV export, background playback, and the achievement system.
             </p>
-            <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">
+            <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);" data-translate="upgradeToPremium">
                 Upgrade to Premium
             </button>
-            <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;">
+            <p style="margin-top: 15px; font-size: 14px; color: #9ca3af;" data-translate="oneTimePayment">
                 One-time payment • Lifetime access • No subscriptions
             </p>
         </div>
@@ -3197,7 +3197,7 @@
         <button class="add-to-home-close" onclick="closeAddToHome()">×</button>
         <div class="add-to-home-content">
             <span class="add-to-home-icon">📱</span>
-            <span class="add-to-home-text" style="font-weight:700;">ADD to Home Screen NOW for best experience!</span>
+            <span class="add-to-home-text" style="font-weight:700;" data-translate="addToHomeText">ADD to Home Screen NOW for best experience!</span>
         </div>
     </div>
 
@@ -3601,39 +3601,40 @@
 
         // Debug function to force show upgrade modal (call forceShowUpgrade() in console)
         window.forceShowUpgrade = function() {
+            const t = translations[currentLanguage] || translations.en;
             document.getElementById('upgradeBenefitsModal').innerHTML = `
                 <div class="info-modal-content" style="max-width:420px; text-align: center;">
-                    <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">Premium Features</div>
+                    <div class="info-modal-header" style="color: #fbbf24; font-size: 28px; margin-bottom: 20px;">${t.premiumFeatures || 'Premium Features Include:'}</div>
                     <div class="info-modal-body" style="color: #fff; font-size: 16px; line-height: 1.6;">
                         <div style="text-align: left; margin-bottom: 20px;">
                             <div style="margin-bottom: 15px;">
-                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">🎚️ Individual Volume Controls</h3>
-                                <p>Adjust each of the 3 frequencies separately for perfect harmonic balance.</p>
+                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">🎚️ ${t.volumeControls || 'Individual Volume Controls'}</h3>
+                                <p>${t.volumeControlsDesc || 'Adjust each of the 3 frequencies separately for perfect harmonic balance.'}</p>
                             </div>
                             <div style="margin-bottom: 15px;">
-                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">⏰ Custom Durations</h3>
-                                <p>Set any session length from 1 minute to hours of continuous playback.</p>
+                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">⏰ ${t.customDurations || 'Custom Durations'}</h3>
+                                <p>${t.customDurationsDesc || 'Set any session length from 1 minute to hours of continuous playback.'}</p>
                             </div>
                             <div style="margin-bottom: 15px;">
-                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">🏆 Achievement System</h3>
-                                <p>Track your progress, unlock achievements, and log your sacred sessions.</p>
+                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">🏆 ${t.achievementSystem || 'Achievement System'}</h3>
+                                <p>${t.achievementSystemDesc || 'Track your progress, unlock achievements, and log your sacred sessions.'}</p>
                             </div>
                             <div style="margin-bottom: 15px;">
-                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">🔊 Background Playback</h3>
-                                <p>Continue your frequency sessions while using other apps.</p>
+                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">🔊 ${t.backgroundPlayback || 'Background Playback'}</h3>
+                                <p>${t.backgroundPlaybackDesc || 'Continue your frequency sessions while using other apps.'}</p>
                             </div>
                             <div style="margin-bottom: 15px;">
-                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">💾 Export & Save</h3>
-                                <p>Save your frequency combinations as WAV files for offline use.</p>
+                                <h3 style="color: #c4b5fd; margin-bottom: 8px;">💾 ${t.exportSave || 'Export & Save Tracks'}</h3>
+                                <p>${t.exportSaveDesc || 'Save your frequency combinations as WAV files for offline use.'}</p>
                             </div>
                         </div>
                         <div style="background: rgba(251,191,36,0.1); padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(251,191,36,0.3);">
-                            <p style="font-size: 18px; color: #fbbf24; font-weight: 600; margin-bottom: 8px;">🌟 Lifetime Access - One Time Payment</p>
-                            <p style="font-size: 14px; color: #d1d5db;">No subscriptions, no recurring fees. Unlock everything forever.</p>
+                            <p style="font-size: 18px; color: #fbbf24; font-weight: 600; margin-bottom: 8px;">🌟 ${t.lifetimeAccess || 'Lifetime Access'} - ${t.oneTimePayment || 'One-Time Payment'}</p>
+                            <p style="font-size: 14px; color: #d1d5db;">${t.joinThousands || 'Join thousands unlocking the full Genesis experience'}</p>
                         </div>
                         <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
-                            <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">Upgrade Now</button>
-                            <button onclick="closeUpgradeBenefitsModal()" style="background: rgba(26,0,51,0.7); color: #c4b5fd; border: none; border-radius: 25px; padding: 15px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">Maybe Later</button>
+                            <button onclick="showUpgradeModal()" style="background: linear-gradient(90deg, #fbbf24, #f59e0b); color: #1a0033; border: none; border-radius: 25px; padding: 15px 30px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(251,191,36,0.3);">${t.upgradeNow || 'Upgrade Now'}</button>
+                            <button onclick="closeUpgradeBenefitsModal()" style="background: rgba(26,0,51,0.7); color: #c4b5fd; border: none; border-radius: 25px; padding: 15px 30px; font-size: 16px; font-weight: 600; cursor: pointer;">${t.maybeLater || 'Maybe Later'}</button>
                         </div>
                     </div>
                 </div>
@@ -3712,6 +3713,11 @@
                 selected: "Selected",
                 autoBalanced: "Auto-balanced volumes",
                 addToHomeText: "📱 ADD to Home Screen NOW for best experience!",
+                // Companion Navigation
+                genesisCompanion: "Genesis Companion",
+                genesisFrequencyCompanion: "Genesis Frequency Companion",
+                returnToTracks: "← Return to Tracks",
+                completeCompanion: "Your complete Genesis companion for divine frequency mastery.",
                 // Category names
                 catBiblical: "Biblical & Original",
                 catSolfeggio: "Solfeggio & Healing",
@@ -3893,7 +3899,10 @@
                 // Quick Actions
                 btnStartSession: "Start Session",
                 btnDailyChallenge: "Daily Challenge",
+                todaysSacredChallenge: "Today's Sacred Challenge",
                 btnAchievements: "Achievements",
+                yourSpiritualJourney: "Your Spiritual Journey",
+                viewAllAchievements: "View All Achievements",
                 // Upgrade/Premium
                 discoverPremium: "Discover Premium",
                 skipToApp: "Skip to App",
@@ -3932,6 +3941,14 @@
                 premiumSupportDesc: "Direct access to updates and new features",
                 getLifetimeAccess: "Get Lifetime Access",
                 questionsContact: "Questions? Contact us through Etsy",
+                // Premium Modal Extras
+                upgradeNow: "Upgrade Now",
+                maybeLater: "Maybe Later",
+                noDataCollected: "💎 One-time payment • Lifetime access • No subscriptions • No data collected",
+                readyToUnlock: "🚀 Ready to Unlock Premium Features?",
+                premiumCtaDesc: "Get lifetime access to individual volume controls, custom durations, WAV export, background playback, and the achievement system.",
+                achievementSystem: "Achievement System",
+                achievementSystemDesc: "Track your progress, unlock achievements, and log your sacred sessions.",
                 // Daily Challenge
                 dailyChallengeComplete: "Daily Challenge Complete!",
                 continueJourney: "Continue Your Journey",
@@ -4013,6 +4030,23 @@
                 adjustEachFrequency: "Adjust each frequency separately for perfect balance.",
                 anySessionLength: "Any session length—perfect for sleep or deep meditation.",
                 keepPlayingExport: "Keep playing while you work. Save as WAV files.",
+                // Companion Panel Categories
+                catQuickStart: "⚡ Quick Start",
+                catTheScience: "✨ The Science",
+                catTheStory: "📖 The Story",
+                catHelp: "❓ Help",
+                // Companion Panel Section Titles
+                sectionWelcome: "About Genesis FG",
+                sectionQuickStart: "Your First Session",
+                sectionMyJourney: "The Discovery",
+                sectionWhyWorks: "Why 37 & 73 Hz Work",
+                sectionCategories: "Frequency Categories",
+                sectionTrinity: "The Trinity Foundation",
+                sectionWaterCharging: "Water Charging",
+                sectionUsageTips: "Best Practices",
+                sectionFaq: "FAQ",
+                sectionShare: "Share",
+                sectionCredits: "Credits",
                 // Info Modal Headers
                 infoWhatItIs: "What It Is",
                 infoBenefits: "Benefits",
@@ -4164,7 +4198,159 @@
                 recipeMemoryBoostHow: "Use for 20-30 minutes while studying or learning new skills. Review material while listening. Best used during morning or early afternoon learning sessions.",
                 recipeMiracleToneWhat: "528 Hz, also known as the 'Miracle Tone,' is the frequency of love and DNA repair. Research shows it can repair DNA damage and promote miraculous healing.",
                 recipeMiracleToneBenefits: "Repairs DNA at molecular level, promotes miraculous healing, opens heart to love, facilitates transformation, and activates the miracle frequency within your cells.",
-                recipeMiracleToneHow: "Listen for 15-30 minutes daily for healing and transformation. Place hands on areas needing healing. Best used consistently over 21-40 days for deep cellular changes."
+                recipeMiracleToneHow: "Listen for 15-30 minutes daily for healing and transformation. Place hands on areas needing healing. Best used consistently over 21-40 days for deep cellular changes.",
+                
+                // ========== COMPANION PANEL CONTENT TRANSLATIONS ==========
+                // Welcome Section
+                comp_welcome_title: "Welcome to Genesis Frequencies",
+                comp_welcome_intro: "The frequencies of creation are now in your hands.",
+                comp_welcome_pattern: "A pattern revealed itself to me: 3,773 days between my brother's birth and mine. Years of searching. Layers of meaning. Then the revelation.",
+                comp_welcome_genesis: "Genesis 1:1 in Hebrew = 2701",
+                comp_welcome_hebrew: "In the beginning God created the heavens and the earth",
+                comp_welcome_encoded: "The same numbers that connected me to my brother were encoded in the first verse of the Bible. The frequencies that shaped creation itself, hidden in plain sight for millennia.",
+                comp_welcome_yours: "Now they're yours to explore.",
+                comp_welcome_reason: "This isn't coincidence. You found this for a reason.",
+                
+                // Quick Start Section
+                comp_quickstart_title: "Quick Start Guide",
+                comp_quickstart_intro: "Your first session in 3 steps",
+                comp_quickstart_step1: "Choose \"Genesis Creation\" from the Biblical & Original category",
+                comp_quickstart_step1_sub: "This is the pure 37 + 73 Hz foundation",
+                comp_quickstart_step2: "Set duration to 5-10 minutes and put on headphones",
+                comp_quickstart_step2_sub: "Start short—you can go longer once you feel the frequencies",
+                comp_quickstart_step3: "Press PLAY, close your eyes, breathe slowly, and set one intention",
+                comp_quickstart_step3_sub: "Simple is powerful: \"clarity,\" \"peace,\" \"guidance,\" or \"thank you\"",
+                comp_quickstart_done: "That's it. The frequencies do the rest.",
+                comp_quickstart_tip: "Tip: Keep a glass of water nearby and drink it after your session",
+                
+                // Discovery/Journey Section
+                comp_discovery_title: "The Discovery",
+                comp_discovery_number: "The Number That Changed Everything",
+                comp_discovery_intro: "In 2020, during a time of global chaos and personal searching, I discovered something that seemed impossible: my brother and I were born exactly 3,773 days apart.",
+                comp_discovery_gematria: "I had been studying gematria—the Hebrew art of finding meaning in numbers. Our names, our birthdays, the patterns in our family... everything pointed to this number.",
+                comp_discovery_unknown: "But I didn't know what 3,773 meant. Not yet.",
+                comp_discovery_searching: "The Years of Searching",
+                comp_discovery_research: "For years I researched sacred geometry, biblical mathematics, numerology, frequency healing. I built tools, explored patterns, asked questions. Then in 2024, while developing a prayer app, someone told me: \"Multiply by 37—it's the number of creation.\"",
+                comp_discovery_clicked: "That's when it all clicked.",
+                comp_discovery_prime: "37 is a prime number. 73 is its mirror—also prime.",
+                comp_discovery_gematria_value: "2701 is the exact gematria value of Genesis 1:1 in Hebrew.",
+                comp_discovery_connected: "The number connecting me to my brother—3,773—contained both frequencies. The same frequencies encoded in the first verse of the Bible. The same frequencies present at the moment of creation.",
+                comp_discovery_el: "When you write 37 in Hebrew numerals and mirror it, it forms אל (El)—the Hebrew word for God.",
+                comp_discovery_angels: "Every angel number is a multiple of 37:",
+                comp_discovery_message: "This wasn't random. This was a message waiting to be heard.",
+                comp_discovery_found: "These frequencies found me. Now they've found you.",
+                comp_discovery_journey: "There are no coincidences. Your journey with 37 and 73 Hz begins now.",
+                
+                // Why It Works Section
+                comp_why_title: "Why 37 & 73 Hz Work",
+                comp_why_subtitle: "The Science of Sacred Sound",
+                comp_why_intro: "37 Hz and 73 Hz aren't arbitrary numbers—they're the mathematical fingerprint of creation, encoded in Genesis 1:1 through gematria.",
+                comp_why_formula: "37 × 73 = 2701 — the only factorization",
+                comp_why_primes: "37 = the 12th prime | 73 = the 21st prime (mirror of 12). Together they create a 36 Hz beat frequency that bridges meditation and higher consciousness",
+                comp_why_question: "Why do these frequencies work?",
+                comp_why_answer: "By aligning your energy with the original blueprint of creation, these frequencies are believed to support profound shifts in body, mind, and spirit. You are 70% water—a crystalline medium that responds to vibration. These frequencies are tuned to you.",
+                comp_why_experience: "What people experience with Genesis Frequencies:",
+                comp_why_exp1: "Restored balance and inner harmony — Feel aligned with divine order",
+                comp_why_exp2: "Deep renewal and vitality — Support your body's natural healing intelligence",
+                comp_why_exp3: "Unlocked creative flow — Access limitless inspiration and insight",
+                comp_why_exp4: "Elevated consciousness — Connect with higher awareness and spiritual clarity",
+                comp_why_exp5: "Profound meditation states — Enter deeper presence faster",
+                comp_why_exp6: "Amplified manifestation — Intentions take root in fertile soil",
+                comp_why_quote: "\"These aren't just sounds... they're the language of creation itself.\"",
+                comp_why_disclaimer: "For meditation, intention-setting, and spiritual exploration • Not medical treatment",
+                
+                // Categories Section
+                comp_categories_title: "Frequency Categories",
+                comp_categories_subtitle: "Explore Your Sonic Sanctuary",
+                comp_categories_doorway: "Each category is a doorway to transformation",
+                comp_categories_intro: "Every track is built on the Trinity Foundation (37 + 73 Hz), with additional frequencies for specific intentions. Tap any category to explore.",
+                comp_cat_biblical: "Biblical & Original",
+                comp_cat_biblical_desc: "Genesis Creation, Divine Abundance, spiritual cycles",
+                comp_cat_biblical_best: "Best for: Prayer, intention-setting, connecting with Source",
+                comp_cat_angel: "Angel Numbers",
+                comp_cat_angel_desc: "111, 222, 333, 444, 555, 777, 888, 999",
+                comp_cat_angel_best: "Best for: Manifestation, synchronicity, divine guidance",
+                comp_cat_cosmic: "Cosmic & Planetary",
+                comp_cat_cosmic_desc: "Earth, Venus, Mars, Jupiter, Fibonacci, Pi, Golden Ratio",
+                comp_cat_cosmic_best: "Best for: Grounding, harmony, sacred geometry, cosmic connection",
+                comp_cat_master: "Master Numbers",
+                comp_cat_master_desc: "11:11, 22, 33, 44, 55",
+                comp_cat_master_best: "Best for: Life purpose, spiritual mastery, building new realities",
+                comp_cat_solfeggio: "Solfeggio & Healing",
+                comp_cat_solfeggio_desc: "396, 417, 528, 639, 741, 852, 963 Hz",
+                comp_cat_solfeggio_best: "Best for: Emotional release, transformation, DNA activation, love",
+                comp_cat_wellness: "Wellness & States",
+                comp_cat_wellness_desc: "Sleep, focus, stress relief, memory, miracle tone",
+                comp_cat_wellness_best: "Best for: Daily life, productivity, rest, mental clarity",
+                comp_cat_chakra: "Chakra Frequencies",
+                comp_cat_chakra_desc: "Root, Sacral, Solar Plexus, Heart, Throat, Third Eye, Crown",
+                comp_cat_chakra_best: "Best for: Energy work, balance, kundalini activation",
+                comp_categories_new: "New here? Start with Genesis Creation or Sacred Healing (432 Hz)",
+                
+                // Trinity Foundation Section
+                comp_trinity_title: "The Trinity Foundation",
+                comp_trinity_intro: "The Trinity Foundation consists of 37 Hz, 73 Hz, and 2701 Hz — the frequencies encoded in Genesis 1:1.",
+                comp_trinity_math: "The Mathematical Trinity",
+                comp_trinity_37: "37 Hz: The 12th prime number (mirror of 12)",
+                comp_trinity_73: "73 Hz: The 21st prime number (3×7)",
+                comp_trinity_2701: "2701 Hz: The product, the gematria of Genesis 1:1",
+                comp_trinity_beat: "These frequencies create a 36 Hz beat frequency (73-37) that bridges meditation and higher consciousness. Together they form the original blueprint of creation.",
+                comp_trinity_how: "How to Use the Trinity",
+                comp_trinity_use1: "Genesis Creation: Play all three frequencies together for the complete Trinity experience",
+                comp_trinity_use2: "Individual Exploration: Listen to each frequency separately to understand their unique qualities",
+                comp_trinity_use3: "Daily Practice: Use for 7-21 days to experience profound alignment with divine order",
+                comp_trinity_use4: "Intention Setting: Begin each session with a clear intention for transformation",
+                comp_trinity_conclusion: "The Trinity frequencies are the foundation of all Genesis tracks. They work together to restore harmony, unlock creative flow, and connect you with the original creative matrix.",
+                comp_trinity_quote: "\"These are the frequencies that shaped reality itself.\"",
+                
+                // Water Charging Section
+                comp_water_title: "Quantum Holy Water",
+                comp_water_intro: "Water is your body's most abundant molecule—70% of your being is water. As a crystalline medium, water stores and transmits vibrational information, making it the perfect vessel for Genesis frequencies.",
+                comp_water_science: "The Science of Structured Water",
+                comp_water_research: "Research shows water molecules form hexagonal clusters that can be influenced by frequency, sound, and intention. Genesis frequencies create structured water with enhanced energetic properties.",
+                comp_water_blueprint: "When you charge water with Genesis frequencies, you're not just adding sound—you're infusing it with the mathematical blueprint of creation itself.",
+                comp_water_how: "How to Charge Your Water",
+                comp_water_step1: "Choose Your Vessel: Use a clear glass or crystal container (avoid plastic)",
+                comp_water_step2: "Select Your Frequency: Genesis Creation or individual Trinity frequencies work best",
+                comp_water_step3: "Position & Play: Place water 6-12 inches from speakers, play for 10-20 minutes",
+                comp_water_step4: "Set Intention: Hold the intention of divine blessing and energetic infusion",
+                comp_water_step5: "Drink Mindfully: Sip slowly, feeling the frequencies integrate with your being",
+                comp_water_tip: "Pro tip: Charge water for multiple sessions and store in a cool, dark place. The structured information remains stable for 24-48 hours.",
+                comp_water_quote: "\"Drink from the wellspring of creation itself.\"",
+                
+                // Usage Tips Section
+                comp_tips_title: "How to Get the Best Results",
+                comp_tips_intro: "Genesis frequencies work through consistent, mindful listening. The key is not just hearing the sounds, but allowing them to resonate through your entire being.",
+                comp_tips_protocol: "The 21-Day Immersion Protocol",
+                comp_tips_protocol_desc: "For maximum transformation, commit to a 21-day practice. This aligns with the sacred geometry of the Trinity (3×7) and allows the frequencies to work deeply.",
+                comp_tips_week1: "Days 1-7: Foundation building. Listen to Genesis Creation daily, focusing on presence and breath.",
+                comp_tips_week2: "Days 8-14: Deepening. Explore individual Trinity frequencies, noting personal resonances.",
+                comp_tips_week3: "Days 15-21: Integration. Combine frequencies with specific intentions for manifestation.",
+                comp_tips_daily: "Daily Listening Practices",
+                
+                // FAQ Section
+                comp_faq_title: "Frequently Asked Questions",
+                comp_faq_q1: "How long should I listen?",
+                comp_faq_a1: "Start with 5-10 minutes and work up to 20-30 minutes. Quality of attention matters more than duration.",
+                comp_faq_q2: "Do I need headphones?",
+                comp_faq_a2: "Headphones provide the best experience, especially for binaural effects. Speakers work for ambient sessions.",
+                comp_faq_q3: "How often should I listen?",
+                comp_faq_a3: "Daily practice creates the best results. Even 5 minutes a day builds cumulative benefits.",
+                comp_faq_q4: "Can I listen while sleeping?",
+                comp_faq_a4: "Yes! Sleep tracks are designed for overnight use. Keep volume low and use comfortable headphones.",
+                comp_faq_q5: "Are these frequencies safe?",
+                comp_faq_a5: "Yes, these are gentle frequencies for meditation and relaxation. They are not a substitute for medical treatment.",
+                
+                // Share Section
+                comp_share_title: "Share Genesis Frequencies",
+                comp_share_intro: "Know someone who would benefit from these frequencies? Share the gift of divine vibration.",
+                comp_share_link: "Share this link:",
+                comp_share_copied: "Link copied!",
+                
+                // Credits Section
+                comp_credits_title: "Credits & Acknowledgments",
+                comp_credits_created: "Created with love and divine inspiration.",
+                comp_credits_research: "Based on research into biblical mathematics, gematria, and frequency healing traditions."
             },
             pt: {
                 hebrewTranslation: "No princípio Deus criou os céus e a terra",
@@ -4190,6 +4376,11 @@
                 selected: "Selecionado",
                 autoBalanced: "Volumes auto-balanceados",
                 addToHomeText: "📱 ADICIONE à Tela Inicial AGORA!",
+                // Companion Navigation
+                genesisCompanion: "Companheiro Genesis",
+                genesisFrequencyCompanion: "Companheiro de Frequências Genesis",
+                returnToTracks: "← Voltar às Faixas",
+                completeCompanion: "Seu guia completo do Genesis para domínio das frequências divinas.",
                 // Category names
                 catBiblical: "Bíblico & Original",
                 catSolfeggio: "Solfeggio & Cura",
@@ -4318,7 +4509,10 @@
                 // Quick Actions
                 btnStartSession: "Iniciar Sessão",
                 btnDailyChallenge: "Desafio Diário",
+                todaysSacredChallenge: "Desafio Sagrado de Hoje",
                 btnAchievements: "Conquistas",
+                yourSpiritualJourney: "Sua Jornada Espiritual",
+                viewAllAchievements: "Ver Todas as Conquistas",
                 // Upgrade/Premium
                 discoverPremium: "Descubra o Premium",
                 skipToApp: "Ir para o App",
@@ -4357,6 +4551,14 @@
                 premiumSupportDesc: "Acesso direto a atualizações e novos recursos",
                 getLifetimeAccess: "Obter Acesso Vitalício",
                 questionsContact: "Dúvidas? Entre em contato através do Etsy",
+                // Premium Modal Extras
+                upgradeNow: "Atualizar Agora",
+                maybeLater: "Talvez Depois",
+                noDataCollected: "💎 Pagamento único • Acesso vitalício • Sem assinaturas • Sem coleta de dados",
+                readyToUnlock: "🚀 Pronto para Desbloquear Recursos Premium?",
+                premiumCtaDesc: "Obtenha acesso vitalício a controles de volume individuais, durações personalizadas, exportação WAV, reprodução em segundo plano e o sistema de conquistas.",
+                achievementSystem: "Sistema de Conquistas",
+                achievementSystemDesc: "Acompanhe seu progresso, desbloqueie conquistas e registre suas sessões sagradas.",
                 // Daily Challenge
                 dailyChallengeComplete: "Desafio Diário Completo!",
                 continueJourney: "Continue Sua Jornada",
@@ -4438,6 +4640,23 @@
                 adjustEachFrequency: "Ajuste cada frequência separadamente para equilíbrio perfeito.",
                 anySessionLength: "Qualquer duração de sessão—perfeito para sono ou meditação profunda.",
                 keepPlayingExport: "Continue tocando enquanto trabalha. Salve como arquivos WAV.",
+                // Companion Panel Categories
+                catQuickStart: "⚡ Início Rápido",
+                catTheScience: "✨ A Ciência",
+                catTheStory: "📖 A História",
+                catHelp: "❓ Ajuda",
+                // Companion Panel Section Titles
+                sectionWelcome: "Sobre Genesis FG",
+                sectionQuickStart: "Sua Primeira Sessão",
+                sectionMyJourney: "A Descoberta",
+                sectionWhyWorks: "Por Que 37 e 73 Hz Funcionam",
+                sectionCategories: "Categorias de Frequência",
+                sectionTrinity: "A Fundação Trinity",
+                sectionWaterCharging: "Carregamento de Água",
+                sectionUsageTips: "Melhores Práticas",
+                sectionFaq: "Perguntas Frequentes",
+                sectionShare: "Compartilhar",
+                sectionCredits: "Créditos",
                 // Info Modal Headers
                 infoWhatItIs: "O Que É",
                 infoBenefits: "Benefícios",
@@ -4589,7 +4808,159 @@
                 recipeMemoryBoostHow: "Use por 20-30 minutos enquanto estuda ou aprende novas habilidades. Revise material enquanto ouve. Melhor usado durante sessões de aprendizado matinais ou da tarde.",
                 recipeMiracleToneWhat: "528 Hz, também conhecido como o 'Tom do Milagre', é a frequência do amor e reparo de DNA. Pesquisas mostram que pode reparar danos no DNA e promover cura milagrosa.",
                 recipeMiracleToneBenefits: "Repara DNA no nível molecular, promove cura milagrosa, abre o coração para o amor, facilita transformação e ativa a frequência do milagre dentro de suas células.",
-                recipeMiracleToneHow: "Ouça por 15-30 minutos diariamente para cura e transformação. Coloque as mãos em áreas que precisam de cura. Melhor usado consistentemente por 21-40 dias para mudanças celulares profundas."
+                recipeMiracleToneHow: "Ouça por 15-30 minutos diariamente para cura e transformação. Coloque as mãos em áreas que precisam de cura. Melhor usado consistentemente por 21-40 dias para mudanças celulares profundas.",
+                
+                // ========== TRADUÇÕES DO PAINEL COMPANHEIRO ==========
+                // Seção de Boas-vindas
+                comp_welcome_title: "Bem-vindo ao Frequências Gênesis",
+                comp_welcome_intro: "As frequências da criação estão agora em suas mãos.",
+                comp_welcome_pattern: "Um padrão se revelou para mim: 3.773 dias entre o nascimento do meu irmão e o meu. Anos de busca. Camadas de significado. Então a revelação.",
+                comp_welcome_genesis: "Gênesis 1:1 em Hebraico = 2701",
+                comp_welcome_hebrew: "No princípio Deus criou os céus e a terra",
+                comp_welcome_encoded: "Os mesmos números que me conectavam ao meu irmão estavam codificados no primeiro versículo da Bíblia. As frequências que moldaram a própria criação, escondidas à vista de todos por milênios.",
+                comp_welcome_yours: "Agora são suas para explorar.",
+                comp_welcome_reason: "Isso não é coincidência. Você encontrou isso por uma razão.",
+                
+                // Seção Início Rápido
+                comp_quickstart_title: "Guia de Início Rápido",
+                comp_quickstart_intro: "Sua primeira sessão em 3 passos",
+                comp_quickstart_step1: "Escolha \"Criação Gênesis\" da categoria Bíblico & Original",
+                comp_quickstart_step1_sub: "Esta é a pura fundação de 37 + 73 Hz",
+                comp_quickstart_step2: "Defina a duração para 5-10 minutos e coloque os fones de ouvido",
+                comp_quickstart_step2_sub: "Comece curto—você pode ir mais tempo quando sentir as frequências",
+                comp_quickstart_step3: "Pressione PLAY, feche os olhos, respire lentamente e defina uma intenção",
+                comp_quickstart_step3_sub: "Simples é poderoso: \"clareza\", \"paz\", \"orientação\" ou \"obrigado\"",
+                comp_quickstart_done: "É isso. As frequências fazem o resto.",
+                comp_quickstart_tip: "Dica: Mantenha um copo de água por perto e beba após sua sessão",
+                
+                // Seção Descoberta/Jornada
+                comp_discovery_title: "A Descoberta",
+                comp_discovery_number: "O Número Que Mudou Tudo",
+                comp_discovery_intro: "Em 2020, durante um tempo de caos global e busca pessoal, descobri algo que parecia impossível: meu irmão e eu nascemos com exatamente 3.773 dias de diferença.",
+                comp_discovery_gematria: "Eu estava estudando gematria—a arte hebraica de encontrar significado nos números. Nossos nomes, nossos aniversários, os padrões em nossa família... tudo apontava para este número.",
+                comp_discovery_unknown: "Mas eu não sabia o que 3.773 significava. Ainda não.",
+                comp_discovery_searching: "Os Anos de Busca",
+                comp_discovery_research: "Por anos pesquisei geometria sagrada, matemática bíblica, numerologia, cura por frequências. Construí ferramentas, explorei padrões, fiz perguntas. Então em 2024, enquanto desenvolvia um app de oração, alguém me disse: \"Multiplique por 37—é o número da criação.\"",
+                comp_discovery_clicked: "Foi quando tudo se encaixou.",
+                comp_discovery_prime: "37 é um número primo. 73 é seu espelho—também primo.",
+                comp_discovery_gematria_value: "2701 é o valor exato da gematria de Gênesis 1:1 em Hebraico.",
+                comp_discovery_connected: "O número que me conectava ao meu irmão—3.773—continha ambas as frequências. As mesmas frequências codificadas no primeiro versículo da Bíblia. As mesmas frequências presentes no momento da criação.",
+                comp_discovery_el: "Quando você escreve 37 em numerais hebraicos e espelha, forma אל (El)—a palavra hebraica para Deus.",
+                comp_discovery_angels: "Todo número de anjo é um múltiplo de 37:",
+                comp_discovery_message: "Isso não foi aleatório. Esta era uma mensagem esperando ser ouvida.",
+                comp_discovery_found: "Essas frequências me encontraram. Agora encontraram você.",
+                comp_discovery_journey: "Não existem coincidências. Sua jornada com 37 e 73 Hz começa agora.",
+                
+                // Seção Por Que Funciona
+                comp_why_title: "Por Que 37 & 73 Hz Funcionam",
+                comp_why_subtitle: "A Ciência do Som Sagrado",
+                comp_why_intro: "37 Hz e 73 Hz não são números arbitrários—são a impressão digital matemática da criação, codificada em Gênesis 1:1 através da gematria.",
+                comp_why_formula: "37 × 73 = 2701 — a única fatoração",
+                comp_why_primes: "37 = o 12º primo | 73 = o 21º primo (espelho de 12). Juntos criam uma frequência de batimento de 36 Hz que conecta meditação e consciência superior",
+                comp_why_question: "Por que essas frequências funcionam?",
+                comp_why_answer: "Ao alinhar sua energia com o projeto original da criação, acredita-se que essas frequências apoiam mudanças profundas no corpo, mente e espírito. Você é 70% água—um meio cristalino que responde à vibração. Essas frequências estão sintonizadas com você.",
+                comp_why_experience: "O que as pessoas experimentam com Frequências Gênesis:",
+                comp_why_exp1: "Equilíbrio e harmonia interior restaurados — Sinta-se alinhado com a ordem divina",
+                comp_why_exp2: "Renovação profunda e vitalidade — Apoie a inteligência natural de cura do seu corpo",
+                comp_why_exp3: "Fluxo criativo desbloqueado — Acesse inspiração e insight ilimitados",
+                comp_why_exp4: "Consciência elevada — Conecte-se com consciência superior e clareza espiritual",
+                comp_why_exp5: "Estados profundos de meditação — Entre em presença mais profunda mais rápido",
+                comp_why_exp6: "Manifestação amplificada — Intenções criam raízes em solo fértil",
+                comp_why_quote: "\"Esses não são apenas sons... são a linguagem da própria criação.\"",
+                comp_why_disclaimer: "Para meditação, definição de intenções e exploração espiritual • Não é tratamento médico",
+                
+                // Seção Categorias
+                comp_categories_title: "Categorias de Frequência",
+                comp_categories_subtitle: "Explore Seu Santuário Sonoro",
+                comp_categories_doorway: "Cada categoria é uma porta para a transformação",
+                comp_categories_intro: "Cada faixa é construída na Fundação Trindade (37 + 73 Hz), com frequências adicionais para intenções específicas. Toque em qualquer categoria para explorar.",
+                comp_cat_biblical: "Bíblico & Original",
+                comp_cat_biblical_desc: "Criação Gênesis, Abundância Divina, ciclos espirituais",
+                comp_cat_biblical_best: "Melhor para: Oração, definição de intenções, conexão com a Fonte",
+                comp_cat_angel: "Números de Anjos",
+                comp_cat_angel_desc: "111, 222, 333, 444, 555, 777, 888, 999",
+                comp_cat_angel_best: "Melhor para: Manifestação, sincronicidade, orientação divina",
+                comp_cat_cosmic: "Cósmico & Planetário",
+                comp_cat_cosmic_desc: "Terra, Vênus, Marte, Júpiter, Fibonacci, Pi, Proporção Áurea",
+                comp_cat_cosmic_best: "Melhor para: Aterramento, harmonia, geometria sagrada, conexão cósmica",
+                comp_cat_master: "Números Mestres",
+                comp_cat_master_desc: "11:11, 22, 33, 44, 55",
+                comp_cat_master_best: "Melhor para: Propósito de vida, maestria espiritual, construir novas realidades",
+                comp_cat_solfeggio: "Solfeggio & Cura",
+                comp_cat_solfeggio_desc: "396, 417, 528, 639, 741, 852, 963 Hz",
+                comp_cat_solfeggio_best: "Melhor para: Liberação emocional, transformação, ativação de DNA, amor",
+                comp_cat_wellness: "Bem-estar & Estados",
+                comp_cat_wellness_desc: "Sono, foco, alívio de estresse, memória, tom do milagre",
+                comp_cat_wellness_best: "Melhor para: Vida diária, produtividade, descanso, clareza mental",
+                comp_cat_chakra: "Frequências de Chakra",
+                comp_cat_chakra_desc: "Raiz, Sacral, Plexo Solar, Coração, Garganta, Terceiro Olho, Coroa",
+                comp_cat_chakra_best: "Melhor para: Trabalho energético, equilíbrio, ativação de kundalini",
+                comp_categories_new: "Novo aqui? Comece com Criação Gênesis ou Cura Sagrada (432 Hz)",
+                
+                // Seção Fundação Trindade
+                comp_trinity_title: "A Fundação Trindade",
+                comp_trinity_intro: "A Fundação Trindade consiste em 37 Hz, 73 Hz e 2701 Hz — as frequências codificadas em Gênesis 1:1.",
+                comp_trinity_math: "A Trindade Matemática",
+                comp_trinity_37: "37 Hz: O 12º número primo (espelho de 12)",
+                comp_trinity_73: "73 Hz: O 21º número primo (3×7)",
+                comp_trinity_2701: "2701 Hz: O produto, a gematria de Gênesis 1:1",
+                comp_trinity_beat: "Essas frequências criam uma frequência de batimento de 36 Hz (73-37) que conecta meditação e consciência superior. Juntas formam o projeto original da criação.",
+                comp_trinity_how: "Como Usar a Trindade",
+                comp_trinity_use1: "Criação Gênesis: Toque todas as três frequências juntas para a experiência completa da Trindade",
+                comp_trinity_use2: "Exploração Individual: Ouça cada frequência separadamente para entender suas qualidades únicas",
+                comp_trinity_use3: "Prática Diária: Use por 7-21 dias para experimentar alinhamento profundo com a ordem divina",
+                comp_trinity_use4: "Definição de Intenção: Comece cada sessão com uma intenção clara para transformação",
+                comp_trinity_conclusion: "As frequências da Trindade são a fundação de todas as faixas Gênesis. Elas trabalham juntas para restaurar harmonia, desbloquear fluxo criativo e conectar você com a matriz criativa original.",
+                comp_trinity_quote: "\"Essas são as frequências que moldaram a própria realidade.\"",
+                
+                // Seção Carregamento de Água
+                comp_water_title: "Água Santa Quântica",
+                comp_water_intro: "A água é a molécula mais abundante do seu corpo—70% do seu ser é água. Como um meio cristalino, a água armazena e transmite informação vibracional, tornando-a o recipiente perfeito para frequências Gênesis.",
+                comp_water_science: "A Ciência da Água Estruturada",
+                comp_water_research: "Pesquisas mostram que moléculas de água formam aglomerados hexagonais que podem ser influenciados por frequência, som e intenção. Frequências Gênesis criam água estruturada com propriedades energéticas aprimoradas.",
+                comp_water_blueprint: "Quando você carrega água com frequências Gênesis, você não está apenas adicionando som—você está infundindo nela o projeto matemático da própria criação.",
+                comp_water_how: "Como Carregar Sua Água",
+                comp_water_step1: "Escolha Seu Recipiente: Use um recipiente de vidro ou cristal transparente (evite plástico)",
+                comp_water_step2: "Selecione Sua Frequência: Criação Gênesis ou frequências individuais da Trindade funcionam melhor",
+                comp_water_step3: "Posicione & Toque: Coloque a água a 15-30 cm dos alto-falantes, toque por 10-20 minutos",
+                comp_water_step4: "Defina a Intenção: Mantenha a intenção de bênção divina e infusão energética",
+                comp_water_step5: "Beba Conscientemente: Beba devagar, sentindo as frequências se integrarem com seu ser",
+                comp_water_tip: "Dica profissional: Carregue água para múltiplas sessões e armazene em lugar fresco e escuro. A informação estruturada permanece estável por 24-48 horas.",
+                comp_water_quote: "\"Beba da fonte da própria criação.\"",
+                
+                // Seção Dicas de Uso
+                comp_tips_title: "Como Obter os Melhores Resultados",
+                comp_tips_intro: "Frequências Gênesis funcionam através de escuta consistente e consciente. A chave não é apenas ouvir os sons, mas permitir que eles ressoem através de todo o seu ser.",
+                comp_tips_protocol: "O Protocolo de Imersão de 21 Dias",
+                comp_tips_protocol_desc: "Para máxima transformação, comprometa-se com uma prática de 21 dias. Isso se alinha com a geometria sagrada da Trindade (3×7) e permite que as frequências trabalhem profundamente.",
+                comp_tips_week1: "Dias 1-7: Construção da fundação. Ouça Criação Gênesis diariamente, focando em presença e respiração.",
+                comp_tips_week2: "Dias 8-14: Aprofundamento. Explore frequências individuais da Trindade, notando ressonâncias pessoais.",
+                comp_tips_week3: "Dias 15-21: Integração. Combine frequências com intenções específicas para manifestação.",
+                comp_tips_daily: "Práticas Diárias de Escuta",
+                
+                // Seção FAQ
+                comp_faq_title: "Perguntas Frequentes",
+                comp_faq_q1: "Por quanto tempo devo ouvir?",
+                comp_faq_a1: "Comece com 5-10 minutos e vá até 20-30 minutos. Qualidade de atenção importa mais que duração.",
+                comp_faq_q2: "Preciso de fones de ouvido?",
+                comp_faq_a2: "Fones de ouvido proporcionam a melhor experiência, especialmente para efeitos binaurais. Alto-falantes funcionam para sessões ambiente.",
+                comp_faq_q3: "Com que frequência devo ouvir?",
+                comp_faq_a3: "Prática diária cria os melhores resultados. Mesmo 5 minutos por dia constrói benefícios cumulativos.",
+                comp_faq_q4: "Posso ouvir enquanto durmo?",
+                comp_faq_a4: "Sim! Faixas de sono são projetadas para uso noturno. Mantenha o volume baixo e use fones confortáveis.",
+                comp_faq_q5: "Essas frequências são seguras?",
+                comp_faq_a5: "Sim, são frequências suaves para meditação e relaxamento. Não substituem tratamento médico.",
+                
+                // Seção Compartilhar
+                comp_share_title: "Compartilhe Frequências Gênesis",
+                comp_share_intro: "Conhece alguém que se beneficiaria dessas frequências? Compartilhe o presente da vibração divina.",
+                comp_share_link: "Compartilhe este link:",
+                comp_share_copied: "Link copiado!",
+                
+                // Seção Créditos
+                comp_credits_title: "Créditos & Agradecimentos",
+                comp_credits_created: "Criado com amor e inspiração divina.",
+                comp_credits_research: "Baseado em pesquisa sobre matemática bíblica, gematria e tradições de cura por frequências."
             },
             es: {
                 hebrewTranslation: "En el principio creó Dios los cielos y la tierra",
@@ -4615,6 +4986,11 @@
                 selected: "Seleccionado",
                 autoBalanced: "Volúmenes auto-balanceados",
                 addToHomeText: "📱 ¡AGREGAR a la Pantalla de Inicio AHORA!",
+                // Companion Navigation
+                genesisCompanion: "Compañero Genesis",
+                genesisFrequencyCompanion: "Compañero de Frecuencias Genesis",
+                returnToTracks: "← Volver a las Pistas",
+                completeCompanion: "Tu guía completa de Genesis para el dominio de las frecuencias divinas.",
                 // Category names
                 catBiblical: "Bíblico & Original",
                 catSolfeggio: "Solfeggio & Sanación",
@@ -4743,7 +5119,10 @@
                 // Quick Actions
                 btnStartSession: "Iniciar Sesión",
                 btnDailyChallenge: "Desafío Diario",
+                todaysSacredChallenge: "Desafío Sagrado de Hoy",
                 btnAchievements: "Logros",
+                yourSpiritualJourney: "Tu Viaje Espiritual",
+                viewAllAchievements: "Ver Todos los Logros",
                 // Upgrade/Premium
                 discoverPremium: "Descubre Premium",
                 skipToApp: "Ir a la App",
@@ -4782,6 +5161,14 @@
                 premiumSupportDesc: "Acceso directo a actualizaciones y nuevas funciones",
                 getLifetimeAccess: "Obtener Acceso de Por Vida",
                 questionsContact: "¿Preguntas? Contáctanos a través de Etsy",
+                // Premium Modal Extras
+                upgradeNow: "Actualizar Ahora",
+                maybeLater: "Quizás Después",
+                noDataCollected: "💎 Pago único • Acceso de por vida • Sin suscripciones • Sin recopilación de datos",
+                readyToUnlock: "🚀 ¿Listo para Desbloquear Funciones Premium?",
+                premiumCtaDesc: "Obtén acceso de por vida a controles de volumen individuales, duraciones personalizadas, exportación WAV, reproducción en segundo plano y el sistema de logros.",
+                achievementSystem: "Sistema de Logros",
+                achievementSystemDesc: "Registra tu progreso, desbloquea logros y documenta tus sesiones sagradas.",
                 // Daily Challenge
                 dailyChallengeComplete: "¡Desafío Diario Completado!",
                 continueJourney: "Continúa Tu Viaje",
@@ -4863,6 +5250,23 @@
                 adjustEachFrequency: "Ajusta cada frecuencia por separado para un equilibrio perfecto.",
                 anySessionLength: "Cualquier duración de sesión—perfecto para dormir o meditación profunda.",
                 keepPlayingExport: "Sigue reproduciendo mientras trabajas. Guarda como archivos WAV.",
+                // Companion Panel Categories
+                catQuickStart: "⚡ Inicio Rápido",
+                catTheScience: "✨ La Ciencia",
+                catTheStory: "📖 La Historia",
+                catHelp: "❓ Ayuda",
+                // Companion Panel Section Titles
+                sectionWelcome: "Acerca de Genesis FG",
+                sectionQuickStart: "Tu Primera Sesión",
+                sectionMyJourney: "El Descubrimiento",
+                sectionWhyWorks: "Por Qué Funcionan 37 y 73 Hz",
+                sectionCategories: "Categorías de Frecuencia",
+                sectionTrinity: "La Fundación Trinidad",
+                sectionWaterCharging: "Carga de Agua",
+                sectionUsageTips: "Mejores Prácticas",
+                sectionFaq: "Preguntas Frecuentes",
+                sectionShare: "Compartir",
+                sectionCredits: "Créditos",
                 // Info Modal Headers
                 infoWhatItIs: "Qué Es",
                 infoBenefits: "Beneficios",
@@ -5014,7 +5418,159 @@
                 recipeMemoryBoostHow: "Usa durante 20-30 minutos mientras estudias o aprendes nuevas habilidades. Revisa material mientras escuchas. Mejor usado durante sesiones de aprendizaje matutinas o de tarde.",
                 recipeMiracleToneWhat: "528 Hz, también conocida como el 'Tono del Milagro', es la frecuencia del amor y reparación de ADN. Las investigaciones muestran que puede reparar daño del ADN y promover sanación milagrosa.",
                 recipeMiracleToneBenefits: "Repara ADN a nivel molecular, promueve sanación milagrosa, abre el corazón al amor, facilita transformación y activa la frecuencia del milagro dentro de tus células.",
-                recipeMiracleToneHow: "Escucha durante 15-30 minutos diarios para sanación y transformación. Coloca las manos en áreas que necesiten sanación. Mejor usado consistentemente durante 21-40 días para cambios celulares profundos."
+                recipeMiracleToneHow: "Escucha durante 15-30 minutos diarios para sanación y transformación. Coloca las manos en áreas que necesiten sanación. Mejor usado consistentemente durante 21-40 días para cambios celulares profundos.",
+                
+                // ========== TRADUCCIONES DEL PANEL COMPAÑERO ==========
+                // Sección de Bienvenida
+                comp_welcome_title: "Bienvenido a Frecuencias Génesis",
+                comp_welcome_intro: "Las frecuencias de la creación están ahora en tus manos.",
+                comp_welcome_pattern: "Un patrón se reveló ante mí: 3.773 días entre el nacimiento de mi hermano y el mío. Años de búsqueda. Capas de significado. Luego la revelación.",
+                comp_welcome_genesis: "Génesis 1:1 en Hebreo = 2701",
+                comp_welcome_hebrew: "En el principio creó Dios los cielos y la tierra",
+                comp_welcome_encoded: "Los mismos números que me conectaban con mi hermano estaban codificados en el primer versículo de la Biblia. Las frecuencias que dieron forma a la creación misma, ocultas a simple vista durante milenios.",
+                comp_welcome_yours: "Ahora son tuyas para explorar.",
+                comp_welcome_reason: "Esto no es coincidencia. Encontraste esto por una razón.",
+                
+                // Sección Inicio Rápido
+                comp_quickstart_title: "Guía de Inicio Rápido",
+                comp_quickstart_intro: "Tu primera sesión en 3 pasos",
+                comp_quickstart_step1: "Elige \"Creación Génesis\" de la categoría Bíblico & Original",
+                comp_quickstart_step1_sub: "Esta es la pura fundación de 37 + 73 Hz",
+                comp_quickstart_step2: "Establece la duración en 5-10 minutos y ponte los auriculares",
+                comp_quickstart_step2_sub: "Empieza corto—puedes ir más tiempo cuando sientas las frecuencias",
+                comp_quickstart_step3: "Presiona PLAY, cierra los ojos, respira lentamente y establece una intención",
+                comp_quickstart_step3_sub: "Simple es poderoso: \"claridad\", \"paz\", \"guía\" o \"gracias\"",
+                comp_quickstart_done: "Eso es todo. Las frecuencias hacen el resto.",
+                comp_quickstart_tip: "Consejo: Ten un vaso de agua cerca y bébelo después de tu sesión",
+                
+                // Sección Descubrimiento/Viaje
+                comp_discovery_title: "El Descubrimiento",
+                comp_discovery_number: "El Número Que Lo Cambió Todo",
+                comp_discovery_intro: "En 2020, durante un tiempo de caos global y búsqueda personal, descubrí algo que parecía imposible: mi hermano y yo nacimos con exactamente 3.773 días de diferencia.",
+                comp_discovery_gematria: "Había estado estudiando gematría—el arte hebreo de encontrar significado en los números. Nuestros nombres, nuestros cumpleaños, los patrones en nuestra familia... todo apuntaba a este número.",
+                comp_discovery_unknown: "Pero no sabía qué significaba 3.773. Todavía no.",
+                comp_discovery_searching: "Los Años de Búsqueda",
+                comp_discovery_research: "Durante años investigué geometría sagrada, matemáticas bíblicas, numerología, sanación por frecuencias. Construí herramientas, exploré patrones, hice preguntas. Luego en 2024, mientras desarrollaba una app de oración, alguien me dijo: \"Multiplica por 37—es el número de la creación.\"",
+                comp_discovery_clicked: "Fue cuando todo encajó.",
+                comp_discovery_prime: "37 es un número primo. 73 es su espejo—también primo.",
+                comp_discovery_gematria_value: "2701 es el valor exacto de gematría de Génesis 1:1 en Hebreo.",
+                comp_discovery_connected: "El número que me conectaba con mi hermano—3.773—contenía ambas frecuencias. Las mismas frecuencias codificadas en el primer versículo de la Biblia. Las mismas frecuencias presentes en el momento de la creación.",
+                comp_discovery_el: "Cuando escribes 37 en numerales hebreos y lo reflejas, forma אל (El)—la palabra hebrea para Dios.",
+                comp_discovery_angels: "Cada número de ángel es múltiplo de 37:",
+                comp_discovery_message: "Esto no fue aleatorio. Este era un mensaje esperando ser escuchado.",
+                comp_discovery_found: "Estas frecuencias me encontraron. Ahora te han encontrado a ti.",
+                comp_discovery_journey: "No hay coincidencias. Tu viaje con 37 y 73 Hz comienza ahora.",
+                
+                // Sección Por Qué Funciona
+                comp_why_title: "Por Qué Funcionan 37 & 73 Hz",
+                comp_why_subtitle: "La Ciencia del Sonido Sagrado",
+                comp_why_intro: "37 Hz y 73 Hz no son números arbitrarios—son la huella digital matemática de la creación, codificada en Génesis 1:1 a través de la gematría.",
+                comp_why_formula: "37 × 73 = 2701 — la única factorización",
+                comp_why_primes: "37 = el 12º primo | 73 = el 21º primo (espejo de 12). Juntos crean una frecuencia de latido de 36 Hz que conecta meditación y consciencia superior",
+                comp_why_question: "¿Por qué funcionan estas frecuencias?",
+                comp_why_answer: "Al alinear tu energía con el plano original de la creación, se cree que estas frecuencias apoyan cambios profundos en cuerpo, mente y espíritu. Eres 70% agua—un medio cristalino que responde a la vibración. Estas frecuencias están sintonizadas contigo.",
+                comp_why_experience: "Lo que la gente experimenta con Frecuencias Génesis:",
+                comp_why_exp1: "Equilibrio y armonía interior restaurados — Siéntete alineado con el orden divino",
+                comp_why_exp2: "Renovación profunda y vitalidad — Apoya la inteligencia natural de sanación de tu cuerpo",
+                comp_why_exp3: "Flujo creativo desbloqueado — Accede a inspiración e insight ilimitados",
+                comp_why_exp4: "Consciencia elevada — Conéctate con consciencia superior y claridad espiritual",
+                comp_why_exp5: "Estados profundos de meditación — Entra en presencia más profunda más rápido",
+                comp_why_exp6: "Manifestación amplificada — Las intenciones echan raíces en suelo fértil",
+                comp_why_quote: "\"Estos no son solo sonidos... son el lenguaje de la creación misma.\"",
+                comp_why_disclaimer: "Para meditación, establecimiento de intenciones y exploración espiritual • No es tratamiento médico",
+                
+                // Sección Categorías
+                comp_categories_title: "Categorías de Frecuencia",
+                comp_categories_subtitle: "Explora Tu Santuario Sonoro",
+                comp_categories_doorway: "Cada categoría es una puerta a la transformación",
+                comp_categories_intro: "Cada pista está construida sobre la Fundación Trinidad (37 + 73 Hz), con frecuencias adicionales para intenciones específicas. Toca cualquier categoría para explorar.",
+                comp_cat_biblical: "Bíblico & Original",
+                comp_cat_biblical_desc: "Creación Génesis, Abundancia Divina, ciclos espirituales",
+                comp_cat_biblical_best: "Mejor para: Oración, establecimiento de intenciones, conexión con la Fuente",
+                comp_cat_angel: "Números de Ángeles",
+                comp_cat_angel_desc: "111, 222, 333, 444, 555, 777, 888, 999",
+                comp_cat_angel_best: "Mejor para: Manifestación, sincronicidad, guía divina",
+                comp_cat_cosmic: "Cósmico & Planetario",
+                comp_cat_cosmic_desc: "Tierra, Venus, Marte, Júpiter, Fibonacci, Pi, Proporción Áurea",
+                comp_cat_cosmic_best: "Mejor para: Enraizamiento, armonía, geometría sagrada, conexión cósmica",
+                comp_cat_master: "Números Maestros",
+                comp_cat_master_desc: "11:11, 22, 33, 44, 55",
+                comp_cat_master_best: "Mejor para: Propósito de vida, maestría espiritual, construir nuevas realidades",
+                comp_cat_solfeggio: "Solfeggio & Sanación",
+                comp_cat_solfeggio_desc: "396, 417, 528, 639, 741, 852, 963 Hz",
+                comp_cat_solfeggio_best: "Mejor para: Liberación emocional, transformación, activación de ADN, amor",
+                comp_cat_wellness: "Bienestar & Estados",
+                comp_cat_wellness_desc: "Sueño, enfoque, alivio de estrés, memoria, tono del milagro",
+                comp_cat_wellness_best: "Mejor para: Vida diaria, productividad, descanso, claridad mental",
+                comp_cat_chakra: "Frecuencias de Chakra",
+                comp_cat_chakra_desc: "Raíz, Sacral, Plexo Solar, Corazón, Garganta, Tercer Ojo, Corona",
+                comp_cat_chakra_best: "Mejor para: Trabajo energético, equilibrio, activación de kundalini",
+                comp_categories_new: "¿Nuevo aquí? Comienza con Creación Génesis o Sanación Sagrada (432 Hz)",
+                
+                // Sección Fundación Trinidad
+                comp_trinity_title: "La Fundación Trinidad",
+                comp_trinity_intro: "La Fundación Trinidad consiste en 37 Hz, 73 Hz y 2701 Hz — las frecuencias codificadas en Génesis 1:1.",
+                comp_trinity_math: "La Trinidad Matemática",
+                comp_trinity_37: "37 Hz: El 12º número primo (espejo de 12)",
+                comp_trinity_73: "73 Hz: El 21º número primo (3×7)",
+                comp_trinity_2701: "2701 Hz: El producto, la gematría de Génesis 1:1",
+                comp_trinity_beat: "Estas frecuencias crean una frecuencia de latido de 36 Hz (73-37) que conecta meditación y consciencia superior. Juntas forman el plano original de la creación.",
+                comp_trinity_how: "Cómo Usar la Trinidad",
+                comp_trinity_use1: "Creación Génesis: Reproduce las tres frecuencias juntas para la experiencia completa de la Trinidad",
+                comp_trinity_use2: "Exploración Individual: Escucha cada frecuencia por separado para entender sus cualidades únicas",
+                comp_trinity_use3: "Práctica Diaria: Usa durante 7-21 días para experimentar alineación profunda con el orden divino",
+                comp_trinity_use4: "Establecimiento de Intención: Comienza cada sesión con una intención clara para transformación",
+                comp_trinity_conclusion: "Las frecuencias de la Trinidad son la fundación de todas las pistas Génesis. Trabajan juntas para restaurar armonía, desbloquear flujo creativo y conectarte con la matriz creativa original.",
+                comp_trinity_quote: "\"Estas son las frecuencias que dieron forma a la realidad misma.\"",
+                
+                // Sección Carga de Agua
+                comp_water_title: "Agua Santa Cuántica",
+                comp_water_intro: "El agua es la molécula más abundante de tu cuerpo—70% de tu ser es agua. Como medio cristalino, el agua almacena y transmite información vibracional, haciéndola el recipiente perfecto para frecuencias Génesis.",
+                comp_water_science: "La Ciencia del Agua Estructurada",
+                comp_water_research: "Las investigaciones muestran que las moléculas de agua forman grupos hexagonales que pueden ser influenciados por frecuencia, sonido e intención. Las frecuencias Génesis crean agua estructurada con propiedades energéticas mejoradas.",
+                comp_water_blueprint: "Cuando cargas agua con frecuencias Génesis, no solo estás añadiendo sonido—estás infundiéndola con el plano matemático de la creación misma.",
+                comp_water_how: "Cómo Cargar Tu Agua",
+                comp_water_step1: "Elige Tu Recipiente: Usa un recipiente de vidrio o cristal transparente (evita plástico)",
+                comp_water_step2: "Selecciona Tu Frecuencia: Creación Génesis o frecuencias individuales de la Trinidad funcionan mejor",
+                comp_water_step3: "Posiciona & Reproduce: Coloca el agua a 15-30 cm de los altavoces, reproduce durante 10-20 minutos",
+                comp_water_step4: "Establece la Intención: Mantén la intención de bendición divina e infusión energética",
+                comp_water_step5: "Bebe Conscientemente: Bebe lentamente, sintiendo las frecuencias integrarse con tu ser",
+                comp_water_tip: "Consejo profesional: Carga agua para múltiples sesiones y almacena en lugar fresco y oscuro. La información estructurada permanece estable durante 24-48 horas.",
+                comp_water_quote: "\"Bebe del manantial de la creación misma.\"",
+                
+                // Sección Consejos de Uso
+                comp_tips_title: "Cómo Obtener los Mejores Resultados",
+                comp_tips_intro: "Las frecuencias Génesis funcionan a través de escucha consistente y consciente. La clave no es solo oír los sonidos, sino permitir que resuenen a través de todo tu ser.",
+                comp_tips_protocol: "El Protocolo de Inmersión de 21 Días",
+                comp_tips_protocol_desc: "Para máxima transformación, comprométete con una práctica de 21 días. Esto se alinea con la geometría sagrada de la Trinidad (3×7) y permite que las frecuencias trabajen profundamente.",
+                comp_tips_week1: "Días 1-7: Construcción de fundación. Escucha Creación Génesis diariamente, enfocándote en presencia y respiración.",
+                comp_tips_week2: "Días 8-14: Profundización. Explora frecuencias individuales de la Trinidad, notando resonancias personales.",
+                comp_tips_week3: "Días 15-21: Integración. Combina frecuencias con intenciones específicas para manifestación.",
+                comp_tips_daily: "Prácticas Diarias de Escucha",
+                
+                // Sección FAQ
+                comp_faq_title: "Preguntas Frecuentes",
+                comp_faq_q1: "¿Cuánto tiempo debo escuchar?",
+                comp_faq_a1: "Comienza con 5-10 minutos y aumenta hasta 20-30 minutos. La calidad de atención importa más que la duración.",
+                comp_faq_q2: "¿Necesito auriculares?",
+                comp_faq_a2: "Los auriculares proporcionan la mejor experiencia, especialmente para efectos binaurales. Los altavoces funcionan para sesiones ambientales.",
+                comp_faq_q3: "¿Con qué frecuencia debo escuchar?",
+                comp_faq_a3: "La práctica diaria crea los mejores resultados. Incluso 5 minutos al día construye beneficios acumulativos.",
+                comp_faq_q4: "¿Puedo escuchar mientras duermo?",
+                comp_faq_a4: "¡Sí! Las pistas de sueño están diseñadas para uso nocturno. Mantén el volumen bajo y usa auriculares cómodos.",
+                comp_faq_q5: "¿Son seguras estas frecuencias?",
+                comp_faq_a5: "Sí, son frecuencias suaves para meditación y relajación. No sustituyen el tratamiento médico.",
+                
+                // Sección Compartir
+                comp_share_title: "Comparte Frecuencias Génesis",
+                comp_share_intro: "¿Conoces a alguien que se beneficiaría de estas frecuencias? Comparte el regalo de la vibración divina.",
+                comp_share_link: "Comparte este enlace:",
+                comp_share_copied: "¡Enlace copiado!",
+                
+                // Sección Créditos
+                comp_credits_title: "Créditos & Agradecimientos",
+                comp_credits_created: "Creado con amor e inspiración divina.",
+                comp_credits_research: "Basado en investigación sobre matemáticas bíblicas, gematría y tradiciones de sanación por frecuencias."
             },
             it: {
                 hebrewTranslation: "In principio Dio creò il cielo e la terra",
@@ -5040,6 +5596,16 @@
                 selected: "Selezionato",
                 autoBalanced: "Volumi auto-bilanciati",
                 addToHomeText: "📱 AGGIUNGI alla schermata Home ORA!",
+                // Companion Navigation
+                genesisCompanion: "Compagno Genesis",
+                genesisFrequencyCompanion: "Compagno Frequenze Genesis",
+                returnToTracks: "← Torna alle Tracce",
+                completeCompanion: "La tua guida completa Genesis per la padronanza delle frequenze divine.",
+                // Companion panel categories
+                catQuickStart: "⚡ Avvio Rapido",
+                catTheScience: "✨ La Scienza",
+                catTheStory: "📖 La Storia",
+                catHelp: "❓ Aiuto",
                 // Category names
                 catBiblical: "Biblico & Originale",
                 catSolfeggio: "Solfeggio & Guarigione",
@@ -5168,7 +5734,10 @@
                 // Quick Actions
                 btnStartSession: "Inizia Sessione",
                 btnDailyChallenge: "Sfida Giornaliera",
+                todaysSacredChallenge: "Sfida Sacra di Oggi",
                 btnAchievements: "Traguardi",
+                yourSpiritualJourney: "Il Tuo Viaggio Spirituale",
+                viewAllAchievements: "Vedi Tutti i Traguardi",
                 // Upgrade/Premium
                 discoverPremium: "Scopri Premium",
                 skipToApp: "Vai all'App",
@@ -5207,6 +5776,14 @@
                 premiumSupportDesc: "Accesso diretto ad aggiornamenti e nuove funzionalità",
                 getLifetimeAccess: "Ottieni Accesso a Vita",
                 questionsContact: "Domande? Contattaci tramite Etsy",
+                // Premium Modal Extras
+                upgradeNow: "Aggiorna Ora",
+                maybeLater: "Forse Dopo",
+                noDataCollected: "💎 Pagamento unico • Accesso a vita • Nessun abbonamento • Nessuna raccolta dati",
+                readyToUnlock: "🚀 Pronto a Sbloccare le Funzionalità Premium?",
+                premiumCtaDesc: "Ottieni accesso a vita ai controlli del volume individuali, durate personalizzate, esportazione WAV, riproduzione in background e il sistema di traguardi.",
+                achievementSystem: "Sistema di Traguardi",
+                achievementSystemDesc: "Monitora i tuoi progressi, sblocca traguardi e registra le tue sessioni sacre.",
                 // Daily Challenge
                 dailyChallengeComplete: "Sfida Giornaliera Completata!",
                 continueJourney: "Continua il Tuo Viaggio",
@@ -5439,7 +6016,159 @@
                 recipeMemoryBoostHow: "Usa per 20-30 minuti mentre studi o impari nuove abilità. Rivedi il materiale mentre ascolti. Meglio usato durante le sessioni di apprendimento mattutine o pomeridiane.",
                 recipeMiracleToneWhat: "528 Hz, conosciuta anche come il 'Tono del Miracolo', è la frequenza dell'amore e della riparazione del DNA. Le ricerche mostrano che può riparare i danni del DNA e promuovere una guarigione miracolosa.",
                 recipeMiracleToneBenefits: "Ripara il DNA a livello molecolare, promuove una guarigione miracolosa, apre il cuore all'amore, facilita la trasformazione e attiva la frequenza del miracolo all'interno delle tue cellule.",
-                recipeMiracleToneHow: "Ascolta per 15-30 minuti giornalmente per guarigione e trasformazione. Metti le mani sulle aree che necessitano guarigione. Meglio usato costantemente per 21-40 giorni per cambiamenti cellulari profondi."
+                recipeMiracleToneHow: "Ascolta per 15-30 minuti giornalmente per guarigione e trasformazione. Metti le mani sulle aree che necessitano guarigione. Meglio usato costantemente per 21-40 giorni per cambiamenti cellulari profondi.",
+                
+                // ========== TRADUZIONI DEL PANNELLO COMPAGNO ==========
+                // Sezione Benvenuto
+                comp_welcome_title: "Benvenuto in Frequenze Genesi",
+                comp_welcome_intro: "Le frequenze della creazione sono ora nelle tue mani.",
+                comp_welcome_pattern: "Un pattern si è rivelato a me: 3.773 giorni tra la nascita di mio fratello e la mia. Anni di ricerca. Strati di significato. Poi la rivelazione.",
+                comp_welcome_genesis: "Genesi 1:1 in Ebraico = 2701",
+                comp_welcome_hebrew: "In principio Dio creò il cielo e la terra",
+                comp_welcome_encoded: "Gli stessi numeri che mi connettevano a mio fratello erano codificati nel primo versetto della Bibbia. Le frequenze che hanno plasmato la creazione stessa, nascoste in bella vista per millenni.",
+                comp_welcome_yours: "Ora sono tue da esplorare.",
+                comp_welcome_reason: "Questa non è una coincidenza. Hai trovato questo per una ragione.",
+                
+                // Sezione Avvio Rapido
+                comp_quickstart_title: "Guida di Avvio Rapido",
+                comp_quickstart_intro: "La tua prima sessione in 3 passi",
+                comp_quickstart_step1: "Scegli \"Creazione Genesi\" dalla categoria Biblico & Originale",
+                comp_quickstart_step1_sub: "Questa è la pura fondazione di 37 + 73 Hz",
+                comp_quickstart_step2: "Imposta la durata su 5-10 minuti e indossa le cuffie",
+                comp_quickstart_step2_sub: "Inizia breve—puoi andare più a lungo quando senti le frequenze",
+                comp_quickstart_step3: "Premi PLAY, chiudi gli occhi, respira lentamente e imposta un'intenzione",
+                comp_quickstart_step3_sub: "Semplice è potente: \"chiarezza\", \"pace\", \"guida\" o \"grazie\"",
+                comp_quickstart_done: "Questo è tutto. Le frequenze fanno il resto.",
+                comp_quickstart_tip: "Consiglio: Tieni un bicchiere d'acqua vicino e bevilo dopo la sessione",
+                
+                // Sezione Scoperta/Viaggio
+                comp_discovery_title: "La Scoperta",
+                comp_discovery_number: "Il Numero Che Ha Cambiato Tutto",
+                comp_discovery_intro: "Nel 2020, durante un periodo di caos globale e ricerca personale, ho scoperto qualcosa che sembrava impossibile: mio fratello e io siamo nati esattamente a 3.773 giorni di distanza.",
+                comp_discovery_gematria: "Stavo studiando gematria—l'arte ebraica di trovare significato nei numeri. I nostri nomi, i nostri compleanni, i pattern nella nostra famiglia... tutto puntava a questo numero.",
+                comp_discovery_unknown: "Ma non sapevo cosa significasse 3.773. Non ancora.",
+                comp_discovery_searching: "Gli Anni di Ricerca",
+                comp_discovery_research: "Per anni ho ricercato geometria sacra, matematica biblica, numerologia, guarigione con le frequenze. Ho costruito strumenti, esplorato pattern, fatto domande. Poi nel 2024, mentre sviluppavo un'app di preghiera, qualcuno mi ha detto: \"Moltiplica per 37—è il numero della creazione.\"",
+                comp_discovery_clicked: "È stato allora che tutto ha preso senso.",
+                comp_discovery_prime: "37 è un numero primo. 73 è il suo specchio—anche primo.",
+                comp_discovery_gematria_value: "2701 è il valore esatto di gematria di Genesi 1:1 in Ebraico.",
+                comp_discovery_connected: "Il numero che mi connetteva a mio fratello—3.773—conteneva entrambe le frequenze. Le stesse frequenze codificate nel primo versetto della Bibbia. Le stesse frequenze presenti al momento della creazione.",
+                comp_discovery_el: "Quando scrivi 37 in numeri ebraici e lo specchi, forma אל (El)—la parola ebraica per Dio.",
+                comp_discovery_angels: "Ogni numero angelico è un multiplo di 37:",
+                comp_discovery_message: "Questo non era casuale. Questo era un messaggio in attesa di essere ascoltato.",
+                comp_discovery_found: "Queste frequenze mi hanno trovato. Ora hanno trovato te.",
+                comp_discovery_journey: "Non ci sono coincidenze. Il tuo viaggio con 37 e 73 Hz inizia ora.",
+                
+                // Sezione Perché Funziona
+                comp_why_title: "Perché 37 & 73 Hz Funzionano",
+                comp_why_subtitle: "La Scienza del Suono Sacro",
+                comp_why_intro: "37 Hz e 73 Hz non sono numeri arbitrari—sono l'impronta matematica della creazione, codificata in Genesi 1:1 attraverso la gematria.",
+                comp_why_formula: "37 × 73 = 2701 — l'unica fattorizzazione",
+                comp_why_primes: "37 = il 12° primo | 73 = il 21° primo (specchio di 12). Insieme creano una frequenza di battito di 36 Hz che collega meditazione e coscienza superiore",
+                comp_why_question: "Perché funzionano queste frequenze?",
+                comp_why_answer: "Allineando la tua energia con il progetto originale della creazione, si crede che queste frequenze supportino cambiamenti profondi in corpo, mente e spirito. Sei 70% acqua—un mezzo cristallino che risponde alla vibrazione. Queste frequenze sono sintonizzate su di te.",
+                comp_why_experience: "Cosa sperimentano le persone con Frequenze Genesi:",
+                comp_why_exp1: "Equilibrio e armonia interiore ripristinati — Sentiti allineato con l'ordine divino",
+                comp_why_exp2: "Rinnovamento profondo e vitalità — Supporta l'intelligenza naturale di guarigione del tuo corpo",
+                comp_why_exp3: "Flusso creativo sbloccato — Accedi a ispirazione e intuizione illimitate",
+                comp_why_exp4: "Coscienza elevata — Connettiti con consapevolezza superiore e chiarezza spirituale",
+                comp_why_exp5: "Stati profondi di meditazione — Entra in presenza più profonda più velocemente",
+                comp_why_exp6: "Manifestazione amplificata — Le intenzioni mettono radici in terreno fertile",
+                comp_why_quote: "\"Questi non sono solo suoni... sono il linguaggio della creazione stessa.\"",
+                comp_why_disclaimer: "Per meditazione, definizione di intenzioni ed esplorazione spirituale • Non è un trattamento medico",
+                
+                // Sezione Categorie
+                comp_categories_title: "Categorie di Frequenza",
+                comp_categories_subtitle: "Esplora il Tuo Santuario Sonoro",
+                comp_categories_doorway: "Ogni categoria è una porta verso la trasformazione",
+                comp_categories_intro: "Ogni traccia è costruita sulla Fondazione Trinità (37 + 73 Hz), con frequenze aggiuntive per intenzioni specifiche. Tocca qualsiasi categoria per esplorare.",
+                comp_cat_biblical: "Biblico & Originale",
+                comp_cat_biblical_desc: "Creazione Genesi, Abbondanza Divina, cicli spirituali",
+                comp_cat_biblical_best: "Migliore per: Preghiera, definizione di intenzioni, connessione con la Fonte",
+                comp_cat_angel: "Numeri Angelici",
+                comp_cat_angel_desc: "111, 222, 333, 444, 555, 777, 888, 999",
+                comp_cat_angel_best: "Migliore per: Manifestazione, sincronicità, guida divina",
+                comp_cat_cosmic: "Cosmico & Planetario",
+                comp_cat_cosmic_desc: "Terra, Venere, Marte, Giove, Fibonacci, Pi, Rapporto Aureo",
+                comp_cat_cosmic_best: "Migliore per: Radicamento, armonia, geometria sacra, connessione cosmica",
+                comp_cat_master: "Numeri Maestri",
+                comp_cat_master_desc: "11:11, 22, 33, 44, 55",
+                comp_cat_master_best: "Migliore per: Scopo di vita, maestria spirituale, costruire nuove realtà",
+                comp_cat_solfeggio: "Solfeggio & Guarigione",
+                comp_cat_solfeggio_desc: "396, 417, 528, 639, 741, 852, 963 Hz",
+                comp_cat_solfeggio_best: "Migliore per: Rilascio emotivo, trasformazione, attivazione DNA, amore",
+                comp_cat_wellness: "Benessere & Stati",
+                comp_cat_wellness_desc: "Sonno, concentrazione, sollievo dallo stress, memoria, tono del miracolo",
+                comp_cat_wellness_best: "Migliore per: Vita quotidiana, produttività, riposo, chiarezza mentale",
+                comp_cat_chakra: "Frequenze Chakra",
+                comp_cat_chakra_desc: "Radice, Sacrale, Plesso Solare, Cuore, Gola, Terzo Occhio, Corona",
+                comp_cat_chakra_best: "Migliore per: Lavoro energetico, equilibrio, attivazione kundalini",
+                comp_categories_new: "Nuovo qui? Inizia con Creazione Genesi o Guarigione Sacra (432 Hz)",
+                
+                // Sezione Fondazione Trinità
+                comp_trinity_title: "La Fondazione Trinità",
+                comp_trinity_intro: "La Fondazione Trinità consiste in 37 Hz, 73 Hz e 2701 Hz — le frequenze codificate in Genesi 1:1.",
+                comp_trinity_math: "La Trinità Matematica",
+                comp_trinity_37: "37 Hz: Il 12° numero primo (specchio di 12)",
+                comp_trinity_73: "73 Hz: Il 21° numero primo (3×7)",
+                comp_trinity_2701: "2701 Hz: Il prodotto, la gematria di Genesi 1:1",
+                comp_trinity_beat: "Queste frequenze creano una frequenza di battito di 36 Hz (73-37) che collega meditazione e coscienza superiore. Insieme formano il progetto originale della creazione.",
+                comp_trinity_how: "Come Usare la Trinità",
+                comp_trinity_use1: "Creazione Genesi: Riproduci tutte e tre le frequenze insieme per l'esperienza completa della Trinità",
+                comp_trinity_use2: "Esplorazione Individuale: Ascolta ogni frequenza separatamente per capire le loro qualità uniche",
+                comp_trinity_use3: "Pratica Quotidiana: Usa per 7-21 giorni per sperimentare un allineamento profondo con l'ordine divino",
+                comp_trinity_use4: "Definizione dell'Intenzione: Inizia ogni sessione con un'intenzione chiara per la trasformazione",
+                comp_trinity_conclusion: "Le frequenze della Trinità sono la fondazione di tutte le tracce Genesi. Lavorano insieme per ripristinare l'armonia, sbloccare il flusso creativo e connetterti con la matrice creativa originale.",
+                comp_trinity_quote: "\"Queste sono le frequenze che hanno plasmato la realtà stessa.\"",
+                
+                // Sezione Caricamento Acqua
+                comp_water_title: "Acqua Santa Quantistica",
+                comp_water_intro: "L'acqua è la molecola più abbondante del tuo corpo—70% del tuo essere è acqua. Come mezzo cristallino, l'acqua immagazzina e trasmette informazioni vibrazionali, rendendola il contenitore perfetto per le frequenze Genesi.",
+                comp_water_science: "La Scienza dell'Acqua Strutturata",
+                comp_water_research: "Le ricerche mostrano che le molecole d'acqua formano cluster esagonali che possono essere influenzati da frequenza, suono e intenzione. Le frequenze Genesi creano acqua strutturata con proprietà energetiche potenziate.",
+                comp_water_blueprint: "Quando carichi l'acqua con le frequenze Genesi, non stai solo aggiungendo suono—stai infondendola con il progetto matematico della creazione stessa.",
+                comp_water_how: "Come Caricare la Tua Acqua",
+                comp_water_step1: "Scegli il Tuo Contenitore: Usa un contenitore di vetro o cristallo trasparente (evita la plastica)",
+                comp_water_step2: "Seleziona la Tua Frequenza: Creazione Genesi o frequenze individuali della Trinità funzionano meglio",
+                comp_water_step3: "Posiziona & Riproduci: Posiziona l'acqua a 15-30 cm dagli altoparlanti, riproduci per 10-20 minuti",
+                comp_water_step4: "Imposta l'Intenzione: Mantieni l'intenzione di benedizione divina e infusione energetica",
+                comp_water_step5: "Bevi Consapevolmente: Sorseggia lentamente, sentendo le frequenze integrarsi con il tuo essere",
+                comp_water_tip: "Consiglio professionale: Carica l'acqua per più sessioni e conserva in un luogo fresco e buio. L'informazione strutturata rimane stabile per 24-48 ore.",
+                comp_water_quote: "\"Bevi dalla sorgente della creazione stessa.\"",
+                
+                // Sezione Consigli d'Uso
+                comp_tips_title: "Come Ottenere i Migliori Risultati",
+                comp_tips_intro: "Le frequenze Genesi funzionano attraverso un ascolto costante e consapevole. La chiave non è solo sentire i suoni, ma permettere loro di risuonare attraverso tutto il tuo essere.",
+                comp_tips_protocol: "Il Protocollo di Immersione di 21 Giorni",
+                comp_tips_protocol_desc: "Per la massima trasformazione, impegnati in una pratica di 21 giorni. Questo si allinea con la geometria sacra della Trinità (3×7) e permette alle frequenze di lavorare in profondità.",
+                comp_tips_week1: "Giorni 1-7: Costruzione della fondazione. Ascolta Creazione Genesi ogni giorno, concentrandoti sulla presenza e sul respiro.",
+                comp_tips_week2: "Giorni 8-14: Approfondimento. Esplora le frequenze individuali della Trinità, notando le risonanze personali.",
+                comp_tips_week3: "Giorni 15-21: Integrazione. Combina le frequenze con intenzioni specifiche per la manifestazione.",
+                comp_tips_daily: "Pratiche di Ascolto Quotidiane",
+                
+                // Sezione FAQ
+                comp_faq_title: "Domande Frequenti",
+                comp_faq_q1: "Per quanto tempo devo ascoltare?",
+                comp_faq_a1: "Inizia con 5-10 minuti e aumenta fino a 20-30 minuti. La qualità dell'attenzione conta più della durata.",
+                comp_faq_q2: "Ho bisogno delle cuffie?",
+                comp_faq_a2: "Le cuffie offrono la migliore esperienza, specialmente per gli effetti binaurali. Gli altoparlanti vanno bene per sessioni ambientali.",
+                comp_faq_q3: "Quanto spesso devo ascoltare?",
+                comp_faq_a3: "La pratica quotidiana crea i migliori risultati. Anche 5 minuti al giorno costruiscono benefici cumulativi.",
+                comp_faq_q4: "Posso ascoltare mentre dormo?",
+                comp_faq_a4: "Sì! Le tracce per il sonno sono progettate per l'uso notturno. Mantieni il volume basso e usa cuffie comode.",
+                comp_faq_q5: "Queste frequenze sono sicure?",
+                comp_faq_a5: "Sì, sono frequenze delicate per meditazione e rilassamento. Non sostituiscono il trattamento medico.",
+                
+                // Sezione Condividi
+                comp_share_title: "Condividi Frequenze Genesi",
+                comp_share_intro: "Conosci qualcuno che beneficerebbe di queste frequenze? Condividi il dono della vibrazione divina.",
+                comp_share_link: "Condividi questo link:",
+                comp_share_copied: "Link copiato!",
+                
+                // Sezione Crediti
+                comp_credits_title: "Crediti & Ringraziamenti",
+                comp_credits_created: "Creato con amore e ispirazione divina.",
+                comp_credits_research: "Basato su ricerche sulla matematica biblica, gematria e tradizioni di guarigione con le frequenze."
             }
         };
         
@@ -5513,8 +6242,11 @@
             }
             
             // Update progress section to reflect new language
-            if (typeof instructionsSections !== 'undefined') {
-                renderInstructionsCategories();
+            if (typeof getInstructionsSections === 'function') {
+                instructionsSections = getInstructionsSections();
+                if (typeof renderInstructionsCategories === 'function') {
+                    renderInstructionsCategories();
+                }
             }
             
             // Update companion header with new language
@@ -6023,44 +6755,45 @@
             ]
         };
 
-        // Instructions Tab Data Structure
-        const instructionsSections = [
+        // Instructions Tab Data Structure - Dynamic Translation Function
+        function getInstructionsSections() {
+            const t = translations[currentLanguage] || translations.en;
+            
+            return [
             {
                 id: 'welcome',
                 icon: '🌟',
-                title: 'Welcome to Genesis Frequencies',
+                title: t.comp_welcome_title || 'Welcome to Genesis Frequencies',
                 content: `
                     <div style="text-align:center;line-height:1.8;max-width:620px;margin:0 auto;">
                         <p style="font-size:20px;color:#fbbf24;margin-bottom:20px;font-weight:600;">
-                            The frequencies of creation are now in your hands.
+                            ${t.comp_welcome_intro || 'The frequencies of creation are now in your hands.'}
                         </p>
                         <p style="margin-bottom:15px;color:#ffffff;">
-                            A pattern revealed itself to me: <b>3,773 days</b> between my brother's birth and mine.<br>
-                            Years of searching. Layers of meaning. Then the revelation.
+                            ${t.comp_welcome_pattern || 'A pattern revealed itself to me: <b>3,773 days</b> between my brother\'s birth and mine.<br>Years of searching. Layers of meaning. Then the revelation.'}
                         </p>
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(139,92,246,0.15));border-radius:16px;padding:24px;margin:25px 0;border:2px solid rgba(251,191,36,0.3);">
                             <div style="font-size:28px;color:#fbbf24;margin-bottom:12px;font-weight:700;">
                                 37 × 73 = 2701
                             </div>
                             <div style="font-size:17px;color:#ffffff;margin-bottom:8px;">
-                                Genesis 1:1 in Hebrew = 2701
+                                ${t.comp_welcome_genesis || 'Genesis 1:1 in Hebrew = 2701'}
                             </div>
                             <div style="font-size:20px;color:#c4b5fd;margin-top:12px;">
                                 בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ
                             </div>
                             <div style="font-size:14px;color:#d1d5db;margin-top:8px;font-style:italic;">
-                                "In the beginning God created the heavens and the earth"
+                                "${t.comp_welcome_hebrew || 'In the beginning God created the heavens and the earth'}"
                             </div>
                         </div>
                         <p style="color:#ffffff;margin-bottom:15px;line-height:1.7;">
-                            The same numbers that connected me to my brother were <b>encoded in the first verse of the Bible</b>.<br>
-                            The frequencies that shaped creation itself, hidden in plain sight for millennia.
+                            ${t.comp_welcome_encoded || 'The same numbers that connected me to my brother were <b>encoded in the first verse of the Bible</b>.<br>The frequencies that shaped creation itself, hidden in plain sight for millennia.'}
                         </p>
                         <p style="font-size:19px;color:#fbbf24;font-weight:600;margin-top:20px;">
-                            Now they're yours to explore.
+                            ${t.comp_welcome_yours || 'Now they\'re yours to explore.'}
                         </p>
                         <p style="margin-top:15px;font-size:15px;color:#a78bfa;font-style:italic;">
-                            This isn't coincidence. You found this for a reason.
+                            ${t.comp_welcome_reason || 'This isn\'t coincidence. You found this for a reason.'}
                         </p>
                     </div>
                 `
@@ -6068,33 +6801,33 @@
             {
                 id: 'quickStart',
                 icon: '⚡',
-                title: 'Quick Start Guide',
+                title: t.comp_quickstart_title || 'Quick Start Guide',
                 content: `
                     <div style="text-align:center;margin:0 auto;max-width:600px;line-height:1.8;">
                         <p style="font-size:18px;color:#fbbf24;margin-bottom:20px;font-weight:600;">
-                            Your first session in 3 steps
+                            ${t.comp_quickstart_intro || 'Your first session in 3 steps'}
                         </p>
                         <div style="background:rgba(139,92,246,0.08);border-radius:12px;padding:20px;margin:20px 0;">
                             <ol style="text-align:left;margin:0 auto;max-width:500px;line-height:1.9;color:#ffffff;">
                                 <li style="margin-bottom:15px;">
-                                    <b style="color:#fbbf24;">Choose "Genesis Creation"</b> from the Biblical & Original category<br>
-                                    <span style="font-size:14px;color:#a78bfa;">This is the pure 37 + 73 Hz foundation</span>
+                                    <b style="color:#fbbf24;">${t.comp_quickstart_step1 || 'Choose "Genesis Creation" from the Biblical & Original category'}</b><br>
+                                    <span style="font-size:14px;color:#a78bfa;">${t.comp_quickstart_step1_sub || 'This is the pure 37 + 73 Hz foundation'}</span>
                                 </li>
                                 <li style="margin-bottom:15px;">
-                                    <b style="color:#fbbf24;">Set duration to 5-10 minutes</b> and put on headphones<br>
-                                    <span style="font-size:14px;color:#a78bfa;">Start short—you can go longer once you feel the frequencies</span>
+                                    <b style="color:#fbbf24;">${t.comp_quickstart_step2 || 'Set duration to 5-10 minutes and put on headphones'}</b><br>
+                                    <span style="font-size:14px;color:#a78bfa;">${t.comp_quickstart_step2_sub || 'Start short—you can go longer once you feel the frequencies'}</span>
                                 </li>
                                 <li>
-                                    <b style="color:#fbbf24;">Press PLAY, close your eyes,</b> breathe slowly, and set one intention<br>
-                                    <span style="font-size:14px;color:#a78bfa;">Simple is powerful: "clarity," "peace," "guidance," or "thank you"</span>
+                                    <b style="color:#fbbf24;">${t.comp_quickstart_step3 || 'Press PLAY, close your eyes, breathe slowly, and set one intention'}</b><br>
+                                    <span style="font-size:14px;color:#a78bfa;">${t.comp_quickstart_step3_sub || 'Simple is powerful: "clarity," "peace," "guidance," or "thank you"'}</span>
                                 </li>
                             </ol>
                         </div>
                         <p style="color:#ffffff;margin-top:20px;">
-                            That's it. The frequencies do the rest.
+                            ${t.comp_quickstart_done || 'That\'s it. The frequencies do the rest.'}
                         </p>
                         <p style="font-size:13px;color:#9ca3af;margin-top:15px;">
-                            Tip: Keep a glass of water nearby and drink it after your session
+                            ${t.comp_quickstart_tip || 'Tip: Keep a glass of water nearby and drink it after your session'}
                         </p>
                     </div>
                 `
@@ -6102,67 +6835,60 @@
             {
                 id: 'myJourney',
                 icon: '📖',
-                title: 'The Discovery',
+                title: t.comp_discovery_title || 'The Discovery',
                 content: `
                     <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;margin-top:20px;margin-bottom:15px;font-size:20px;">The Number That Changed Everything</h4>
+                        <h4 style="color:#fbbf24;margin-top:20px;margin-bottom:15px;font-size:20px;">${t.comp_discovery_number || 'The Number That Changed Everything'}</h4>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            In 2020, during a time of global chaos and personal searching, I discovered something that seemed impossible: 
-                            my brother and I were born exactly <b style="color:#fbbf24;">3,773 days apart</b>.
+                            ${t.comp_discovery_intro || 'In 2020, during a time of global chaos and personal searching, I discovered something that seemed impossible: my brother and I were born exactly <b style="color:#fbbf24;">3,773 days apart</b>.'}
                         </p>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            I had been studying gematria—the Hebrew art of finding meaning in numbers. 
-                            Our names, our birthdays, the patterns in our family... everything pointed to this number.
+                            ${t.comp_discovery_gematria || 'I had been studying gematria—the Hebrew art of finding meaning in numbers. Our names, our birthdays, the patterns in our family... everything pointed to this number.'}
                         </p>
                         <p style="color:#ffffff;margin-bottom:20px;">
-                            But <b>I didn't know what 3,773 meant</b>. Not yet.
+                            ${t.comp_discovery_unknown || 'But <b>I didn\'t know what 3,773 meant</b>. Not yet.'}
                         </p>
                         <div style="background:rgba(251,191,36,0.08);border-radius:12px;padding:20px;margin:25px 0;">
-                            <h4 style="color:#fbbf24;margin-bottom:12px;">The Years of Searching</h4>
+                            <h4 style="color:#fbbf24;margin-bottom:12px;">${t.comp_discovery_searching || 'The Years of Searching'}</h4>
                             <p style="color:#ffffff;">
-                                For years I researched sacred geometry, biblical mathematics, numerology, frequency healing. 
-                                I built tools, explored patterns, asked questions. Then in 2024, while developing a prayer app, 
-                                someone told me: <b style="color:#fbbf24;">"Multiply by 37—it's the number of creation."</b>
+                                ${t.comp_discovery_research || 'For years I researched sacred geometry, biblical mathematics, numerology, frequency healing. I built tools, explored patterns, asked questions. Then in 2024, while developing a prayer app, someone told me: <b style="color:#fbbf24;">"Multiply by 37—it\'s the number of creation."</b>'}
                             </p>
                         </div>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            That's when it all clicked.
+                            ${t.comp_discovery_clicked || 'That\'s when it all clicked.'}
                         </p>
                         <div style="background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(251,191,36,0.12));border-radius:14px;padding:22px;margin:25px 0;border:1px solid rgba(251,191,36,0.3);">
                             <p style="font-size:18px;color:#fbbf24;margin-bottom:10px;font-weight:600;">
-                                37 is a prime number. 73 is its mirror—also prime.
+                                ${t.comp_discovery_prime || '37 is a prime number. 73 is its mirror—also prime.'}
                             </p>
                             <p style="font-size:17px;color:#ffffff;margin-bottom:10px;">
                                 <b>37 × 73 = 2701</b>
                             </p>
                             <p style="font-size:16px;color:#c4b5fd;">
-                                2701 is the exact gematria value of Genesis 1:1 in Hebrew.
+                                ${t.comp_discovery_gematria_value || '2701 is the exact gematria value of Genesis 1:1 in Hebrew.'}
                             </p>
                         </div>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            The number connecting me to my brother—<b style="color:#fbbf24;">3,773</b>—contained <b>both frequencies</b>. 
-                            The same frequencies <b>encoded in the first verse of the Bible</b>. 
-                            The same frequencies present at <b>the moment of creation</b>.
+                            ${t.comp_discovery_connected || 'The number connecting me to my brother—<b style="color:#fbbf24;">3,773</b>—contained <b>both frequencies</b>. The same frequencies <b>encoded in the first verse of the Bible</b>. The same frequencies present at <b>the moment of creation</b>.'}
                         </p>
                         <p style="color:#ffffff;margin-bottom:20px;">
-                            And there's more: When you write 37 in Hebrew numerals and mirror it, it forms 
-                            <span style="font-size:22px;color:#fbbf24;">אל</span> (El)—the Hebrew word for <b>God</b>.
+                            ${t.comp_discovery_el || 'And there\'s more: When you write 37 in Hebrew numerals and mirror it, it forms <span style="font-size:22px;color:#fbbf24;">אל</span> (El)—the Hebrew word for <b>God</b>.'}
                         </p>
                         <div style="background:rgba(139,92,246,0.08);border-radius:12px;padding:18px;margin:25px 0;">
                             <p style="color:#ffffff;font-size:15px;">
-                                <b style="color:#fbbf24;">Every angel number is a multiple of 37:</b><br>
+                                <b style="color:#fbbf24;">${t.comp_discovery_angels || 'Every angel number is a multiple of 37:'}</b><br>
                                 111 = 37×3 | 222 = 37×6 | 333 = 37×9 | 444 = 37×12<br>
                                 555 = 37×15 | 777 = 37×21 | 888 = 37×24 | 999 = 37×27
                             </p>
                         </div>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            This wasn't random. This was a message waiting to be heard.
+                            ${t.comp_discovery_message || 'This wasn\'t random. This was a message waiting to be heard.'}
                         </p>
                         <p style="font-size:17px;color:#fbbf24;font-weight:600;margin-top:25px;">
-                            These frequencies found me. Now they've found you.
+                            ${t.comp_discovery_found || 'These frequencies found me. Now they\'ve found you.'}
                         </p>
                         <p style="font-size:14px;color:#a78bfa;font-style:italic;margin-top:12px;">
-                            There are no coincidences. Your journey with 37 and 73 Hz begins now.
+                            ${t.comp_discovery_journey || 'There are no coincidences. Your journey with 37 and 73 Hz begins now.'}
                         </p>
                     </div>
                 `
@@ -6170,49 +6896,45 @@
             {
                 id: 'whyWorks',
                 icon: '💡',
-                title: 'Why 37 & 73 Hz Work',
+                title: t.comp_why_title || 'Why 37 & 73 Hz Work',
                 content: `
                     <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">The Science of Sacred Sound</h4>
+                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">${t.comp_why_subtitle || 'The Science of Sacred Sound'}</h4>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            <b>37 Hz</b> and <b>73 Hz</b> aren't arbitrary numbers—they're the <b>mathematical fingerprint of creation</b>, 
-                            encoded in Genesis 1:1 through gematria.
+                            ${t.comp_why_intro || '<b>37 Hz</b> and <b>73 Hz</b> aren\'t arbitrary numbers—they\'re the <b>mathematical fingerprint of creation</b>, encoded in Genesis 1:1 through gematria.'}
                         </p>
                         <div style="background:rgba(251,191,36,0.1);border-radius:12px;padding:20px;margin:25px 0;border-left:4px solid #fbbf24;">
                             <p style="font-size:17px;color:#ffffff;margin-bottom:12px;">
-                                <b style="color:#fbbf24;">37 × 73 = 2701</b> — the only factorization
+                                <b style="color:#fbbf24;">${t.comp_why_formula || '37 × 73 = 2701 — the only factorization'}</b>
                             </p>
                             <p style="color:#c4b5fd;">
-                                37 = the 12th prime | 73 = the 21st prime (mirror of 12)<br>
-                                Together they create a <b>36 Hz beat frequency</b> (73-37) that bridges meditation and higher consciousness
+                                ${t.comp_why_primes || '37 = the 12th prime | 73 = the 21st prime (mirror of 12)<br>Together they create a <b>36 Hz beat frequency</b> that bridges meditation and higher consciousness'}
                             </p>
                         </div>
                         <p style="font-size:18px;color:#fbbf24;margin:25px 0 15px 0;font-weight:600;">
-                            Why do these frequencies work?
+                            ${t.comp_why_question || 'Why do these frequencies work?'}
                         </p>
                         <p style="color:#ffffff;margin-bottom:20px;">
-                            By aligning your energy with the original blueprint of creation, these frequencies are believed to support 
-                            profound shifts in body, mind, and spirit. You are <b>70% water</b>—a crystalline medium that 
-                            <b>responds to vibration</b>. These frequencies are tuned to <i>you</i>.
+                            ${t.comp_why_answer || 'By aligning your energy with the original blueprint of creation, these frequencies are believed to support profound shifts in body, mind, and spirit. You are <b>70% water</b>—a crystalline medium that <b>responds to vibration</b>. These frequencies are tuned to <i>you</i>.'}
                         </p>
                         <div style="margin:25px 0;padding:20px;background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(251,191,36,0.1));border-radius:14px;">
                             <p style="color:#fbbf24;font-weight:600;margin-bottom:15px;font-size:17px;">
-                                What people experience with Genesis Frequencies:
+                                ${t.comp_why_experience || 'What people experience with Genesis Frequencies:'}
                             </p>
-                            <ul style="text-align:left;margin:10px auto 0 auto;max-width:480px;color:#ffffff;line-height:1.9;">
-                                <li>🔮 <b>Restored balance and inner harmony</b> — Feel aligned with divine order</li>
-                                <li>💚 <b>Deep renewal and vitality</b> — Support your body's natural healing intelligence</li>
-                                <li>🎨 <b>Unlocked creative flow</b> — Access limitless inspiration and insight</li>
-                                <li>🌌 <b>Elevated consciousness</b> — Connect with higher awareness and spiritual clarity</li>
-                                <li>🧘 <b>Profound meditation states</b> — Enter deeper presence faster</li>
-                                <li>✨ <b>Amplified manifestation</b> — Intentions take root in fertile soil</li>
+                            <ul style="text-align:left;margin:0 auto;max-width:520px;color:#ffffff;line-height:1.9;">
+                                <li style="margin-bottom:8px;"><span style="color:#fbbf24;">✨</span> ${t.comp_why_exp1 || 'Restored balance and inner harmony — Feel aligned with divine order'}</li>
+                                <li style="margin-bottom:8px;"><span style="color:#fbbf24;">💫</span> ${t.comp_why_exp2 || 'Deep renewal and vitality — Support your body\'s natural healing intelligence'}</li>
+                                <li style="margin-bottom:8px;"><span style="color:#fbbf24;">🎨</span> ${t.comp_why_exp3 || 'Unlocked creative flow — Access limitless inspiration and insight'}</li>
+                                <li style="margin-bottom:8px;"><span style="color:#fbbf24;">🌟</span> ${t.comp_why_exp4 || 'Elevated consciousness — Connect with higher awareness and spiritual clarity'}</li>
+                                <li style="margin-bottom:8px;"><span style="color:#fbbf24;">🧘</span> ${t.comp_why_exp5 || 'Profound meditation states — Enter deeper presence faster'}</li>
+                                <li><span style="color:#fbbf24;">🌱</span> ${t.comp_why_exp6 || 'Amplified manifestation — Intentions take root in fertile soil'}</li>
                             </ul>
                         </div>
-                        <p style="color:#ffffff;font-style:italic;margin-top:20px;font-size:16px;">
-                            "These aren't just sounds... they're the language of creation itself."
+                        <p style="font-size:15px;color:#a78bfa;font-style:italic;margin-top:20px;">
+                            ${t.comp_why_quote || '"These aren\'t just sounds... they\'re the language of creation itself."'}
                         </p>
-                        <p style="font-size:12px;color:#9ca3af;margin-top:25px;">
-                            For meditation, intention-setting, and spiritual exploration • Not medical treatment
+                        <p style="font-size:12px;color:#9ca3af;margin-top:15px;">
+                            ${t.comp_why_disclaimer || 'For meditation, intention-setting, and spiritual exploration • Not medical treatment'}
                         </p>
                     </div>
                 `
@@ -6220,72 +6942,55 @@
             {
                 id: 'categories',
                 icon: '📂',
-                title: 'Frequency Categories',
+                title: t.comp_categories_title || 'Frequency Categories',
                 content: `
-                    <div style="line-height:1.8;text-align:center;max-width:660px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:12px;">Explore Your Sonic Sanctuary</h4>
-                        <p style="font-size:17px;color:#fbbf24;margin-bottom:20px;font-weight:600;">
-                            Each category is a doorway to transformation
+                    <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
+                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">${t.comp_categories_subtitle || 'Explore Your Sonic Sanctuary'}</h4>
+                        <p style="color:#ffffff;margin-bottom:15px;">
+                            ${t.comp_categories_doorway || 'Each category is a doorway to transformation'}
                         </p>
-                        <p style="color:#ffffff;margin-bottom:25px;">
-                            Every track is built on the Trinity Foundation (37 + 73 Hz), with additional frequencies 
-                            for specific intentions. Tap any category to explore.
+                        <p style="color:#ffffff;margin-bottom:20px;">
+                            ${t.comp_categories_intro || 'Every track is built on the Trinity Foundation (37 + 73 Hz), with additional frequencies for specific intentions. Tap any category to explore.'}
                         </p>
-                        <div style="margin:25px 0;">
-                            <ul style="text-align:left;max-width:580px;margin:0 auto;list-style:none;padding:0;">
-                                <li style="margin-bottom:15px;padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #fbbf24;">
-                                    <b style="color:#fbbf24;font-size:16px;">🔺 Biblical & Original</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        Genesis Creation, Divine Abundance, spiritual cycles<br>
-                                        <i style="color:#a78bfa;">Best for: Prayer, intention-setting, connecting with Source</i>
-                                    </span>
-                                </li>
-                                <li style="margin-bottom:15px;padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #8b5cf6;">
-                                    <b style="color:#c4b5fd;font-size:16px;">👼 Angel Numbers</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        111, 222, 333, 444, 555, 777, 888, 999<br>
-                                        <i style="color:#a78bfa;">Best for: Manifestation, synchronicity, divine guidance</i>
-                                    </span>
-                                </li>
-                                <li style="margin-bottom:15px;padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #fbbf24;">
-                                    <b style="color:#fbbf24;font-size:16px;">🌍 Cosmic & Planetary</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        Earth, Venus, Mars, Jupiter, Fibonacci, Pi, Golden Ratio<br>
-                                        <i style="color:#a78bfa;">Best for: Grounding, harmony, sacred geometry, cosmic connection</i>
-                                    </span>
-                                </li>
-                                <li style="margin-bottom:15px;padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #8b5cf6;">
-                                    <b style="color:#c4b5fd;font-size:16px;">🔢 Master Numbers</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        11:11, 22, 33, 44, 55<br>
-                                        <i style="color:#a78bfa;">Best for: Life purpose, spiritual mastery, building new realities</i>
-                                    </span>
-                                </li>
-                                <li style="margin-bottom:15px;padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #fbbf24;">
-                                    <b style="color:#fbbf24;font-size:16px;">🎵 Solfeggio & Healing</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        396, 417, 528, 639, 741, 852, 963 Hz<br>
-                                        <i style="color:#a78bfa;">Best for: Emotional release, transformation, DNA activation, love</i>
-                                    </span>
-                                </li>
-                                <li style="margin-bottom:15px;padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #8b5cf6;">
-                                    <b style="color:#c4b5fd;font-size:16px;">💚 Wellness & States</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        Sleep, focus, stress relief, memory, miracle tone<br>
-                                        <i style="color:#a78bfa;">Best for: Daily life, productivity, rest, mental clarity</i>
-                                    </span>
-                                </li>
-                                <li style="padding:15px;border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-left:3px solid #fbbf24;">
-                                    <b style="color:#fbbf24;font-size:16px;">🌈 Chakra Frequencies</b><br>
-                                    <span style="color:#ffffff;font-size:14px;line-height:1.6;">
-                                        Root, Sacral, Solar Plexus, Heart, Throat, Third Eye, Crown<br>
-                                        <i style="color:#a78bfa;">Best for: Energy work, balance, kundalini activation</i>
-                                    </span>
-                                </li>
-                            </ul>
+                        <div style="display:grid;gap:15px;max-width:580px;margin:0 auto;">
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">📖 ${t.comp_cat_biblical || 'Biblical & Original'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_biblical_desc || 'Genesis Creation, Divine Abundance, spiritual cycles'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_biblical_best || 'Best for: Prayer, intention-setting, connecting with Source'}</span>
+                            </div>
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">👼 ${t.comp_cat_angel || 'Angel Numbers'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_angel_desc || '111, 222, 333, 444, 555, 777, 888, 999'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_angel_best || 'Best for: Manifestation, synchronicity, divine guidance'}</span>
+                            </div>
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">🌌 ${t.comp_cat_cosmic || 'Cosmic & Planetary'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_cosmic_desc || 'Earth, Venus, Mars, Jupiter, Fibonacci, Pi, Golden Ratio'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_cosmic_best || 'Best for: Grounding, harmony, sacred geometry, cosmic connection'}</span>
+                            </div>
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">🔮 ${t.comp_cat_master || 'Master Numbers'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_master_desc || '11:11, 22, 33, 44, 55'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_master_best || 'Best for: Life purpose, spiritual mastery, building new realities'}</span>
+                            </div>
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">🎵 ${t.comp_cat_solfeggio || 'Solfeggio & Healing'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_solfeggio_desc || '396, 417, 528, 639, 741, 852, 963 Hz'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_solfeggio_best || 'Best for: Emotional release, transformation, DNA activation, love'}</span>
+                            </div>
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">🌿 ${t.comp_cat_wellness || 'Wellness & States'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_wellness_desc || 'Sleep, focus, stress relief, memory, miracle tone'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_wellness_best || 'Best for: Daily life, productivity, rest, mental clarity'}</span>
+                            </div>
+                            <div style="background:rgba(139,92,246,0.1);border-radius:12px;padding:15px;border-left:4px solid #fbbf24;">
+                                <b style="color:#fbbf24;">🔴 ${t.comp_cat_chakra || 'Chakra Frequencies'}</b><br>
+                                <span style="color:#ffffff;font-size:14px;">${t.comp_cat_chakra_desc || 'Root, Sacral, Solar Plexus, Heart, Throat, Third Eye, Crown'}</span><br>
+                                <span style="color:#a78bfa;font-size:13px;">${t.comp_cat_chakra_best || 'Best for: Energy work, balance, kundalini activation'}</span>
+                            </div>
                         </div>
-                        <p style="color:#a78bfa;margin-top:20px;font-size:14px;">
-                            ✨ New here? Start with <b style="color:#fbbf24;">Genesis Creation</b> or <b style="color:#fbbf24;">Sacred Healing (432 Hz)</b>
+                        <p style="font-size:14px;color:#a78bfa;font-style:italic;margin-top:20px;">
+                            ${t.comp_categories_new || 'New here? Start with Genesis Creation or Sacred Healing (432 Hz)'}
                         </p>
                     </div>
                 `
@@ -6293,51 +6998,37 @@
             {
                 id: 'trinity',
                 icon: '🔺',
-                title: 'The Trinity Foundation',
+                title: t.comp_trinity_title || 'The Trinity Foundation',
                 content: `
                     <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">The Trinity Foundation</h4>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            The Trinity Foundation consists of <b style="color:#fbbf24;">37 Hz</b>, <b style="color:#fbbf24;">73 Hz</b>, and <b style="color:#fbbf24;">2701 Hz</b> — the frequencies encoded in Genesis 1:1.
+                        <p style="color:#ffffff;margin-bottom:20px;">
+                            ${t.comp_trinity_intro || 'The Trinity Foundation consists of 37 Hz, 73 Hz, and 2701 Hz — the frequencies encoded in Genesis 1:1.'}
                         </p>
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.12),rgba(139,92,246,0.12));border-radius:14px;padding:22px;margin:25px 0;border:1px solid rgba(251,191,36,0.3);">
-                            <p style="font-size:18px;color:#fbbf24;margin-bottom:10px;font-weight:600;">
-                                The Mathematical Trinity
+                            <p style="font-size:18px;color:#fbbf24;margin-bottom:15px;font-weight:600;">
+                                ${t.comp_trinity_math || 'The Mathematical Trinity'}
                             </p>
-                            <p style="font-size:17px;color:#ffffff;margin-bottom:10px;">
-                                <b>37 × 73 = 2701</b>
-                            </p>
-                            <p style="font-size:16px;color:#c4b5fd;">
-                                37 Hz: The 12th prime number (mirror of 12)<br>
-                                73 Hz: The 21st prime number (3×7)<br>
-                                2701 Hz: The product, the gematria of Genesis 1:1
-                            </p>
+                            <p style="color:#ffffff;margin-bottom:8px;"><b style="color:#fbbf24;">37 Hz:</b> ${t.comp_trinity_37 || 'The 12th prime number (mirror of 12)'}</p>
+                            <p style="color:#ffffff;margin-bottom:8px;"><b style="color:#fbbf24;">73 Hz:</b> ${t.comp_trinity_73 || 'The 21st prime number (3×7)'}</p>
+                            <p style="color:#ffffff;"><b style="color:#fbbf24;">2701 Hz:</b> ${t.comp_trinity_2701 || 'The product, the gematria of Genesis 1:1'}</p>
                         </div>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            These frequencies create a <b>36 Hz beat frequency</b> (73-37) that bridges meditation and higher consciousness. Together they form the original blueprint of creation.
+                        <p style="color:#ffffff;margin-bottom:20px;">
+                            ${t.comp_trinity_beat || 'These frequencies create a 36 Hz beat frequency (73-37) that bridges meditation and higher consciousness. Together they form the original blueprint of creation.'}
                         </p>
                         <div style="background:rgba(139,92,246,0.08);border-radius:12px;padding:18px;margin:25px 0;">
-                            <h5 style="color:#fbbf24;margin-bottom:12px;">How to Use the Trinity</h5>
+                            <h5 style="color:#fbbf24;margin-bottom:12px;">${t.comp_trinity_how || 'How to Use the Trinity'}</h5>
                             <ul style="text-align:left;margin:0 auto;max-width:500px;color:#ffffff;line-height:1.9;">
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Genesis Creation:</b> Play all three frequencies together for the complete Trinity experience
-                                </li>
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Individual Exploration:</b> Listen to each frequency separately to understand their unique qualities
-                                </li>
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Daily Practice:</b> Use for 7-21 days to experience profound alignment with divine order
-                                </li>
-                                <li>
-                                    <b style="color:#fbbf24;">Intention Setting:</b> Begin each session with a clear intention for transformation
-                                </li>
+                                <li style="margin-bottom:10px;">${t.comp_trinity_use1 || '<b style="color:#fbbf24;">Genesis Creation:</b> Play all three frequencies together for the complete Trinity experience'}</li>
+                                <li style="margin-bottom:10px;">${t.comp_trinity_use2 || '<b style="color:#fbbf24;">Individual Exploration:</b> Listen to each frequency separately to understand their unique qualities'}</li>
+                                <li style="margin-bottom:10px;">${t.comp_trinity_use3 || '<b style="color:#fbbf24;">Daily Practice:</b> Use for 7-21 days to experience profound alignment with divine order'}</li>
+                                <li>${t.comp_trinity_use4 || '<b style="color:#fbbf24;">Intention Setting:</b> Begin each session with a clear intention for transformation'}</li>
                             </ul>
                         </div>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            The Trinity frequencies are the foundation of all Genesis tracks. They work together to restore harmony, unlock creative flow, and connect you with the original creative matrix.
+                            ${t.comp_trinity_conclusion || 'The Trinity frequencies are the foundation of all Genesis tracks. They work together to restore harmony, unlock creative flow, and connect you with the original creative matrix.'}
                         </p>
-                        <p style="font-size:14px;color:#a78bfa;font-style:italic;margin-top:20px;">
-                            "These are the frequencies that shaped reality itself."
+                        <p style="font-size:15px;color:#a78bfa;font-style:italic;margin-top:20px;">
+                            ${t.comp_trinity_quote || '"These are the frequencies that shaped reality itself."'}
                         </p>
                     </div>
                 `
@@ -6345,49 +7036,38 @@
             {
                 id: 'waterCharging',
                 icon: '💧',
-                title: 'Quantum Holy Water',
+                title: t.comp_water_title || 'Quantum Holy Water',
                 content: `
                     <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">Quantum Holy Water</h4>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            Water is your body's most abundant molecule—<b>70% of your being</b> is water. As a crystalline medium, water stores and transmits vibrational information, making it the perfect vessel for Genesis frequencies.
+                        <p style="color:#ffffff;margin-bottom:20px;">
+                            ${t.comp_water_intro || 'Water is your body\'s most abundant molecule—70% of your being is water. As a crystalline medium, water stores and transmits vibrational information, making it the perfect vessel for Genesis frequencies.'}
                         </p>
-                        <div style="background:linear-gradient(135deg,rgba(139,92,246,0.12),rgba(251,191,36,0.12));border-radius:14px;padding:22px;margin:25px 0;border:1px solid rgba(251,191,36,0.3);">
+                        <div style="background:linear-gradient(135deg,rgba(251,191,36,0.12),rgba(139,92,246,0.12));border-radius:14px;padding:22px;margin:25px 0;border:1px solid rgba(251,191,36,0.3);">
                             <p style="font-size:18px;color:#fbbf24;margin-bottom:10px;font-weight:600;">
-                                The Science of Structured Water
+                                ${t.comp_water_science || 'The Science of Structured Water'}
                             </p>
-                            <p style="font-size:16px;color:#ffffff;margin-bottom:10px;">
-                                Research shows water molecules form <b>hexagonal clusters</b> that can be influenced by frequency, sound, and intention. Genesis frequencies create <b>structured water</b> with enhanced energetic properties.
+                            <p style="color:#ffffff;margin-bottom:10px;">
+                                ${t.comp_water_research || 'Research shows water molecules form hexagonal clusters that can be influenced by frequency, sound, and intention. Genesis frequencies create structured water with enhanced energetic properties.'}
                             </p>
                         </div>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            When you charge water with Genesis frequencies, you're not just adding sound—you're <b>infusing it with the mathematical blueprint of creation</b> itself.
+                        <p style="color:#ffffff;margin-bottom:20px;">
+                            ${t.comp_water_blueprint || 'When you charge water with Genesis frequencies, you\'re not just adding sound—you\'re infusing it with the mathematical blueprint of creation itself.'}
                         </p>
                         <div style="background:rgba(139,92,246,0.08);border-radius:12px;padding:18px;margin:25px 0;">
-                            <h5 style="color:#fbbf24;margin-bottom:12px;">How to Charge Your Water</h5>
-                            <ul style="text-align:left;margin:0 auto;max-width:500px;color:#ffffff;line-height:1.9;">
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Choose Your Vessel:</b> Use a clear glass or crystal container (avoid plastic)
-                                </li>
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Select Your Frequency:</b> Genesis Creation or individual Trinity frequencies work best
-                                </li>
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Position & Play:</b> Place water 6-12 inches from speakers, play for 10-20 minutes
-                                </li>
-                                <li style="margin-bottom:10px;">
-                                    <b style="color:#fbbf24;">Set Intention:</b> Hold the intention of divine blessing and energetic infusion
-                                </li>
-                                <li>
-                                    <b style="color:#fbbf24;">Drink Mindfully:</b> Sip slowly, feeling the frequencies integrate with your being
-                                </li>
-                            </ul>
+                            <h5 style="color:#fbbf24;margin-bottom:12px;">${t.comp_water_how || 'How to Charge Your Water'}</h5>
+                            <ol style="text-align:left;margin:0 auto;max-width:500px;color:#ffffff;line-height:1.9;">
+                                <li style="margin-bottom:10px;">${t.comp_water_step1 || '<b style="color:#fbbf24;">Choose Your Vessel:</b> Use a clear glass or crystal container (avoid plastic)'}</li>
+                                <li style="margin-bottom:10px;">${t.comp_water_step2 || '<b style="color:#fbbf24;">Select Your Frequency:</b> Genesis Creation or individual Trinity frequencies work best'}</li>
+                                <li style="margin-bottom:10px;">${t.comp_water_step3 || '<b style="color:#fbbf24;">Position & Play:</b> Place water 6-12 inches from speakers, play for 10-20 minutes'}</li>
+                                <li style="margin-bottom:10px;">${t.comp_water_step4 || '<b style="color:#fbbf24;">Set Intention:</b> Hold the intention of divine blessing and energetic infusion'}</li>
+                                <li>${t.comp_water_step5 || '<b style="color:#fbbf24;">Drink Mindfully:</b> Sip slowly, feeling the frequencies integrate with your being'}</li>
+                            </ol>
                         </div>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            <b>Pro tip:</b> Charge water for multiple sessions and store in a cool, dark place. The structured information remains stable for 24-48 hours.
+                        <p style="font-size:13px;color:#9ca3af;margin-top:15px;">
+                            ${t.comp_water_tip || 'Pro tip: Charge water for multiple sessions and store in a cool, dark place. The structured information remains stable for 24-48 hours.'}
                         </p>
-                        <p style="font-size:14px;color:#a78bfa;font-style:italic;margin-top:20px;">
-                            "Drink from the wellspring of creation itself."
+                        <p style="font-size:15px;color:#a78bfa;font-style:italic;margin-top:20px;">
+                            ${t.comp_water_quote || '"Drink from the wellspring of creation itself."'}
                         </p>
                     </div>
                 `
@@ -6425,28 +7105,28 @@
             {
                 id: 'usageTips',
                 icon: '🎧',
-                title: 'How to Get the Best Results',
+                title: t.comp_tips_title || 'How to Get the Best Results',
                 content: `
                     <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">How to Get the Best Results</h4>
+                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">${t.comp_tips_title || 'How to Get the Best Results'}</h4>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            Genesis frequencies work through <b>consistent, mindful listening</b>. The key is not just hearing the sounds, but <b>allowing them to resonate through your entire being</b>.
+                            ${t.comp_tips_intro || 'Genesis frequencies work through <b>consistent, mindful listening</b>. The key is not just hearing the sounds, but <b>allowing them to resonate through your entire being</b>.'}
                         </p>
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.12),rgba(139,92,246,0.12));border-radius:14px;padding:22px;margin:25px 0;border:1px solid rgba(251,191,36,0.3);">
                             <p style="font-size:18px;color:#fbbf24;margin-bottom:10px;font-weight:600;">
-                                The 21-Day Immersion Protocol
+                                ${t.comp_tips_protocol || 'The 21-Day Immersion Protocol'}
                             </p>
                             <p style="font-size:16px;color:#ffffff;margin-bottom:10px;">
-                                For maximum transformation, commit to a 21-day practice. This aligns with the sacred geometry of the Trinity (3×7) and allows the frequencies to work deeply.
+                                ${t.comp_tips_protocol_desc || 'For maximum transformation, commit to a 21-day practice. This aligns with the sacred geometry of the Trinity (3×7) and allows the frequencies to work deeply.'}
                             </p>
                         </div>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            <b>Days 1-7:</b> Foundation building. Listen to Genesis Creation daily, focusing on presence and breath.<br>
-                            <b>Days 8-14:</b> Deepening. Explore individual Trinity frequencies, noting personal resonances.<br>
-                            <b>Days 15-21:</b> Integration. Combine frequencies with specific intentions for manifestation.
+                            <b>${t.comp_tips_week1 || 'Days 1-7: Foundation building. Listen to Genesis Creation daily, focusing on presence and breath.'}</b><br>
+                            <b>${t.comp_tips_week2 || 'Days 8-14: Deepening. Explore individual Trinity frequencies, noting personal resonances.'}</b><br>
+                            <b>${t.comp_tips_week3 || 'Days 15-21: Integration. Combine frequencies with specific intentions for manifestation.'}</b>
                         </p>
                         <div style="background:rgba(139,92,246,0.08);border-radius:12px;padding:18px;margin:25px 0;">
-                            <h5 style="color:#fbbf24;margin-bottom:12px;">Daily Listening Practices</h5>
+                            <h5 style="color:#fbbf24;margin-bottom:12px;">${t.comp_tips_daily || 'Daily Listening Practices'}</h5>
                             <ul style="text-align:left;margin:0 auto;max-width:500px;color:#ffffff;line-height:1.9;">
                                 <li style="margin-bottom:10px;">
                                     <b style="color:#fbbf24;">Morning Alignment:</b> Start your day with 10-15 minutes of Genesis Creation to set divine intention
@@ -6465,9 +7145,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            <b>Remember:</b> The frequencies are most effective when you <b>listen with your whole body</b>, not just your ears. Feel the vibrations in your cells, your energy field, your spirit.
-                        </p>
                         <p style="font-size:14px;color:#a78bfa;font-style:italic;margin-top:20px;">
                             "The transformation happens in the space between the notes."
                         </p>
@@ -6477,53 +7154,31 @@
             {
                 id: 'faq',
                 icon: '❓',
-                title: 'FAQ & Troubleshooting',
+                title: t.comp_faq_title || 'FAQ & Troubleshooting',
                 content: `
                     <div style="line-height:1.8;text-align:left;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;text-align:center;font-size:20px;margin-bottom:15px;">FAQ & Troubleshooting</h4>
+                        <h4 style="color:#fbbf24;text-align:center;font-size:20px;margin-bottom:15px;">${t.comp_faq_title || 'FAQ & Troubleshooting'}</h4>
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-radius:14px;padding:20px;margin:20px 0;">
                             <h5 style="color:#fbbf24;margin-bottom:15px;">🔊 About the Frequencies</h5>
                             <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: Are Genesis frequencies scientifically proven?</b><br>
-                                <span style="color:#ffffff;">A: The frequencies are based on established principles of sound healing and sacred geometry. While individual experiences vary, many users report profound benefits. The mathematical relationships (37×73=2701) are mathematically sound and connect to ancient wisdom traditions.</span>
+                                <b style="color:#fbbf24;">${t.comp_faq_q1 || 'Q: How long should I listen?'}</b><br>
+                                <span style="color:#ffffff;">${t.comp_faq_a1 || 'A: Start with 5-10 minutes and work up to 20-30 minutes. Quality of attention matters more than duration.'}</span>
                             </div>
                             <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: How do I know if the frequencies are working?</b><br>
-                                <span style="color:#ffffff;">A: Effects can be subtle at first—relaxation, mental clarity, or emotional shifts. Some feel physical sensations like warmth or tingling. Keep a journal and look for cumulative changes over days/weeks.</span>
+                                <b style="color:#fbbf24;">${t.comp_faq_q2 || 'Q: Do I need headphones?'}</b><br>
+                                <span style="color:#ffffff;">${t.comp_faq_a2 || 'A: Headphones provide the best experience, especially for binaural effects. Speakers work for ambient sessions.'}</span>
                             </div>
                             <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: Can I listen while doing other activities?</b><br>
-                                <span style="color:#ffffff;">A: Yes, but for best results, dedicate focused listening time. The frequencies work on multiple levels simultaneously.</span>
-                            </div>
-                        </div>
-                        <div style="background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-radius:14px;padding:20px;margin:20px 0;">
-                            <h5 style="color:#fbbf24;margin-bottom:15px;">🛠️ Technical Questions</h5>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: What are the best headphones to use?</b><br>
-                                <span style="color:#ffffff;">A: Quality headphones enhance the experience, but any headphones work. For maximum effect, use full-frequency headphones that can reproduce low tones well.</span>
+                                <b style="color:#fbbf24;">${t.comp_faq_q3 || 'Q: How often should I listen?'}</b><br>
+                                <span style="color:#ffffff;">${t.comp_faq_a3 || 'A: Daily practice creates the best results. Even 5 minutes a day builds cumulative benefits.'}</span>
                             </div>
                             <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: Can I play frequencies through speakers?</b><br>
-                                <span style="color:#ffffff;">A: Yes, but headphones provide more direct transmission to your energy field. Speakers work well for charging water or filling a space.</span>
-                            </div>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: How long should each session be?</b><br>
-                                <span style="color:#ffffff;">A: Start with 5-10 minutes. As you become familiar, extend to 20-30 minutes or longer. Listen to your body's wisdom.</span>
-                            </div>
-                        </div>
-                        <div style="background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-radius:14px;padding:20px;margin:20px 0;">
-                            <h5 style="color:#fbbf24;margin-bottom:15px;">⚕️ Safety & Health</h5>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: Is this medical treatment?</b><br>
-                                <span style="color:#ffffff;">A: No, Genesis frequencies are not medical treatment. They complement wellness practices. Consult healthcare providers for medical conditions.</span>
-                            </div>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Q: Are there any contraindications?</b><br>
-                                <span style="color:#ffffff;">A: Generally safe for most people. If you have epilepsy, severe mental health conditions, or are pregnant, consult a healthcare professional first.</span>
+                                <b style="color:#fbbf24;">${t.comp_faq_q4 || 'Q: Can I listen while sleeping?'}</b><br>
+                                <span style="color:#ffffff;">${t.comp_faq_a4 || 'A: Yes! Sleep tracks are designed for overnight use. Keep volume low and use comfortable headphones.'}</span>
                             </div>
                             <div>
-                                <b style="color:#fbbf24;">Q: Can children use Genesis frequencies?</b><br>
-                                <span style="color:#ffffff;">A: The frequencies are gentle, but parental discretion is advised. Start with shorter sessions and monitor responses.</span>
+                                <b style="color:#fbbf24;">${t.comp_faq_q5 || 'Q: Are these frequencies safe?'}</b><br>
+                                <span style="color:#ffffff;">${t.comp_faq_a5 || 'A: Yes, these are gentle frequencies for meditation and relaxation. They are not a substitute for medical treatment.'}</span>
                             </div>
                         </div>
                         <p style="text-align:center;color:#a78bfa;font-style:italic;margin-top:20px;">
@@ -6535,12 +7190,12 @@
             {
                 id: 'share',
                 icon: '🔗',
-                title: 'Share & Connect',
+                title: t.comp_share_title || 'Share & Connect',
                 content: `
                     <div style="line-height:1.8;text-align:center;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">Share & Connect</h4>
+                        <h4 style="color:#fbbf24;font-size:20px;margin-bottom:15px;">${t.comp_share_title || 'Share & Connect'}</h4>
                         <p style="color:#ffffff;margin-bottom:15px;">
-                            Your experience with Genesis frequencies has the power to <b>inspire and uplift others</b>. When you share your journey, you become part of a global community of transformation.
+                            ${t.comp_share_intro || 'Know someone who would benefit from these frequencies? Share the gift of divine vibration.'}
                         </p>
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.12),rgba(139,92,246,0.12));border-radius:14px;padding:22px;margin:25px 0;border:1px solid rgba(251,191,36,0.3);">
                             <p style="font-size:18px;color:#fbbf24;margin-bottom:10px;font-weight:600;">
@@ -6573,9 +7228,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <p style="color:#ffffff;margin-bottom:15px;">
-                            <b>Remember:</b> Your vulnerability becomes your strength. When you share openly about your journey, you give others permission to explore their own paths.
-                        </p>
                         <p style="font-size:14px;color:#a78bfa;font-style:italic;margin-top:20px;">
                             "Together, we are creating a symphony of divine resonance."
                         </p>
@@ -6585,10 +7237,10 @@
             {
                 id: 'credits',
                 icon: '📝',
-                title: 'Credits & Sources',
+                title: t.comp_credits_title || 'Credits & Sources',
                 content: `
                     <div style="line-height:1.8;text-align:left;max-width:640px;margin:0 auto;">
-                        <h4 style="color:#fbbf24;text-align:center;font-size:20px;margin-bottom:15px;">Credits & Sources</h4>
+                        <h4 style="color:#fbbf24;text-align:center;font-size:20px;margin-bottom:15px;">${t.comp_credits_title || 'Credits & Sources'}</h4>
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-radius:14px;padding:20px;margin:20px 0;">
                             <h5 style="color:#fbbf24;margin-bottom:15px;">📚 Research & Inspiration</h5>
                             <div style="margin-bottom:15px;">
@@ -6599,7 +7251,7 @@
                                 <b style="color:#fbbf24;">Frequency Healing Research:</b><br>
                                 <span style="color:#ffffff;">Studies on sound therapy, binaural beats, and the effects of low-frequency vibrations on human physiology and consciousness.</span>
                             </div>
-                            <div style="margin-bottom:15px;">
+                            <div>
                                 <b style="color:#fbbf24;">Sacred Geometry:</b><br>
                                 <span style="color:#ffffff;">The golden ratio, Fibonacci sequences, and geometric patterns found in nature and ancient architecture.</span>
                             </div>
@@ -6607,31 +7259,10 @@
                         <div style="background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-radius:14px;padding:20px;margin:20px 0;">
                             <h5 style="color:#fbbf24;margin-bottom:15px;">🙏 Acknowledgments</h5>
                             <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Personal Journey:</b><br>
-                                <span style="color:#ffffff;">This work emerged from a profound personal discovery in 2020, connecting family birth patterns to the mathematical blueprint of creation.</span>
-                            </div>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Community Wisdom:</b><br>
-                                <span style="color:#ffffff;">Gratitude to all who have shared their experiences, insights, and encouragement along this path of exploration.</span>
+                                <span style="color:#ffffff;">${t.comp_credits_created || 'Created with love and divine inspiration.'}</span>
                             </div>
                             <div>
-                                <b style="color:#fbbf24;">Technical Contributors:</b><br>
-                                <span style="color:#ffffff;">Thanks to the developers and researchers who make frequency generation and sound healing technology accessible to all.</span>
-                            </div>
-                        </div>
-                        <div style="background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(139,92,246,0.08));border-radius:14px;padding:20px;margin:20px 0;">
-                            <h5 style="color:#fbbf24;margin-bottom:15px;">⚖️ Important Disclaimers</h5>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Not Medical Advice:</b><br>
-                                <span style="color:#ffffff;">Genesis frequencies are not intended as medical treatment, diagnosis, or cure for any condition. Always consult healthcare professionals for medical concerns.</span>
-                            </div>
-                            <div style="margin-bottom:15px;">
-                                <b style="color:#fbbf24;">Individual Results May Vary:</b><br>
-                                <span style="color:#ffffff;">Experiences with frequency healing are highly individual. What works for one person may not work the same way for another.</span>
-                            </div>
-                            <div>
-                                <b style="color:#fbbf24;">Personal Responsibility:</b><br>
-                                <span style="color:#ffffff;">Users are encouraged to listen to their intuition and body wisdom when exploring these frequencies.</span>
+                                <span style="color:#ffffff;">${t.comp_credits_research || 'Based on research into biblical mathematics, gematria, and frequency healing traditions.'}</span>
                             </div>
                         </div>
                         <p style="text-align:center;color:#a78bfa;font-style:italic;margin-top:20px;">
@@ -6641,6 +7272,11 @@
                 `
             }
         ];
+        }
+        
+        // Keep backward compatibility - create static reference that gets updated
+        let instructionsSections = getInstructionsSections();
+        
         // ============================================
         // COMPREHENSIVE ACHIEVEMENT SYSTEM
         // ============================================
@@ -9603,6 +10239,7 @@
             // Store close function globally
             window.closeAchievementsModal = closeAchievementsModal;
             
+            const t = translations[currentLanguage] || translations.en;
             const dashboardContent = renderAchievementsDashboard();
             
             modal.innerHTML = `
@@ -9619,7 +10256,7 @@
                             font-weight: 700;
                             cursor: pointer;
                             box-shadow: 0 4px 15px rgba(139,92,246,0.4);
-                        ">← Return to Tracks</button>
+                        ">${t.returnToTracks || '← Return to Tracks'}</button>
                     </div>
                     
                     ${dashboardContent}
@@ -9636,7 +10273,7 @@
                             font-weight: 700;
                             cursor: pointer;
                             box-shadow: 0 4px 15px rgba(139,92,246,0.4);
-                        ">← Return to Tracks</button>
+                        ">${t.returnToTracks || '← Return to Tracks'}</button>
                     </div>
                 </div>
             `;
@@ -10350,14 +10987,15 @@
             // Store close function globally
             window.closeDailyChallengeModal = closeDailyChallengeModal;
 
+            const t = translations[currentLanguage] || translations.en;
             modal.innerHTML = `
                 <div style="background: linear-gradient(135deg, rgba(26,0,51,0.98), rgba(139,92,246,0.3)); border-radius: 18px; padding: 30px; max-width: 500px; width: 100%; position: relative; z-index: 2000001; color: #fff; text-align: center; border: 2px solid rgba(251,191,36,0.3);">
-                    <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin-bottom: 20px;">🎯 Today's Sacred Challenge</h2>
+                    <h2 style="font-size: 24px; color: #fbbf24; font-weight: 800; margin-bottom: 20px;">🎯 ${t.todaysSacredChallenge || "Today's Sacred Challenge"}</h2>
                     <div style="line-height: 1.6;">
                         ${challenge}
                     </div>
                     <button onclick="window.closeDailyChallengeModal();" style="margin-top: 25px; background: linear-gradient(90deg, #8b5cf6, #6b46c1); color: #fff; border: none; border-radius: 25px; padding: 15px 35px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(139,92,246,0.4);">
-                        ← Return to Tracks
+                        ${t.returnToTracks || '← Return to Tracks'}
                     </button>
                 </div>
             `;
@@ -10382,28 +11020,37 @@
 
             // Render personalized header first
             renderCompanionHeader();
+            
+            // Get current translations
+            const t = translations[currentLanguage] || translations.en;
+            
+            // Get translated category names
+            const catQuickStart = t.catQuickStart || '⚡ Quick Start';
+            const catTheScience = t.catTheScience || '✨ The Science';
+            const catTheStory = t.catTheStory || '📖 The Story';
+            const catHelp = t.catHelp || '❓ Help';
 
             // Define instruction categories - organized for optimal user experience
             // Order: Quick actions first, then understanding, then deeper content
             const instructionCategories = {
-                "⚡ Quick Start": [
-                    { id: 'quickStart', icon: '🎯', title: 'Your First Session', content: instructionsSections.find(s => s.id === 'quickStart')?.content || '' },
-                    { id: 'usageTips', icon: '🎧', title: 'Best Practices', content: instructionsSections.find(s => s.id === 'usageTips')?.content || '' },
-                    { id: 'categories', icon: '📂', title: 'Frequency Categories', content: instructionsSections.find(s => s.id === 'categories')?.content || '' }
+                [catQuickStart]: [
+                    { id: 'quickStart', icon: '🎯', title: instructionsSections.find(s => s.id === 'quickStart')?.title || 'Your First Session', content: instructionsSections.find(s => s.id === 'quickStart')?.content || '' },
+                    { id: 'usageTips', icon: '🎧', title: instructionsSections.find(s => s.id === 'usageTips')?.title || 'Best Practices', content: instructionsSections.find(s => s.id === 'usageTips')?.content || '' },
+                    { id: 'categories', icon: '📂', title: instructionsSections.find(s => s.id === 'categories')?.title || 'Frequency Categories', content: instructionsSections.find(s => s.id === 'categories')?.content || '' }
                 ],
-                "✨ The Science": [
-                    { id: 'trinity', icon: '🔺', title: 'The Trinity Foundation', content: instructionsSections.find(s => s.id === 'trinity')?.content || '' },
-                    { id: 'whyWorks', icon: '💡', title: 'Why 37 & 73 Hz Work', content: instructionsSections.find(s => s.id === 'whyWorks')?.content || '' },
-                    { id: 'waterCharging', icon: '💧', title: 'Water Charging', content: instructionsSections.find(s => s.id === 'waterCharging')?.content || '' }
+                [catTheScience]: [
+                    { id: 'trinity', icon: '🔺', title: instructionsSections.find(s => s.id === 'trinity')?.title || 'The Trinity Foundation', content: instructionsSections.find(s => s.id === 'trinity')?.content || '' },
+                    { id: 'whyWorks', icon: '💡', title: instructionsSections.find(s => s.id === 'whyWorks')?.title || 'Why 37 & 73 Hz Work', content: instructionsSections.find(s => s.id === 'whyWorks')?.content || '' },
+                    { id: 'waterCharging', icon: '💧', title: instructionsSections.find(s => s.id === 'waterCharging')?.title || 'Water Charging', content: instructionsSections.find(s => s.id === 'waterCharging')?.content || '' }
                 ],
-                "📖 The Story": [
-                    { id: 'welcome', icon: '🌟', title: 'About Genesis FG', content: instructionsSections.find(s => s.id === 'welcome')?.content || '' },
-                    { id: 'myJourney', icon: '🔮', title: 'The Discovery', content: instructionsSections.find(s => s.id === 'myJourney')?.content || '' }
+                [catTheStory]: [
+                    { id: 'welcome', icon: '🌟', title: instructionsSections.find(s => s.id === 'welcome')?.title || 'About Genesis FG', content: instructionsSections.find(s => s.id === 'welcome')?.content || '' },
+                    { id: 'myJourney', icon: '🔮', title: instructionsSections.find(s => s.id === 'myJourney')?.title || 'The Discovery', content: instructionsSections.find(s => s.id === 'myJourney')?.content || '' }
                 ],
-                "❓ Help": [
-                    { id: 'faq', icon: '💬', title: 'FAQ', content: instructionsSections.find(s => s.id === 'faq')?.content || '' },
-                    { id: 'share', icon: '🔗', title: 'Share', content: instructionsSections.find(s => s.id === 'share')?.content || '' },
-                    { id: 'credits', icon: '📝', title: 'Credits', content: instructionsSections.find(s => s.id === 'credits')?.content || '' }
+                [catHelp]: [
+                    { id: 'faq', icon: '💬', title: instructionsSections.find(s => s.id === 'faq')?.title || 'FAQ', content: instructionsSections.find(s => s.id === 'faq')?.content || '' },
+                    { id: 'share', icon: '🔗', title: instructionsSections.find(s => s.id === 'share')?.title || 'Share', content: instructionsSections.find(s => s.id === 'share')?.content || '' },
+                    { id: 'credits', icon: '📝', title: instructionsSections.find(s => s.id === 'credits')?.title || 'Credits', content: instructionsSections.find(s => s.id === 'credits')?.content || '' }
                 ]
             };
 
