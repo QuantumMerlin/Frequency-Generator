@@ -2655,7 +2655,7 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           HOLOGRAPHIC CARD EFFECTS - Sacred Geometry Animation
+           HOLOGRAPHIC CARD EFFECTS - Subtle Border Glow
         ═══════════════════════════════════════════════════════════════ */
         .holographic-card {
             position: relative;
@@ -2663,60 +2663,39 @@
             border-radius: 16px;
         }
         
-        /* Sacred Geometry Pattern - CSS circles and lines */
+        /* Animated border glow only - no overlays */
         .holographic-card::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 400px;
-            height: 400px;
-            transform: translate(-50%, -50%);
-            background: 
-                /* Center circle */
-                radial-gradient(circle at 50% 50%, transparent 28px, rgba(139, 92, 246, 0.12) 29px, rgba(139, 92, 246, 0.12) 30px, transparent 31px),
-                /* Second circle */
-                radial-gradient(circle at 50% 50%, transparent 58px, rgba(251, 191, 36, 0.1) 59px, rgba(251, 191, 36, 0.1) 60px, transparent 61px),
-                /* Third circle */
-                radial-gradient(circle at 50% 50%, transparent 88px, rgba(139, 92, 246, 0.08) 89px, rgba(139, 92, 246, 0.08) 90px, transparent 91px),
-                /* Outer circle */
-                radial-gradient(circle at 50% 50%, transparent 118px, rgba(251, 191, 36, 0.06) 119px, rgba(251, 191, 36, 0.06) 120px, transparent 121px),
-                /* Hexagon vertices - 6 small circles */
-                radial-gradient(circle at 50% 15%, transparent 18px, rgba(139, 92, 246, 0.1) 19px, rgba(139, 92, 246, 0.1) 22px, transparent 23px),
-                radial-gradient(circle at 80% 32%, transparent 18px, rgba(251, 191, 36, 0.08) 19px, rgba(251, 191, 36, 0.08) 22px, transparent 23px),
-                radial-gradient(circle at 80% 68%, transparent 18px, rgba(139, 92, 246, 0.1) 19px, rgba(139, 92, 246, 0.1) 22px, transparent 23px),
-                radial-gradient(circle at 50% 85%, transparent 18px, rgba(251, 191, 36, 0.08) 19px, rgba(251, 191, 36, 0.08) 22px, transparent 23px),
-                radial-gradient(circle at 20% 68%, transparent 18px, rgba(139, 92, 246, 0.1) 19px, rgba(139, 92, 246, 0.1) 22px, transparent 23px),
-                radial-gradient(circle at 20% 32%, transparent 18px, rgba(251, 191, 36, 0.08) 19px, rgba(251, 191, 36, 0.08) 22px, transparent 23px);
-            animation: sacredGeometryRotate 25s linear infinite;
+            inset: -2px;
+            border-radius: 18px;
+            background: linear-gradient(
+                45deg,
+                rgba(139, 92, 246, 0.4),
+                rgba(251, 191, 36, 0.4),
+                rgba(139, 92, 246, 0.4),
+                rgba(251, 191, 36, 0.4)
+            );
+            background-size: 300% 300%;
+            animation: borderGlow 4s ease infinite;
+            z-index: -1;
             pointer-events: none;
-            z-index: 1;
-            opacity: 0.7;
         }
         
-        @keyframes sacredGeometryRotate {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
-        /* Subtle pulse glow on hover */
-        .holographic-card:hover::before {
-            opacity: 1;
-            animation: sacredGeometryRotate 15s linear infinite;
-        }
-        
+        /* Inner background to cover the gradient, leaving just border visible */
         .holographic-card::after {
             content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(139, 92, 246, 0.02) 0%,
-                transparent 70%
-            );
+            inset: 2px;
+            border-radius: 14px;
+            background: rgba(26, 0, 51, 0.95);
+            z-index: -1;
             pointer-events: none;
-            border-radius: inherit;
-            z-index: 0;
         }
 
         /* Card Shimmer on Hover */
