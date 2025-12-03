@@ -288,8 +288,8 @@ def deactivate_device():
         license_key = data.get('license_key', '').strip().upper()
         device_fingerprint = data.get('device_fingerprint', '')
         
-        # Simple admin authentication - change this key!
-        if admin_key != 'YOUR_SECRET_ADMIN_KEY_CHANGE_THIS':
+        # Simple admin authentication
+        if admin_key != 'QuantumMerlin119':
             return jsonify({'error': 'Unauthorized'}), 401
         
         conn = get_db()
@@ -355,7 +355,7 @@ def add_license():
         admin_key = data.get('admin_key', '')
         
         # Simple admin authentication - CHANGE THIS KEY!
-        if admin_key != 'YOUR_SECRET_ADMIN_KEY_CHANGE_THIS':
+        if admin_key != 'QuantumMerlin119':
             return jsonify({'error': 'Unauthorized'}), 401
         
         license_key = data.get('license_key', '').strip().upper()
@@ -395,7 +395,7 @@ def list_licenses():
         data = request.get_json()
         admin_key = data.get('admin_key', '')
         
-        if admin_key != 'YOUR_SECRET_ADMIN_KEY_CHANGE_THIS':
+        if admin_key != 'QuantumMerlin119':
             return jsonify({'error': 'Unauthorized'}), 401
         
         conn = get_db()
@@ -435,7 +435,7 @@ def generate_key():
         data = request.get_json()
         admin_key = data.get('admin_key', '')
         
-        if admin_key != 'YOUR_SECRET_ADMIN_KEY_CHANGE_THIS':
+        if admin_key != 'QuantumMerlin119':
             return jsonify({'error': 'Unauthorized'}), 401
         
         tier = data.get('tier', 'premium').lower()
