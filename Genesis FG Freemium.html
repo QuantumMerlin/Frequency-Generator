@@ -2655,47 +2655,78 @@
         }
 
         /* ═══════════════════════════════════════════════════════════════
-           HOLOGRAPHIC CARD EFFECTS - Subtle Border Glow
+           PREMIUM & ULTIMATE CARD GLOW EFFECTS
         ═══════════════════════════════════════════════════════════════ */
         .holographic-card {
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             border-radius: 16px;
         }
         
-        /* Animated border glow only - no overlays */
-        .holographic-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 18px;
-            background: linear-gradient(
-                45deg,
-                rgba(139, 92, 246, 0.4),
-                rgba(251, 191, 36, 0.4),
-                rgba(139, 92, 246, 0.4),
-                rgba(251, 191, 36, 0.4)
-            );
-            background-size: 300% 300%;
-            animation: borderGlow 4s ease infinite;
-            z-index: -1;
-            pointer-events: none;
+        /* Premium card - Purple animated glow border */
+        .tier-card.premium.holographic-card {
+            border: 2px solid rgba(139, 92, 246, 0.6);
+            box-shadow: 
+                0 0 10px rgba(139, 92, 246, 0.3),
+                0 0 20px rgba(139, 92, 246, 0.2),
+                0 0 30px rgba(139, 92, 246, 0.1),
+                inset 0 0 20px rgba(139, 92, 246, 0.05);
+            animation: premiumGlow 3s ease-in-out infinite;
         }
         
-        @keyframes borderGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes premiumGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 10px rgba(139, 92, 246, 0.3),
+                    0 0 20px rgba(139, 92, 246, 0.2),
+                    0 0 30px rgba(139, 92, 246, 0.1),
+                    inset 0 0 20px rgba(139, 92, 246, 0.05);
+                border-color: rgba(139, 92, 246, 0.6);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 15px rgba(139, 92, 246, 0.5),
+                    0 0 30px rgba(139, 92, 246, 0.3),
+                    0 0 45px rgba(139, 92, 246, 0.2),
+                    inset 0 0 25px rgba(139, 92, 246, 0.08);
+                border-color: rgba(167, 139, 250, 0.8);
+            }
         }
         
-        /* Inner background to cover the gradient, leaving just border visible */
+        /* Ultimate card - Gold animated glow border */
+        .tier-card.ultimate.holographic-card {
+            border: 2px solid rgba(251, 191, 36, 0.6);
+            box-shadow: 
+                0 0 10px rgba(251, 191, 36, 0.3),
+                0 0 20px rgba(251, 191, 36, 0.2),
+                0 0 30px rgba(251, 191, 36, 0.1),
+                inset 0 0 20px rgba(251, 191, 36, 0.05);
+            animation: ultimateGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes ultimateGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 10px rgba(251, 191, 36, 0.3),
+                    0 0 20px rgba(251, 191, 36, 0.2),
+                    0 0 30px rgba(251, 191, 36, 0.1),
+                    inset 0 0 20px rgba(251, 191, 36, 0.05);
+                border-color: rgba(251, 191, 36, 0.6);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 15px rgba(251, 191, 36, 0.5),
+                    0 0 30px rgba(251, 191, 36, 0.3),
+                    0 0 45px rgba(251, 191, 36, 0.2),
+                    inset 0 0 25px rgba(251, 191, 36, 0.08);
+                border-color: rgba(251, 191, 36, 0.9);
+            }
+        }
+        
+        /* Remove pseudo-elements - using box-shadow instead */
+        .holographic-card::before,
         .holographic-card::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            border-radius: 14px;
-            background: rgba(26, 0, 51, 0.95);
-            z-index: -1;
-            pointer-events: none;
+            display: none;
         }
 
         /* Card Shimmer on Hover */
